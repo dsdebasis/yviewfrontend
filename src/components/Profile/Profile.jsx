@@ -5,20 +5,20 @@ import axios from "axios"
 import Toast from '../Toast/Toast.jsx'
 import { backendUrl } from '../index.js'
 const Profile = () => {
-   const  [updateFullname, setFullname] = useState("")
+  const [updateFullname, setFullname] = useState("")
   const [updateEmail, setUpdateEmail] = useState("")
   let [updateUsername, setUpdateUsername] = useState("")
   const [profilePicUrl, setProfilePicUrl] = useState("")
   const [toast, setToast] = useState("")
-  const [click,setClcik] = useState(false)
+  const [click, setClcik] = useState(false)
   let url = `${backendUrl}/api/v1/users/profile`;
 
   useEffect(() => {
     // let resData;
     const getProfile = async function () {
-       axios.get(url,{
+      axios.get(url, {
         withCredentials: true
-      }).then((res)=>{
+      }).then((res) => {
 
         res = res?.data?.data
         // console.log(res)
@@ -29,7 +29,7 @@ const Profile = () => {
       })
     }
     getProfile()
-    
+
 
   }, [])
 
@@ -37,20 +37,20 @@ const Profile = () => {
     e.preventDefault()
     setClcik(true)
     let resdata = axios.put(url, {
-      updateEmail:updateEmail, updateFullname:updateFullname, updateUsername:updateUsername
+      updateEmail: updateEmail, updateFullname: updateFullname, updateUsername: updateUsername
     }, {
       withCredentials: true
     }).then((res) => {
-       console.log(res?.data.data)
-       setUpdateUsername(res?.data?.data?.username)
-       setUpdateEmail(res?.data?.data?.email)
-       setFullname(res?.data?.data?.fullname)
+      console.log(res?.data.data)
+      setUpdateUsername(res?.data?.data?.username)
+      setUpdateEmail(res?.data?.data?.email)
+      setFullname(res?.data?.data?.fullname)
       setToast(<Toast msg={"profile details updated successfully"} className={"border-l-green-500"} />)
 
-      setTimeout( () => {
+      setTimeout(() => {
         setToast("")
       }, 3000)
-      
+
     }).catch(() => {
       setToast(<Toast erorr={resdata?.response?.data?.message} className={"border-l-green-500"} />)
 
@@ -80,11 +80,11 @@ const Profile = () => {
           <input id='updateEmail' name='updateEmail' type='email' onChange={(e) => setUpdateEmail(e.target.value)} className='outline-0 bg-gradient-to-br from-gray-700 to-slate-500 px-3 py-2 rounded-md placeholder:text-orange-400' placeholder={updateEmail} />
 
           <label htmlFor='updateUsername'>Username</label>
-          <input id='updateUsername' name='updateUsername' type='text' onChange={(e) =>{
+          <input id='updateUsername' name='updateUsername' type='text' onChange={(e) => {
             setUpdateUsername(e.target.value)
-            console.log("update username",e.target.value)
-            
-           }} className='outline-0 bg-gradient-to-br from-gray-700 to-slate-500 px-3 py-2 rounded-md placeholder:text-orange-400' placeholder={updateUsername} />
+            console.log("update username", e.target.value)
+
+          }} className='outline-0 bg-gradient-to-br from-gray-700 to-slate-500 px-3 py-2 rounded-md placeholder:text-orange-400' placeholder={updateUsername} />
 
 
           <button type='submit' className='h-14 md:h-[8vh] w-full bg-slate-900 rounded-xl hover:bg-blue-600' onClick={(e) => updateProfile(e)} >Update</button>

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { useId } from 'react'
 import { useSelector } from 'react-redux'
 const Home = () => {
-  let navItems = ["Login","SignUp","Profile","UpdateProfile","UpdatePassword","Logout"]
+  let navItems = ["login","signUp","profile","updateprofile","updatepassword","logout"]
   let authStatus =  useSelector((state)=>state.auth.status)
   // if(authStatus === true){
   //  navItems =["Profile","UpdateProfile","UpdatePassword","Logout"]
