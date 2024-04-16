@@ -7,6 +7,7 @@ import { useDispatch } from 'react-redux'
 import { logout as authLogout } from '../../store/authSlice.js'
 import { useSelector } from 'react-redux'
 import { useEffect } from 'react'
+import { backendUrl } from '../index.js'
 const Logout = () => {
 
   const [toast, setToast] = useState("")
@@ -17,7 +18,7 @@ const Logout = () => {
   const handleLogout = async function (e) {
     e.preventDefault()
     setClickBtn(true)
-    axios.post("http://localhost:7000/api/v1/users/logout", {}, {
+    axios.post(`${backendUrl}/api/v1/users/logout`, {}, {
       withCredentials: true
     })
       .then(function  (response) {

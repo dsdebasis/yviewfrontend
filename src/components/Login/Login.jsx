@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
 import { useDispatch,useSelector } from 'react-redux'
 import { login as authLogin } from '../../store/authSlice.js'
-
+import { backendUrl } from '../index.js'
 const Login = () => {
    const navigate = useNavigate()
   const [toast, setToast] = useState("")
@@ -29,14 +29,14 @@ const Login = () => {
       },
       withCredentials: true,
     };
-    const response = axios.post("http://localhost:7000/api/v1/users/login",{
+    const response = axios.post(`${backendUrl}/api/v1/users/login`,{
       username,password
     },config)
       .then((res) => {
         setToast(<Toast msg={res?.data?.message} className="border-b-green-600" />)
         console.log(res)
         dispatch(authLogin(res?.data?.data))
-       navigate("/profile")
+        awaitnavigate("/profile")
         
       })
       .catch( (error) => {

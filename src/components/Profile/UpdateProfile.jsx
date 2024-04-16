@@ -23,7 +23,7 @@ const UpdateProfile = () => {
         </div>
 
         <div className='md:w-[50vw] md:place-self-center px-5'>
-          <button className='h-14  w-full  bg-slate-900 rounded-xl hover:bg-blue-600'>Update </button>
+          <button type='submit' onClick={()=>{}} className='h-14  w-full  bg-slate-900 rounded-xl hover:bg-blue-600' >Update </button>
 
         </div>
       </div>

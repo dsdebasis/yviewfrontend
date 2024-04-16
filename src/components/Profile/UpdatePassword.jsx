@@ -2,7 +2,7 @@ import React from 'react'
 import Toast from '../Toast/Toast.jsx'
 import { useState } from 'react'
 import axios from "axios"
-
+import { backendUrl } from '../index.js'
 const UpdatePassword = () => {
   const [currentPass, setCurrentPass] = useState("")
   const [newPass, setNewPass] = useState("")
@@ -13,7 +13,7 @@ const UpdatePassword = () => {
 
   function updatePassword(e) {
     e.preventDefault()
-    let url = "http://localhost:7000/api/v1/users/updatepassword"
+    let url = `${backendUrl}/api/v1/users/updatepassword`
     let response = axios.put(url, {
       currentPass, newPass, confirmPass
     }, {

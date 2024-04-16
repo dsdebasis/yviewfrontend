@@ -3,7 +3,7 @@ import { useEffect } from 'react'
 import { useState } from 'react'
 import axios from "axios"
 import Toast from '../Toast/Toast.jsx'
-
+import { backendUrl } from '../index.js'
 const Profile = () => {
    const  [updateFullname, setFullname] = useState("")
   const [updateEmail, setUpdateEmail] = useState("")
@@ -11,7 +11,7 @@ const Profile = () => {
   const [profilePicUrl, setProfilePicUrl] = useState("")
   const [toast, setToast] = useState("")
   const [click,setClcik] = useState(false)
-  let url = "http://localhost:7000/api/v1/users/profile";
+  let url = `${backendUrl}/api/v1/users/profile`;
 
   useEffect(() => {
     // let resData;

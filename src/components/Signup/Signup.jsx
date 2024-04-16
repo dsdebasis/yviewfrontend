@@ -4,6 +4,7 @@ import Loading from '../Loading/Loading.jsx'
 import axios from 'axios'
 import Toast from '../Toast/Toast.jsx'
 import { Link } from 'react-router-dom'
+import { backendUrl } from '../index.js'
 const Signup = () => {
 
   const [fullname, setFullname] = useState("")
@@ -29,7 +30,7 @@ const Signup = () => {
     form.append("profilePic", profile)
     form.append("coverImage", coverImage)
 
-    axios.post("http://localhost:7000/api/v1/users/register", form, {
+    axios.post(`${backendUrl}/api/v1/users/register`, form, {
       headers: {
         "Content-Type": "multipart/form-data"
       }
