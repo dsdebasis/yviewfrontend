@@ -20,14 +20,14 @@ const Routes = createBrowserRouter([
     )
   },
   {
-    path: "/Profile", element: (
+    path: "/profile", element: (
       <AuthLayout >
         <Profile />
       </AuthLayout>
     )
   },
   {
-    path: "/UpdateProfile", element: (
+    path: "/updateprofile", element: (
       <AuthLayout >
         <UpdateProfile />
       </AuthLayout>
@@ -35,7 +35,7 @@ const Routes = createBrowserRouter([
 
   },
   {
-    path: "/UpdatePassword", element: (
+    path: "/updatepassword", element: (
       <AuthLayout >
         <UpdatePassword />
       </AuthLayout>
