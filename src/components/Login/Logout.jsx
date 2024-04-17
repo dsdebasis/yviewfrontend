@@ -22,12 +22,11 @@ const Logout = () => {
       withCredentials: true
     })
       .then(function  (response) {
-
-        setToast(<Toast msg={response?.data?.message} className={"border-l-green-500"} />)
+        
+        setToast(<Toast msg={response?.data?.data?.message} className={"border-l-green-500"} />)
          dispatch(authLogout())
          
       }).catch(async function (error) {
-
         
         setToast(<Toast error={error?.response?.data?.message} msg={"please login"} className={"border-l-red-600"} />)
 
@@ -35,7 +34,6 @@ const Logout = () => {
           setToast("")
           setClickBtn(false)
         }, 3000)
-
 
       }
       ).finally(() => {

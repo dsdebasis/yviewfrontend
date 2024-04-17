@@ -9,4 +9,5 @@ export {
 }
 
 let backendUrl = "https://yviewbackend.onrender.com"
+    backendUrl="http://localhost:7000"
 export {backendUrl}

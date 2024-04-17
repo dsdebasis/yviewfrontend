@@ -32,23 +32,24 @@ const Login = () => {
     const response = axios.post(`${backendUrl}/api/v1/users/login`,{
       username,password
     },config)
-      .then((res) => {
-        setToast(<Toast msg={res?.data?.message} className="border-b-green-600" />)
-        console.log(res)
-        dispatch(authLogin(res?.data?.data))
-        awaitnavigate("/profile")
+      .then(async(res) => {
+  
+      setToast(<Toast msg={res.data.data.message} className="border-b-green-600" />)
+        
+        dispatch(authLogin())
+        navigate("/profile")
         
       })
       .catch( (error) => {
-        console.log(error)
+        console.log( "eror in login",error)
         setToast(<Toast error={error?.response?.data?.message} msg={"login failed"} className="border-b-red-600" />)
-        // setLogin(false)
+    
         
         const timeOutID = setTimeout(() => {
           setToast("")
         }, 3000)
           
-        // clearTimeout(timeOutID)
+        
 
       })
       .finally(() => {
