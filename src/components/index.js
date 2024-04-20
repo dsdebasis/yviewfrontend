@@ -8,6 +8,7 @@ export {
   Login,Signup,Profile,Home,UpdateProfile,UpdatePassword
 }
 
-let backendUrl = "https://yviewbackend.onrender.com"
- 
+let backendUrl = "https://yviewbackend.onrender.com/api/v1/users"
+    // backendUrl= "http://localhost:7000/api/v1/users"
+
 export {backendUrl}

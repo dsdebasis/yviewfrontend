@@ -11,17 +11,20 @@ const cookieData =  Cookie.get("auth_info")
 if(cookieData){
   const data = JSON.parse(cookieData)
   initialState.status = data.status
-  
+  initialState.userData=data.userData.refreshToken
 }
-
 
 const authSlice = createSlice({
   name:"auth",
   initialState,
   reducers:{
     login:function(state,action){
-      state.status=true
-      Cookie.set("auth_info",JSON.stringify({status:true}))
+    
+      Cookie.set("auth_info",JSON.stringify({
+        status:true,
+        userData:action.payload
+      }))
+
     },
     logout:function(state,action){
       Cookie.remove("auth_info")
