@@ -31,10 +31,10 @@ const Login = () => {
       axios.post(`${backendUrl}/login`, {
       username, password
     }, config)
-      .then(async (res) => {
-        toast.success(res?.data?.data.message)
+      .then( (res) => {
+         toast.success(res?.data?.data.message)
         dispatch(authLogin(res?.data?.data))
-        // navigate("/")
+        navigate("/")
       })
       .catch((error) => {
          toast.error(error?.response?.data?.message)
