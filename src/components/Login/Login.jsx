@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { login as authLogin } from '../../store/authSlice.js'
 import { backendUrl } from '../index.js'
-
+import Loading from "../Loading/Loading.jsx"
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 const Login = () => {
@@ -14,13 +14,14 @@ const Login = () => {
   
   const [username, setUsername] = useState("")
   const [password, setPassword] = useState("")
+  const [loading,setLoading] = useState(false)
 
   const dispatch = useDispatch()
   const authSelecter = useSelector((state) => state.auth.status)
 
   const handleLogin = function (e) {
     e.preventDefault()
-     
+     setLoading(true)
     const config = {
       headers: {
         "content-type": "application/json",
@@ -38,6 +39,8 @@ const Login = () => {
       })
       .catch((error) => {
          toast.error(error?.response?.data?.message)
+      }).finally(()=>{
+        setLoading(false)
       })
     
   }
@@ -54,21 +57,22 @@ const Login = () => {
           <div className='flex flex-col gap-y-4'>
             <div>
               <label htmlFor='username' className='text-xl'>Username</label>
-              <input id='username' value={username} onChange={(e) => { setUsername(e.target.value) }} type='text ' className='outline-none  border-b-2 mt-2 w-full py-2 px-3  rounded-md bg-black focus:border-b-blue-600' />
+              <input id='username'  disabled={loading} value={username} onChange={(e) => { setUsername(e.target.value) }} type='text ' className='outline-none  border-b-2 mt-2 w-full py-2 px-3  rounded-md bg-black focus:border-b-blue-600' />
             </div>
             <div>
               <label htmlFor='password' className='text-xl'>Password</label>
-              <input id='password' value={password} onChange={(e) => { setPassword(e.target.value) }} type='password' className='outline-none border-b-2 mt-2 w-full py-2  px-3 rounded-md bg-black focus:border-b-blue-600' />
+              <input id='password' disabled={loading} value={password} onChange={(e) => { setPassword(e.target.value) }} type='password' className='outline-none border-b-2 mt-2 w-full py-2  px-3 rounded-md bg-black focus:border-b-blue-600' />
             </div>
           </div>
 
           <h1 className='md:text-xl text-center'>Don't have an account <Link to={"/signup"} className='text-blue-400 mx-2'>Signup</Link></h1>
 
-          <button type='submit' className='w-full py-3 rounded-2xl bg-blue-600 hover:bg-slate-950'>Login</button>
+          <button type='submit' disabled={loading} className='w-full py-3 rounded-2xl bg-blue-600 hover:bg-slate-950'>Login</button>
 
         </form>
-       
+        
         <ToastContainer/>
+        {loading? <Loading/> :<></>}
       </div>
     )
   
