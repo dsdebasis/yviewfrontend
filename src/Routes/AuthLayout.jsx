@@ -7,14 +7,10 @@ function AuthLayout({ children }) {
   const navigate = useNavigate()
   const authStatus = useSelector((state) => state.auth.status)
   const authData = useSelector((state)=>state.auth.userData)
-
-  
-
     useEffect(() => {
-      if (authStatus === false  || authStatus === null  ) {
-        navigate("/login")
+      if (authStatus === false  || authData == null  ) {
+        navigate("/")
       }
-
     }, [])
 
   return <>{children}</>

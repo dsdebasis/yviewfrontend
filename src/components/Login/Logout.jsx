@@ -1,31 +1,21 @@
 import React from 'react'
 import axios from "axios"
-
-import { useState } from 'react'
-
 import { useDispatch } from 'react-redux'
 import { logout as authLogout } from '../../store/authSlice.js'
-
 import { backendUrl } from '../index.js'
-
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const Logout = () => {
-
   const dispatch = useDispatch()
-
   const handleLogout = async function (e) {
     e.preventDefault()
-  
     axios.post(`${backendUrl}/logout`, {}, {
       withCredentials: true
-    })
-      .then(function (response) {
-        console.log(response)
+
+    }).then( function (response) {
         toast.success(response?.data?.message)
         dispatch(authLogout())
-
       }).catch(function (error) {
         console.log(error?.response?.data?.message)
         toast.error(error?.response?.data?.message)

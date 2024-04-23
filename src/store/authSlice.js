@@ -1,6 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit"
 import Cookie from "js-cookie"
-
 let initialState = {
   status:false,
   userData:null,
@@ -30,6 +29,7 @@ const authSlice = createSlice({
       Cookie.remove("auth_info")
       state.status = false
       state.userData =null 
+     
     }
   }
 })

@@ -6,21 +6,14 @@ import UploadVideo from '../Video/UploadVideo.jsx'
 import { useEffect } from 'react'
 import axios from "axios"
 const Home = () => {
-  let navItems=["login", "signUp","profile","updatepassword","updateprofile","logout"]
+  let navItems = ["login", "signup",]
   let authStatus = useSelector((state) => state.auth.status)
-  let authData = useSelector((state)=>state.auth.userData)
-  
-    
-    // if (authStatus === true && (authData !== null)) {
-    
-    //   navItems = ["profile","updatepassword","updateprofile","logout"]
-    // } else{
-    //    navItems = ["login", "signUp", ]
-    // }
- 
-  
- 
+  let authData = useSelector((state) => state.auth.userData)
 
+  if (authData !== null && authStatus === true) {
+    navItems=[ "profile","updatepassword","updateprofile","logout"]
+  }
+  
   return (
     <section className='h-screen overflow-x-hidden overflow-y-auto box-border bg-gradient-to-r from-slate-900 to-slate-700'>
       <nav className='max-h-screen md:h-[10%] m-2  border-b-2  border-b-slate-400     rounded-xl text-yellow-50 flex flex-col justify-evenley md:flex-row md:justify-evenly md:items-center shadow-xl bg-gradient-to-br from-slate-600 to-slate-800'>

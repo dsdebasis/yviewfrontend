@@ -33,9 +33,9 @@ const Login = () => {
       username, password
     }, config)
       .then( (res) => {
-         toast.success(res?.data?.data.message)
         dispatch(authLogin(res?.data?.data))
         navigate("/")
+        toast.success(res?.data?.data.message)
       })
       .catch((error) => {
          toast.error(error?.response?.data?.message)

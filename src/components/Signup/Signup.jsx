@@ -108,7 +108,7 @@ const Signup = () => {
         <div className='my-2'>
           <h1 className='text-center'>Have account ?<Link to={"/login"} className='text-blue-400 mx-1'>Login</Link></h1>
         </div>
-        <button type='submit' className='h-12 md:h-14 w-full bg-blue-600 rounded-xl hover:bg-red-600' onClick={handleRegister}>Register</button>
+        <button type='submit' disabled={loading} className='h-12 md:h-14 w-full bg-blue-600 rounded-xl hover:bg-red-600' onClick={handleRegister}>Register</button>
 
       </form>
 
