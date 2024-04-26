@@ -3,7 +3,8 @@ import { Home, Login, Signup, Profile, UpdatePassword, UpdateProfile } from "../
 import Logout from '../components/Login/Logout.jsx'
 import AuthLayout from './AuthLayout.jsx'
 import VideoPage from '../components/Videos/VideoPage.jsx'
-import UploadVideo from '../components/Video/UploadVideo.jsx'
+import UploadVideo from '../components/UploadVideo/UploadVideo.jsx'
+import ChannelPage from '../components/Channel/ChannelPage.jsx'
 
 const Routes = createBrowserRouter([
   {
@@ -49,18 +50,19 @@ const Routes = createBrowserRouter([
         <Logout />
       </AuthLayout>
 
-    )}
-  ,{
-    path:"/videopage",element:(
-      <VideoPage/>
     )
-  },{
-    path:"/videoplayer",element:(
+  }
+  ,  {
+    path: "/videoplayer", element: (
       <h1>wellcome</h1>
     )
-  },{
-    path:"/uploadvideo" ,element:(
-      <UploadVideo/>
+  }, {
+    path: "/uploadvideo", element: (
+      <UploadVideo />
+    )
+  }, {
+    path: "/channel", element: (
+      <ChannelPage />
     )
   }
 ])
