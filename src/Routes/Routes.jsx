@@ -2,6 +2,9 @@ import { createBrowserRouter } from 'react-router-dom'
 import { Home, Login, Signup, Profile, UpdatePassword, UpdateProfile } from "../components/index.js"
 import Logout from '../components/Login/Logout.jsx'
 import AuthLayout from './AuthLayout.jsx'
+import VideoPage from '../components/Videos/VideoPage.jsx'
+import UploadVideo from '../components/Video/UploadVideo.jsx'
+
 const Routes = createBrowserRouter([
   {
     path: "/", element: (
@@ -46,6 +49,18 @@ const Routes = createBrowserRouter([
         <Logout />
       </AuthLayout>
 
+    )}
+  ,{
+    path:"/videopage",element:(
+      <VideoPage/>
+    )
+  },{
+    path:"/videoplayer",element:(
+      <h1>wellcome</h1>
+    )
+  },{
+    path:"/uploadvideo" ,element:(
+      <UploadVideo/>
     )
   }
 ])

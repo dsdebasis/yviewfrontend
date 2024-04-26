@@ -1,7 +1,7 @@
 import profile from "../../assets/profile.png"
 import { useState } from 'react'
 import axios from "axios"
-import { Link } from 'react-router-dom'
+import { Link, redirect } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { login as authLogin } from '../../store/authSlice.js'
@@ -34,8 +34,10 @@ const Login = () => {
     }, config)
       .then( (res) => {
         dispatch(authLogin(res?.data?.data))
-        navigate("/")
         toast.success(res?.data?.data.message)
+        
+        // navigate("/")
+        redirect("/")
       })
       .catch((error) => {
          toast.error(error?.response?.data?.message)

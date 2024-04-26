@@ -72,10 +72,11 @@ const Signup = () => {
 
 
   return (
-    <div className='h-screen text-sm md:text-lg  bg-gradient-to-bl from-gray-700 to-indigo-400 flex flex-col  justify-center items-center  md:px-5  relative'>
-      <form action='/signup' encType='multipart/form-data' method='POST' className='h-[92vh]  box-border md:w-fit md:h-[90%]  bg-gradient-to-bl from-slate-700 to-gray-900  text-white grid place-content-evenly md:grid-rows-5 md:items-center px-7 py-5 overflow-x-hidden overflow-y-auto rounded-3xl '>
+    <div className='h-screen text-sm md:text-lg    bg-gradient-to-br from-slate-500 to-gray-900  flex flex-col  justify-center items-center  md:px-5  relative'>
 
-        <h1 className='md:text-3xl text-xl text-center '>Register</h1>
+      <form action='/signup' encType='multipart/form-data' method='POST' className='h-[92vh]  box-border md:w-fit md:h-[90%] text-white grid place-content-evenly md:grid-rows-5 md:items-center px-7 py-5 overflow-x-hidden overflow-hidden rounded-3xl shadow-2xl  border-2'>
+
+        <header className='md:text-3xl text-xl text-center '>Register</header>
 
         <div className='md:row-span-3 grid md:grid grid-flow-row  md:grid-cols-2 md:gap-x-10  justify-center '>
           <div className='w-full flex flex-col gap-y-2'>
