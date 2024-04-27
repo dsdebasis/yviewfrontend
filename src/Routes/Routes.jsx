@@ -5,6 +5,7 @@ import AuthLayout from './AuthLayout.jsx'
 import VideoPage from '../components/Videos/VideoPage.jsx'
 import UploadVideo from '../components/UploadVideo/UploadVideo.jsx'
 import ChannelPage from '../components/Channel/ChannelPage.jsx'
+import ChannelCreate from '../components/Channel/ChannelCreate.jsx'
 
 const Routes = createBrowserRouter([
   {
@@ -50,6 +51,11 @@ const Routes = createBrowserRouter([
         <Logout />
       </AuthLayout>
 
+    )
+  },{
+    path:"/createchannel",
+    element:(
+      <ChannelCreate/>
     )
   }
   , {

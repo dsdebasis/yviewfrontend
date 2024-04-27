@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom'
 import { backendUrl } from '../index.js'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
+import Input from '../Input/Input.jsx'
 const Signup = () => {
 
   const [userInfo, setUserInfo] = React.useState({
@@ -61,7 +61,7 @@ const Signup = () => {
     ).catch(function (error) {
       console.log(error)
       // setToast(<Toast error={error?.response?.data?.message}  className="border-l-red-600" />)
-      toast.error(error?.response?.data?.message)
+      toast.error(error?.response?.data?.message || "server is not connected")
     }
 
     ).finally(() => {
@@ -80,29 +80,30 @@ const Signup = () => {
 
         <div className='md:row-span-3 grid md:grid grid-flow-row  md:grid-cols-2 md:gap-x-10  justify-center '>
           <div className='w-full flex flex-col gap-y-2'>
+
             <label htmlFor='fullname'>Full Name</label>
-            <input name='fullname' value={fullname} onChange={handleChange} type='text' className='box-border bg-transparent border-b-2 outline-none   pb-2 focus:border-blue-700 transition-border duration-200' />
+            <Input type="text" name={"fullname"}  required={true}  value={fullname} fun={handleChange} />
 
             <label htmlFor='email'>Email</label>
-            <input name='email' type='email' value={email} required onChange={handleChange} className='bg-transparent border-b-2  pb-2 outline-none  focus:border-blue-700  transition-border duration-200' />
+            <Input type="email" name={"email"}  required={true} value={email} fun={handleChange} css={" pb-2 "}/>
+            
 
             <label htmlFor='username'>Username</label>
-            <input name='username' value={username} onChange={handleChange} type='text' className='bg-transparent border-b-2 pb-2 outline-none  focus:border-blue-700 transition-border duration-200' />
+            <Input type="text" name={"username"} required={true}  value={username} fun={handleChange} css={"pb-2"}/>
 
             <label htmlFor='password'>Password</label>
-            <input name='password' value={password} onChange={handleChange} type='password' className='bg-transparent border-b-2  pb-2 outline-none  focus:border-blue-700 transition-border duration-200 ' />
-
+            <Input type="password" name={"password"} required={true}  value={password} fun={handleChange} css={" pb-2"}/>
 
           </div>
           <div className='flex flex-col gap-y-3 md:gap-y-2'>
             <label htmlFor='confirmPassword'>Confirm Password</label>
-            <input name='confirmPassword' value={confirmPassword} onChange={handleChange} type='password' className='bg-transparent border-b-2 outline-none   pb-2 focus:border-blue-700 transition-border duration-200' />
+            <Input type="password" name={"confirmPassword"}  required={true} value={confirmPassword} fun={handleChange} css={" pb-2"}/>
 
             <label htmlFor='profile'>Profile Picture</label>
-            <input name='profile' type='file' onChange={(e) => (setProfile(e.target.files[0]))} className='bg-transparent border-b-2 outline-none px-4 py-2 focus:border-blue-700 transition-border duration-200 file:text-xs file:bg-transparent file:border-white file:text-white' />
+            <Input name={"profile"} type={"file"} fun={(e) => (setProfile(e.target.files[0]))} css={"file:text-xs file:bg-transparent file:border-white file:text-white"}/>  
 
             <label htmlFor='coverImage'>Cover Image</label>
-            <input name='coverImage' type='file' onChange={(e) => (setCoverImage(e.target.files[0]))} className='bg-transparent border-b-2 outline-none px-4 py-2 focus:border-blue-700 transition-all duration-200 file:text-xs file:bg-transparent file:border-white file:text-white ' />
+            <Input name={"coverImage"} type={"file"} fun={(e) => (setCoverImage(e.target.files[0]))} css={" file:text-xs file:bg-transparent file:border-white file:text-white"}/> 
           </div>
 
         </div>
