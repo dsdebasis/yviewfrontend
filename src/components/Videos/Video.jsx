@@ -4,7 +4,7 @@ import VideoDetails from './VideoDetails.jsx'
 
 const Video = () => {
   return (
-    <div className='overflow-hidden rounded-xl h-[35vh] w-[90%] md:h-[48vh]  md:w-[23vw] grid grid-flow-row grid-rows-3 gap-y-2' >
+    <div className='overflow-hidden rounded-xl h-[40vh] w-[90%]  grid grid-flow-row  gap-y-2 xl:gap-y-4 xl:h-[40vh] xl:w-[22vw]' >
       
       <VideoDetails/>
       <ChannelDetails/>

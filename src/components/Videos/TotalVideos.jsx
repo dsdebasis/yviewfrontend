@@ -7,7 +7,7 @@ const TotalVideos = () => {
   return (
     <div className='h-auto max-w-full overflow-hidden  my-10 rounded-lg '>
       <Search />
-      <div className='grid grid-cols-1 md:grid-cols-4  place-items-center gap-y-5'>
+      <div className='grid grid-cols-1 md:grid-cols-3 xl:grid-cols-4  place-items-center gap-y-4 xl:gap-y-8 '>
         {
           totalVideo.map(() => {
             return <Video />
