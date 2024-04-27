@@ -9,8 +9,8 @@ const TotalVideos = () => {
       <Search />
       <div className='grid grid-cols-1 md:grid-cols-3 xl:grid-cols-4  place-items-center gap-y-4 xl:gap-y-8 '>
         {
-          totalVideo.map(() => {
-            return <Video />
+          totalVideo.map((i,d) => {
+            return <Video key={d}/>
           })
         }
       </div>

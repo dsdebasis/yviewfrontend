@@ -52,17 +52,21 @@ const Routes = createBrowserRouter([
 
     )
   }
-  ,  {
+  , {
     path: "/videoplayer", element: (
       <h1>wellcome</h1>
     )
   }, {
     path: "/uploadvideo", element: (
-      <UploadVideo />
+      <AuthLayout>
+        <UploadVideo />
+      </AuthLayout>
     )
   }, {
     path: "/channel", element: (
-      <ChannelPage />
+      <AuthLayout>
+        <ChannelPage />
+      </AuthLayout>
     )
   }
 ])

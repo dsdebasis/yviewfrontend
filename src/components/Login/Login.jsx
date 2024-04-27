@@ -36,8 +36,8 @@ const Login = () => {
         dispatch(authLogin(res?.data?.data))
         toast.success(res?.data?.data.message)
         
-        // navigate("/")
-        redirect("/")
+        navigate("/")
+        
       })
       .catch((error) => {
          toast.error(error?.response?.data?.message)
