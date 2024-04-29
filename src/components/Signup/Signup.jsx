@@ -74,36 +74,45 @@ const Signup = () => {
   return (
     <div className='h-screen text-sm md:text-lg    bg-gradient-to-br from-slate-500 to-gray-900  flex flex-col  justify-center items-center  md:px-5  relative'>
 
-      <form action='/signup' encType='multipart/form-data' method='POST' className='h-[92vh]  box-border md:w-fit md:h-[90%] text-white grid place-content-evenly md:grid-rows-5 md:items-center px-7 py-5 overflow-x-hidden overflow-hidden rounded-3xl shadow-2xl  border-2'>
+      <form action='/signup' encType='multipart/form-data' method='POST' className='h-[95vh]  box-border md:w-fit md:h-[90%] text-white grid place-content-evenly md:grid-rows-5 md:items-center px-7 py-5 overflow-x-hidden overflow-hidden rounded-3xl shadow-2xl  border-2'>
 
         <header className='md:text-3xl text-xl text-center '>Register</header>
 
         <div className='md:row-span-3 grid md:grid grid-flow-row  md:grid-cols-2 md:gap-x-10  justify-center '>
-          <div className='w-full flex flex-col gap-y-2'>
+          <div className='w-full flex flex-col gap-y-2 md:gap-y-4 '>
 
-            <label htmlFor='fullname'>Full Name</label>
-            <Input type="text" name={"fullname"}  required={true}  value={fullname} fun={handleChange} />
+            <div>
+              <label htmlFor='fullname'>Full Name</label>
+              <Input type="text" name={"fullname"} required={true} value={fullname} fun={handleChange} css={" py-0"} />
+            </div>
 
-            <label htmlFor='email'>Email</label>
-            <Input type="email" name={"email"}  required={true} value={email} fun={handleChange} css={" pb-2 "}/>
-            
 
-            <label htmlFor='username'>Username</label>
-            <Input type="text" name={"username"} required={true}  value={username} fun={handleChange} css={"pb-2"}/>
+            <div>
+              <label htmlFor='email'>Email</label>
+              <Input type="email" name={"email"} required={true} value={email} fun={handleChange} css={"py-0 "}/>
+            </div>
 
-            <label htmlFor='password'>Password</label>
-            <Input type="password" name={"password"} required={true}  value={password} fun={handleChange} css={" pb-2"}/>
+
+            <div>
+              <label htmlFor='username'>Username</label>
+              <Input type="text" name={"username"} required={true} value={username} fun={handleChange} css={"py-0 "} />
+            </div>
+
+            <div>
+              <label htmlFor='password'>Password</label>
+              <Input type="password" name={"password"} required={true} value={password} fun={handleChange} css={"py-0 "} />
+            </div>
 
           </div>
           <div className='flex flex-col gap-y-3 md:gap-y-2'>
             <label htmlFor='confirmPassword'>Confirm Password</label>
-            <Input type="password" name={"confirmPassword"}  required={true} value={confirmPassword} fun={handleChange} css={" pb-2"}/>
+            <Input type="password" name={"confirmPassword"} required={true} value={confirmPassword} fun={handleChange} css={"py-0 "}/>
 
             <label htmlFor='profile'>Profile Picture</label>
-            <Input name={"profile"} type={"file"} fun={(e) => (setProfile(e.target.files[0]))} css={"file:text-xs file:bg-transparent file:border-white file:text-white"}/>  
+            <Input name={"profile"} type={"file"} fun={(e) => (setProfile(e.target.files[0]))} css={"file:text-xs file:bg-transparent file:border-white file:text-white "} />
 
             <label htmlFor='coverImage'>Cover Image</label>
-            <Input name={"coverImage"} type={"file"} fun={(e) => (setCoverImage(e.target.files[0]))} css={" file:text-xs file:bg-transparent file:border-white file:text-white"}/> 
+            <Input name={"coverImage"} type={"file"} fun={(e) => (setCoverImage(e.target.files[0]))} css={" file:text-xs file:bg-transparent file:border-white file:text-white"} />
           </div>
 
         </div>

@@ -52,10 +52,12 @@ const Routes = createBrowserRouter([
       </AuthLayout>
 
     )
-  },{
-    path:"/createchannel",
-    element:(
-      <ChannelCreate/>
+  }, {
+    path: "/createchannel",
+    element: (
+      <AuthLayout>
+        <ChannelCreate />
+      </AuthLayout>
     )
   }
   , {
