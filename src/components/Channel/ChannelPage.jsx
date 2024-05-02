@@ -13,10 +13,10 @@ const ChannelPage = () => {
 
 
   const [channel, setChannel] = useState({
-    
+      about: "",
+    profilePic: "", channelName: "", createdAt: "", videos: "", subscribers: ""
   })
-  // about: "",
-  //   profilePic: "", channelName: "", createdAt: "", videos: "", subscribers: ""
+
 
   const [error, setError] = useState({})
   
