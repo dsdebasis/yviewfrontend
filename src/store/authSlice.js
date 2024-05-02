@@ -21,7 +21,8 @@ const authSlice = createSlice({
     
       Cookie.set("auth_info",JSON.stringify({
         status:true,
-        userData:action.payload
+        userData:action.payload,
+       
       }))
 
     },
