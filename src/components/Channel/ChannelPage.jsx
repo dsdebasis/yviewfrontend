@@ -11,11 +11,9 @@ import { ToastContainer } from 'react-toastify'
 import Error from '../Error/Error.jsx'
 const ChannelPage = () => {
 
-
-  const [channel, setChannel] = useState({
-   
-  })
+  const [channel, setChannel] = useState({})
   
+  const navigate = useNavigate()
 
   const [error, setError] = useState({})
   
@@ -41,7 +39,9 @@ const ChannelPage = () => {
   const {message} = error
   if (message ) {
     // console.log("ds",message)
-    return <Error message={message}/>
+
+    navigate("/createchannel")
+    // return <Error message={message}/>
   }
   return (
     <section className='min-h-screen w-full bg-gradient-to-br from-slate-700 to-slate-900 grid grid-flow-row  px-5'>

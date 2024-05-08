@@ -6,6 +6,7 @@ import VideoPage from '../components/Videos/VideoPage.jsx'
 import UploadVideo from '../components/UploadVideo/UploadVideo.jsx'
 import ChannelPage from '../components/Channel/ChannelPage.jsx'
 import ChannelCreate from '../components/Channel/ChannelCreate.jsx'
+import DeleteAccount from '../components/DeleteAccount/DeleteAccount.jsx'
 
 const Routes = createBrowserRouter([
   {
@@ -74,6 +75,12 @@ const Routes = createBrowserRouter([
     path: "/channel", element: (
       <AuthLayout>
         <ChannelPage />
+      </AuthLayout>
+    )
+  }, {
+    path: "/deleteaccount", element: (
+      <AuthLayout>
+        <DeleteAccount />
       </AuthLayout>
     )
   }
