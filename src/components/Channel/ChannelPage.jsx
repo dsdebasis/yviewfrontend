@@ -13,10 +13,9 @@ const ChannelPage = () => {
 
 
   const [channel, setChannel] = useState({
-      about: "",
-    profilePic: "", channelName: "", createdAt: "", videos: "", subscribers: ""
+   
   })
-
+  
 
   const [error, setError] = useState({})
   
@@ -24,10 +23,11 @@ const ChannelPage = () => {
     axios.get(`${backendUrl}/getchannel`, {
       withCredentials: true
     }).then((res) => {
-      res = res.data.data.channel
-      // console.log(res)
+      
+      res = res.data.data
+      
       setChannel(res)
-
+     
     }).catch((err) => {
       console.log("erorr", err.response.data.message)
       setError(err.response.data)
@@ -35,13 +35,13 @@ const ChannelPage = () => {
     })
   }, [])
 
-  const { about, profilePic, channelName, createdAt, videos, subscribers } = channel
-  // console.log(about)
+  let { about, profilePic, channelName, createdAt, videos, subscribers } = channel
+  // console.log(channel)
 
   const {message} = error
   if (message ) {
     // console.log("ds",message)
-    return <Error message={"no channel found"}/>
+    return <Error message={message}/>
   }
   return (
     <section className='min-h-screen w-full bg-gradient-to-br from-slate-700 to-slate-900 grid grid-flow-row  px-5'>
