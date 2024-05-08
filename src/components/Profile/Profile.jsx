@@ -48,13 +48,15 @@ const Profile = () => {
        setUsername(res.username)
        setFullname(res.fullname)
        setEmail(res.email)
-      toast.success()
+
+    }).catch((err)=>{
+      console.log("err",err)
     })
   }
 
   React.useEffect(() => {
     getProfile()
-  },[username])
+  },[])
 
   const updateProfile = (e) => {
     e.preventDefault()
@@ -64,10 +66,11 @@ const Profile = () => {
     }).then((res) => {
       toast.success(res.data.message)
       res = res.data.data
-      console.log(res)
+      
       setUsername(res.username)
        setEmail(res.email)
        setFullname(res.fullname)
+     
     }).catch((resdata) => {
       toast.error(resdata.response?.data.message)
     })
