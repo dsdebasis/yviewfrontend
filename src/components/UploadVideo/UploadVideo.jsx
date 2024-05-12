@@ -1,14 +1,30 @@
 import React from 'react'
 import { useState } from 'react'
-
+import { useEffect } from 'react'
+import { backendUrl } from '../index.js'
+import { useNavigate } from 'react-router-dom'
+import axios from 'axios'
 function UploadVideo() {
+  const navigate = useNavigate()
 
+  useEffect(()=>{
+    axios.get(`${backendUrl}/getchannel`, {
+      withCredentials: true
+    }).then((res) => {
+      res = res.data.data
+      
+    }).catch((err) => {
+      console.log("erorr", err.response.data.message)
+       navigate("/createchannel", )
+       
+    })
+  })
   const [selectVideo, setSelectVideo] = useState("")
   const [title, setTitle] = useState("")
   const [description, setDescription] = useState("")
-
+  
   function handleUploadVideo() {
-
+  
   }
 
   return (

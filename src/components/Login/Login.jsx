@@ -10,15 +10,21 @@ import Loading from "../Loading/Loading.jsx"
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Input from "../Input/Input.jsx"
+
 const Login = () => {
   const navigate = useNavigate()
 
+  const  authSelecter = useSelector((state) => state.auth.status)
+
+  if (authSelecter === true) {
+     navigate("/")
+  }
   const [username, setUsername] = useState("")
   const [password, setPassword] = useState("")
   const [loading, setLoading] = useState(false)
 
   const dispatch = useDispatch()
-  const authSelecter = useSelector((state) => state.auth.status)
+
 
   const handleLogin = function (e) {
     e.preventDefault()

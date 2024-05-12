@@ -61,7 +61,7 @@ const Signup = () => {
     ).catch(function (error) {
       console.log("error in signup",error)
       
-      toast.error(error?.response?.data?.message || "server is not connected")
+      toast.error(error?.response?.data?.message)
     }
 
     ).finally(() => {

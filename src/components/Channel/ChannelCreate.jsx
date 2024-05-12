@@ -7,8 +7,22 @@ import { backendUrl } from '../index.js';
 import { ToastContainer } from 'react-toastify';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
+
+import { useEffect } from 'react';
+
 const ChannelCreate = () => {
-const navigate = useNavigate()
+  const navigate = useNavigate()
+  useEffect(() => {
+    axios.get(`${backendUrl}/getchannel`, {
+      withCredentials: true
+    }).then(() => {
+       navigate("/channel")
+    }).catch(()=>{
+      
+    })
+  }, [])
+
+
   let clearTimeOutId;
   const [channel, setChannel] = useState({
     channelName: "", about: ""
@@ -36,7 +50,7 @@ const navigate = useNavigate()
     e.preventDefault()
     setLoading(true)
 
-    console.log("ab",about,"ch",channelName)
+
     const formData = new FormData();
     formData.append("channelName", channelName)
     formData.append("about", about)
@@ -48,12 +62,12 @@ const navigate = useNavigate()
       },
       withCredentials: true
     }).then((res) => {
-      // console.log(res)
+
       navigate("/channel")
       toast.success(res.data.data.message)
     }).catch((error) => {
       toast.error(error.response.data.message)
-      console.log("error", error.response.data.message)
+
     }).finally(() => {
       setLoading(false)
     })
@@ -75,7 +89,7 @@ const navigate = useNavigate()
           <label htmlFor='about'>Channel Description</label>
           <textarea name='about' className='bg-transparent outline-none border-2 max-h-[30vh] p-2 mt-4' onChange={handleChange} ></textarea>
         </div>
-      
+
         <div>
           <label htmlFor='profilePic'>Channel Pic</label>
           <Input name={"profilePic"} type={"file"} required={true} css={"mt-1 h-16"} disabled={loading} onChange={(e) => {
@@ -86,7 +100,7 @@ const navigate = useNavigate()
         <button type='submit' disabled={loading} className='w-full py-3 rounded-2xl bg-blue-600 hover:bg-slate-950 ' onClick={handleSubmit}>Create Channel</button>
 
       </form>
-      {loading ? <Loading /> : ""}
+      {loading ? <Loading /> : <></>}
       <ToastContainer />
     </section>
   )
