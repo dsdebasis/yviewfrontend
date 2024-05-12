@@ -83,7 +83,7 @@ const Profile = () => {
 
       <section className='h-[90vh]  w-[90vw] md:w-[30vw] shadow-2xl  text-white  rounded-3xl py-4 grid grid-flow-row  grid-rows-4   gap-y-5 p-4 bg-gradient-to-br  '>
         <div className=' place-self-center mt-10 '>
-          <img src={profilePicUrl} className='h-[18vh] w-[18vh] border-2 rounded-full shadow-md'></img>
+          <img alt='profile image' src={profilePicUrl} className='h-[18vh] w-[18vh] border-2 rounded-full shadow-md'></img>
 
         </div>
         <form className='h-[90%]  mt-10 row-span-3 flex flex-col justify-around px-7 bg-gradient-to-bl from-slate-600  shadow-xl rounded-xl py-2 '>
