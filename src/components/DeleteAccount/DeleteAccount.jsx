@@ -43,8 +43,9 @@ const DeleteAccount = () => {
   }
 
   return (
-    <section className='h-screen w-screen bg-gradient-to-br from-slate-500 to-gray-900 flex flex-col  justify-center items-center px-5 text-white'>
-      <form onSubmit={handleDeleteAccount} className='bg-gradient-to-tr from-slate-600 to-slate-900 border-2 rounded-3xl shadow-3xl lg:w-[20%] h-[60%] p-10 flex flex-col justify-between'>
+    <section className='h-screen w-screen bg-gradient-to-br from-slate-500 to-gray-900 flex flex-col  justify-around items-center px-5 text-white'>
+      <h1 className='text-yellow-500 border-2 px-4 py-2 text-balance  rounded-xl bg-slate-700 shadow-inner lg:text-2xl tracking-wider text'>Warning ! all acoount details,videos,watch history will be deleted permananeteley. Including channel details</h1>
+      <form onSubmit={handleDeleteAccount} className='bg-gradient-to-tr from-slate-600 to-slate-900 border-2 rounded-3xl shadow-3xl lg:w-[40%] h-[60%] p-10 flex flex-col justify-between'>
 
         <div className='flex-grow flex flex-col  justify-evenly'>
           <div>

@@ -10,15 +10,17 @@ import Loading from "../Loading/Loading.jsx"
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Input from "../Input/Input.jsx"
-
+import { useEffect } from "react"
 const Login = () => {
   const navigate = useNavigate()
 
   const  authSelecter = useSelector((state) => state.auth.status)
-
-  if (authSelecter === true) {
-     navigate("/")
-  }
+  
+  useEffect(()=>{
+    if (authSelecter === true) {
+      navigate("/")
+   }
+  })
   const [username, setUsername] = useState("")
   const [password, setPassword] = useState("")
   const [loading, setLoading] = useState(false)
