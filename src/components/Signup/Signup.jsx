@@ -56,16 +56,15 @@ const Signup = () => {
       (response) => {
         console.log(response?.data)
         toast.success(response?.data?.message)
-        // setToast(<Toast msg={response?.data?.message} className="border-l-green-600" />)
+      
       }
     ).catch(function (error) {
-      console.log(error)
-      // setToast(<Toast error={error?.response?.data?.message}  className="border-l-red-600" />)
+      console.log("error in signup",error)
+      
       toast.error(error?.response?.data?.message || "server is not connected")
     }
 
     ).finally(() => {
-
       setLoading(false)
     })
   }
