@@ -92,7 +92,8 @@ const ChannelCreate = () => {
 
         <div>
           <label htmlFor='profilePic'>Channel Pic</label>
-          <Input name={"profilePic"} type={"file"} required={true} css={"mt-1 h-16"} disabled={loading} onChange={(e) => {
+          <Input name={"profilePic"} type={"file"} required={true} css={"mt-1 h-16"} disabled={loading} fun={(e) => {
+            
             setProfilePic(e.target.files[0])
           }} />
         </div>
