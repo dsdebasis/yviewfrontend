@@ -1,10 +1,11 @@
 import React from 'react'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-const ProfileHead = () => {
+const ProfileHead = ({status}) => {
   const [css,setCss] = useState("")
   const [click,setClick] = useState(true)
   const [childCss,setChildCss] = useState(" hidden") 
+  console.log(status)
   let routes = ["profile","updateprofile","updatepassword","createchannel","deleteaccount","logout"]
   let routesEle = ["Profile","Update Profile","Update Password","Create Channel","Delete Account","Logout"]
   function handleCss(e){
@@ -23,8 +24,8 @@ const ProfileHead = () => {
   //  setClick(false)
   }
   return (
-    <section onClick={handleCss}  className={`border-2 absolute top-[0vh] z-10   md:w-[200px] h-14 overflow-hidden box-border   rounded-2xl text-white p-4  bg-gradient-to-b  left-5 text-center ease-in-out duration-200 ${css} `}>
-      <span className=' inline-block text-slate-200 md:text-xl active:text-blue-600'>Account</span>
+    <section  className={`border-2 border-stone-500 absolute  top-[0vh] z-10 w-full  md:w-[200px] h-14 overflow-hidden box-border   rounded-xl text-white py-1 bg-gradient-to-b  left-5 text-center ease-in-out duration-200 ${css} `}>
+      <button onClick={handleCss} disabled={String(status)} className='h-full text-slate-200 text-sm md:text-xl active:text-blue-600 '>{status ?  "Account" :" Log in" }</button>
       <section className={ `h-[90%]  w-full flex flex-col justify-evenly items-start `}>
         {
           routes.map((item,index)=>{
