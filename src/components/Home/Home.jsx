@@ -1,9 +1,7 @@
-import { useSelector } from 'react-redux'
-import { useEffect } from 'react'
-import axios from "axios"
 import Nav from '../Navbar/Nav.jsx'
-
 import VideoPage from '../Videos/VideoPage.jsx'
+import Search from '../Videos/Search.jsx'
+
 const Home = () => {
 
   // let authStatus = useSelector((state) => state.auth.status)
@@ -14,11 +12,14 @@ const Home = () => {
   // }
 
   return (
-    <section className='min-h-screen px-2 overflow-hidden box-border bg-gradient-to-r from-slate-900 to-slate-700 font-sans'>
+    <section className='min-h-screen px-2  box-border bg-gradient-to-r from-slate-900 to-slate-700 font-sans pt-2'>
 
       <Nav />
-      
-      <VideoPage/>
+      <div className=' sticky top-7'>
+        <Search />
+      </div>
+
+      <VideoPage />
     </section>
   )
 }
