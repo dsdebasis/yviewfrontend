@@ -6,8 +6,8 @@ const ProfileHead = ({status}) => {
   const [click,setClick] = useState(true)
   const [childCss,setChildCss] = useState("h-0 hidden") 
   console.log(status)
-  let routes = ["profile","updateprofile","updatepassword","createchannel","deleteaccount","logout"]
-  let routesEle = ["Profile","Update Profile","Update Password","Create Channel","Delete Account","Logout"]
+  let routes = ["profile","updateprofile","updatepassword","channel","deleteaccount","logout"]
+  let routesEle = ["Profile","Update Profile","Update Password","Channel","Delete Account","Logout"]
   function handleCss(e){
     e.preventDefault()
     setClick(true)

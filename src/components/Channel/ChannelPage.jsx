@@ -7,7 +7,9 @@ import axios from "axios"
 import { backendUrl } from "../index.js"
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { ToastContainer } from 'react-toastify'
+import { ToastContainer,toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css';
+
 import Error from '../Error/Error.jsx'
 const ChannelPage = () => {
 
@@ -42,6 +44,7 @@ const ChannelPage = () => {
       <ChannelHeading channelName={channelName} about={about || ""} profilePic={profilePic || ""} createdAt={createdAt} subscribers={subscribers?.length} videos={videos?.length} />
 
       <VideoPage />
+      <ToastContainer/>
     </section>
   )
 }
