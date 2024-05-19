@@ -61,7 +61,7 @@ const Login = () => {
       <form id='login' action='/' onSubmit={handleLogin} className='text-white w-full xl:w-[30vw]  h-[70vh]  md:w-[40vw] md:h-[80vh] border-2  rounded-3xl flex flex-col justify-evenly lg:justify-around bg-gradient-to-tr from-slate-600 to-slate-900 px-4 md:px-14 '>
 
         <div className=' self-center justify-self-center'>
-          <img src={profile} className='h-[150px] lg:h-[20vh]  rounded-full bg-white' />
+          <img src={profile} alt="profile icon" className='h-[150px] lg:h-[20vh]  rounded-full bg-white' />
 
         </div>
 

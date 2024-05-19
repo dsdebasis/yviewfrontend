@@ -1,41 +1,96 @@
 import { createBrowserRouter } from 'react-router-dom'
-import { Home, Login, Signup, Profile, UpdatePassword, UpdateProfile } from "../components/index.js"
-import Logout from '../components/Login/Logout.jsx'
+// import { Home, Login, Signup, Profile, UpdatePassword, UpdateProfile } from "../components/index.js"
+// import Logout from '../components/Login/Logout.jsx'
 import AuthLayout from './AuthLayout.jsx'
-import VideoPage from '../components/Videos/VideoPage.jsx'
-import UploadVideo from '../components/UploadVideo/UploadVideo.jsx'
-import ChannelPage from '../components/Channel/ChannelPage.jsx'
-import ChannelCreate from '../components/Channel/ChannelCreate.jsx'
-import DeleteAccount from '../components/DeleteAccount/DeleteAccount.jsx'
+// import VideoPage from '../components/Videos/VideoPage.jsx'
+// import UploadVideo from '../components/UploadVideo/UploadVideo.jsx'
+// import ChannelPage from '../components/Channel/ChannelPage.jsx'
+// import ChannelCreate from '../components/Channel/ChannelCreate.jsx'
+// import DeleteAccount from '../components/DeleteAccount/DeleteAccount.jsx'
+import React, { Suspense } from 'react'
+
+const LazyHome = React.lazy(
+  () => import("../../src/components/Home/Home.jsx")
+)
+
+const LazyLogin = React.lazy(
+  () => import("../../src/components/Login/Login.jsx")
+)
+
+const LazySignUp = React.lazy(
+  () => import("../../src/components/Signup/Signup.jsx")
+)
+
+const LazyProfile = React.lazy(
+  () => import("../../src/components/Profile/Profile.jsx")
+)
+
+const LazyUpdatePassword = React.lazy(
+  () => import("../../src/components/Profile/UpdatePassword.jsx")
+)
+
+const lazyLogout = React.lazy(
+  () => import("../../src/components/Login/Logout.jsx")
+)
+const lazyUploadVideo = React.lazy(
+  () => import("../../src/components/UploadVideo/UploadVideo.jsx")
+)
+const lazyCreateChannel = React.lazy(
+  () => import("../../src/components/Channel/ChannelCreate.jsx")
+)
+const lazyChannelPage = React.lazy(
+  () => import("../../src/components/Channel/ChannelPage.jsx")
+)
+const lazyDeleteAccount = React.lazy(
+  () => import("../../src/components/DeleteAccount/DeleteAccount.jsx")
+)
+const lazyUpdateProfile = React.lazy(
+  () => import("../../src/components/Profile/UpdateProfile.jsx")
+)
 
 const Routes = createBrowserRouter([
   {
     path: "/", element: (
-      <Home />
+      <Suspense fallback={"loading"}>
+
+        <LazyHome />
+      </Suspense>
     ),
 
   },
   {
     path: "/login", element: (
-      <Login />
+      <Suspense fallback={"loading"}>
+
+        <LazyLogin />
+      </Suspense>
     )
   },
   {
     path: "/signup", element: (
-      <Signup />
+      <Suspense fallback={"loading"}>
+
+        <LazySignUp />
+      </Suspense>
     )
   },
   {
     path: "/profile", element: (
       <AuthLayout >
-        <Profile />
+        <Suspense fallback={"loading"}>
+
+          <LazyProfile />
+        </Suspense>
       </AuthLayout>
     )
   },
   {
     path: "/updateprofile", element: (
       <AuthLayout >
-        <UpdateProfile />
+        <Suspense fallback="loading">
+
+          <lazyUpdateProfile />
+        </Suspense>
       </AuthLayout>
     ),
 
@@ -43,13 +98,18 @@ const Routes = createBrowserRouter([
   {
     path: "/updatepassword", element: (
       <AuthLayout >
-        <UpdatePassword />
+        <Suspense fallback="loading">
+
+          <LazyUpdatePassword />
+        </Suspense>
       </AuthLayout>
     )
   }, {
     path: "/logout", element: (
       <AuthLayout >
-        <Logout />
+        <Suspense fallback={"loading"}>
+          <lazyLogout />
+        </Suspense>
       </AuthLayout>
 
     )
@@ -57,7 +117,9 @@ const Routes = createBrowserRouter([
     path: "/createchannel",
     element: (
       <AuthLayout>
-        <ChannelCreate />
+        <Suspense fallback={"loading"}>
+          <lazyCreateChannel />
+        </Suspense>
       </AuthLayout>
     )
   }
@@ -68,19 +130,25 @@ const Routes = createBrowserRouter([
   }, {
     path: "/uploadvideo", element: (
       <AuthLayout>
-        <UploadVideo />
+        <Suspense fallback={"loading"}>
+          <lazyUploadVideo />
+        </Suspense>
       </AuthLayout>
     )
   }, {
     path: "/channel", element: (
       <AuthLayout>
-        <ChannelPage />
+        <Suspense fallback={"loading"}>
+          <lazyChannelPage />
+        </Suspense>
       </AuthLayout>
     )
   }, {
     path: "/deleteaccount", element: (
       <AuthLayout>
-        <DeleteAccount />
+        <Suspense  fallback={"loading"}>
+          <lazyDeleteAccount />
+        </Suspense>
       </AuthLayout>
     )
   }
