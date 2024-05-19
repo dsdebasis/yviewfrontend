@@ -4,6 +4,7 @@ import { backendUrl } from '../index.js'
 import { toast, ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 import { useState } from 'react';
+
 const Profile = () => {
   let url = `${backendUrl}/profile`
 

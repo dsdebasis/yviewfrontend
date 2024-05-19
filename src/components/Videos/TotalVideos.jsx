@@ -11,7 +11,7 @@ const TotalVideos = () => {
       <div className=' grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4  place-items-center gap-y-6  lg:gap-y-5  '>
         {
           totalVideo?.map((i,d) => {
-            return <Video key={d} />
+            return <Video key={d} src=""/>
           })
         }
       </div>

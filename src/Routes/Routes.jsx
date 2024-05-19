@@ -1,7 +1,7 @@
 import { createBrowserRouter } from 'react-router-dom'
 import Loading from '../components/Loading/Loading.jsx'
 import AuthLayout from './AuthLayout.jsx'
-
+import Vplay from '../components/VideoPlayer/Vplay.jsx'
 import React, { Suspense } from 'react'
 
 const LazyHome = React.lazy(
@@ -120,7 +120,7 @@ const Routes = createBrowserRouter([
   }
   , {
     path: "/videoplayer", element: (
-      <h1>wellcome</h1>
+      <Vplay/>
     )
   }, {
     path: "/uploadvideo", element: (
