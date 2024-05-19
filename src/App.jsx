@@ -1,13 +1,15 @@
 import './App.css'
-import { MsgProvider } from './Context/Context.jsx'
-import {  RouterProvider } from 'react-router-dom'
+import { RouterProvider } from 'react-router-dom'
 import { Routes } from './Routes/Routes.jsx'
+import ContextProvider from './Context/ContextProvider.jsx'
 function App() {
 
   return (
-    <MsgProvider>
-      <RouterProvider router={Routes}/>
-    </MsgProvider>
+    <ContextProvider>
+
+      <RouterProvider router={Routes} />
+    </ContextProvider>
+
   )
 }
 
