@@ -1,16 +1,16 @@
 import React from 'react'
 import { VideoJS } from './VideoPlayer.jsx'
 
-const Vplay = ({src}) => {
+const Vplay = ({link}) => {
   const playerRef = React.useRef(null);
-
+console.log(link,"ds")
   const videoJsOptions = {
     autoplay: true,
     controls: true,
     responsive: true,
     fluid: true,
     sources: [{
-      src: 'https://res.cloudinary.com/idsdebasis/video/upload/v1716059497/nv7dgysgnvjitunnr5yy.mp4',
+      src: {link},
       type: 'video/mp4'
     }]
   };

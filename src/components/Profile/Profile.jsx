@@ -82,12 +82,12 @@ const Profile = () => {
   return (
     <div className='h-screen bg-gradient-to-r from-slate-900 to-slate-700 flex justify-center items-center'>
 
-      <section className='h-[90vh]  w-[90vw] md:w-[30vw] shadow-2xl  text-white  rounded-3xl py-4 grid grid-flow-row  grid-rows-4   gap-y-5 p-4 bg-gradient-to-br  '>
+      <section className='h-[90vh]  w-[90vw]  md:w-[30vw] shadow-2xl  text-white  rounded-3xl py-4 grid grid-flow-row  grid-rows-4   gap-y-5 p-4 bg-gradient-to-br  '>
         <div className=' place-self-center mt-10 '>
           <img alt='profile image' src={profilePicUrl} className='h-[18vh] w-[18vh] border-2 rounded-full shadow-md'></img>
 
         </div>
-        <form className='h-[90%]  mt-10 row-span-3 flex flex-col justify-around px-7 bg-gradient-to-bl from-slate-600  shadow-xl rounded-xl py-2 '>
+        <form className='h-[90%]  mt-10 row-span-3 flex flex-col justify-around px-2 bg-gradient-to-bl from-slate-600  shadow-xl rounded-xl py-2 '>
 
           <h1 className='text-center md:text-3xl'>Update Details</h1>
           <label htmlFor='updateFullname'>Full Name</label>

@@ -20,15 +20,18 @@ const ChannelPage = () => {
   const [channel, setChannel] = useState({})
   const navigate = useNavigate()
   const [error, setError] = useState({})
-  const {data,setData} = useContext(CompContext)
-
+  const {data,setData,channelVideos,setChannelVideos} = useContext(CompContext)
   useEffect(() => {
     axios.get(`${backendUrl}/getchannel`, {
       withCredentials: true
     }).then((res) => {
       res = res.data.data
+    
+      setChannelVideos(res.allVideos)
+      res = res.userChannelDetails
       setChannel(res)
       setData(res)
+      
     }).catch((err) => {
       console.log("erorr", err.response.data.message)
       setError(err.response.data)

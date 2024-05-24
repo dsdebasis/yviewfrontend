@@ -1,6 +1,8 @@
 import React from 'react'
 
 const VideoFooter = ({title,chnlName,videoTime}) => {
+  // console.log(title)
+  
   return (
     <div className='w-[75%]   box-border overflow-hidden'>
         <h1 className='text-slate-400 leading-5 line-clamp-2 overflow-hidden text-sm md:text-sm xl:text-base'>{title}</h1>
