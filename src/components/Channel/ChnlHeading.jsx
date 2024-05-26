@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom"
-
+import { useNavigate } from "react-router-dom"
 
 const ChannelHeading = ({ profilePic, channelName, about, createdAt, subscribers, videos,views }) => {
 
-
+ const navigate = useNavigate()
   return (
 
     <section className=' w-full min-h-fit md:min-h-[350px]  mt-10  bg-gradient-to-br from-slate-600 to-slate-700 shadow-xl   rounded-xl text-white p-2  grid  gap-y-2 md:gap-x-10 md:h-[35vh] md:grid-cols-4  '>
@@ -29,7 +29,9 @@ const ChannelHeading = ({ profilePic, channelName, about, createdAt, subscribers
         </div>
         <div className="text-center">{`channel created at ${createdAt}`}</div>
         <button className="self-center justify-self-center rounded-lg bg-blue-700  h-10 hover:bg-green-700 w-[200px]">
-          <Link to="/uploadvideo" className='text-white'>Upload Video</Link>
+          <Link onClick={function(){
+           navigate("/uploadvideo")
+          }}  className='text-white'>Upload Video</Link>
         </button>
       </section>
 

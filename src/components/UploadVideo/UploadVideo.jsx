@@ -81,7 +81,7 @@ function UploadVideo() {
           clearTimeId = setTimeout(() => {
 
             setTitle(e.target.value)
-            console.log(title)
+          
           },500)
         }} />
 

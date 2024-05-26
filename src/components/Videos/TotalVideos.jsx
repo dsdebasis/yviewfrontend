@@ -12,7 +12,7 @@ const TotalVideos = () => {
         {
           totalVideo?.map((i,index,) => {
             
-            return <Video key={i} title={channelVideos[index].title} src={channelVideos[index].videoFile} uploadTime={channelVideos[index].uploadTime} videoOwner={""}/>
+            return <Video key={i} title={channelVideos[index].title} src={channelVideos[index].videoFile} uploadTime={channelVideos[index].uploadTime} videoOwner={""} vid={channelVideos[index]._id}/>
           })
         }
       </div>

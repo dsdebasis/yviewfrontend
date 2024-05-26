@@ -2,7 +2,9 @@ import React from 'react'
 import { CompContext } from './Context.js'
 
 const ContextProvider = ({ children }) => {
-  const [data,setData] = React.useState("debasis")
+  const [data,setData] = React.useState({
+    about:"", profilePic:"", channelName:"", createdAt:"", videos:[], subscribers:"" 
+  })
   const [channelVideos,setChannelVideos] = React.useState({"ds":"debasis"})
   return (
     <CompContext.Provider value={{data,setData,channelVideos,setChannelVideos}}>
