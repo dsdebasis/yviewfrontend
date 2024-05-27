@@ -14,21 +14,17 @@ import { useEffect } from "react"
 const Login = () => {
   const navigate = useNavigate()
 
-  const  authSelecter = useSelector((state) => state.auth.status)
-  
-  useEffect(()=>{
-    if (authSelecter === true) {
-      navigate("/")
-   }
-  })
+  const authSelecter = useSelector((state) => state.auth.status)
+
+
   const [username, setUsername] = useState("")
   const [password, setPassword] = useState("")
   const [loading, setLoading] = useState(false)
 
   const dispatch = useDispatch()
-
-
+ 
   const handleLogin = function (e) {
+
     e.preventDefault()
     setLoading(true)
     const config = {
@@ -43,22 +39,23 @@ const Login = () => {
     }, config)
       .then((res) => {
         dispatch(authLogin(res?.data?.data))
-        toast.success(res?.data?.data.message)
-
-        navigate("/")
+        toast.success(res?.data.message)
 
       })
       .catch((error) => {
         toast.error(error?.response?.data?.message || "server is not connected")
       }).finally(() => {
         setLoading(false)
+        setUsername("")
+        setPassword("")
+
       })
 
   }
 
   return (
     <div className='h-screen   bg-gradient-to-br from-slate-500 to-gray-900 flex flex-col  justify-center items-center px-5'>
-      <form id='login' action='/' onSubmit={handleLogin} className='text-white w-full xl:w-[30vw]  h-[70vh]  md:w-[40vw] md:h-[80vh] border-2  rounded-3xl flex flex-col justify-evenly lg:justify-around bg-gradient-to-tr from-slate-600 to-slate-900 px-4 md:px-14 '>
+      <form id='login' action='/' onSubmit={handleLogin} className='text-white w-full xl:w-[30vw]  h-[70vh]  md:w-[40vw] md:h-[80vh]   rounded-3xl flex flex-col justify-evenly lg:justify-around bg-gradient-to-tr from-slate-600 to-slate-900 px-4 md:px-4 '>
 
         <div className=' self-center justify-self-center'>
           <img src={profile} alt="profile icon" className='h-[150px] lg:h-[20vh]  rounded-full bg-white' />

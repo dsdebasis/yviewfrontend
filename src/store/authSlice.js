@@ -18,11 +18,10 @@ const authSlice = createSlice({
   initialState,
   reducers:{
     login:function(state,action){
-    
+      state.status = true
       Cookie.set("auth_info",JSON.stringify({
         status:true,
         userData:action.payload,
-       
       }))
 
     },

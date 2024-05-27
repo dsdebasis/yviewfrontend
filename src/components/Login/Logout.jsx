@@ -17,7 +17,9 @@ const Logout = () => {
       withCredentials: true
 
     }).then(function (response) {
+      localStorage.clear()
       dispatch(authLogout())
+      console.log(response?.data?.message)
       toast.success(response?.data?.message)
     }).catch(function (error) {
       console.log(error?.response?.data?.message)
@@ -25,6 +27,7 @@ const Logout = () => {
     }
     ).finally(()=>{
       setLoading(false)
+
     })
   }
 
@@ -33,7 +36,7 @@ const Logout = () => {
     <div className='h-screen bg-gradient-to-bl from-slate-700 to-slate-950 flex justify-center items-center transition-all ease-in-out '>
       <button className='px-2 py-2 border-2 hover:border-red-500 shadow-2xl border-white text-white rounded-lg disabled:border-red-600 disabled:blur-sm disabled:cursor-not-allowed' disabled={loading} onClick={handleLogout} >Logout</button>
       <ToastContainer />
-      {loading ? <Loading/> :""}
+      {loading ? <Loading title={"logging out"}/> :""}
     </div>
   )
 
