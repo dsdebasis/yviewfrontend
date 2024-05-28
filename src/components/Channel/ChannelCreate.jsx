@@ -87,12 +87,12 @@ const ChannelCreate = () => {
 
         <div className='w-full flex flex-col '>
           <label htmlFor='about'>Channel Description</label>
-          <textarea name='about' className='bg-transparent outline-none border-2 max-h-[30vh] p-2 mt-4' onChange={handleChange} ></textarea>
+          <textarea name='about' className='bg-transparent outline-none border-2 max-h-[30vh] p-1 mt-4' onChange={handleChange} ></textarea>
         </div>
 
         <div>
           <label htmlFor='profilePic'>Channel Pic</label>
-          <Input name={"profilePic"} type={"file"} required={true} css={"mt-1 h-16"} disabled={loading} fun={(e) => {
+          <Input name={"profilePic"} type={"file"} required={true} css={"p-2 h-12"} disabled={loading} fun={(e) => {
             
             setProfilePic(e.target.files[0])
           }} />

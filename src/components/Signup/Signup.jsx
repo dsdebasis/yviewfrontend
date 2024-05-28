@@ -1,8 +1,6 @@
 import React from 'react'
-
 import Loading from '../Loading/Loading.jsx'
 import axios from 'axios'
-
 import { Link } from 'react-router-dom'
 import { backendUrl } from '../index.js'
 import { ToastContainer, toast } from 'react-toastify';
@@ -56,11 +54,9 @@ const Signup = () => {
       (response) => {
         console.log(response?.data)
         toast.success(response?.data?.message)
-
       }
     ).catch(function (error) {
       console.log("error in signup", error)
-
       toast.error(error?.response?.data?.message)
     }
 
@@ -71,55 +67,47 @@ const Signup = () => {
 
 
   return (
-    <div className='h-screen text-sm p-2 md:text-lg    bg-gradient-to-br from-slate-700 to-zinc-700  flex flex-col  justify-center items-center  md:px-5  relative'>
+    <div className='h-screen w-full text-sm p-2 md:text-lg    bg-gradient-to-br from-slate-700 to-zinc-700  flex flex-col  justify-center items-center  md:px-5  px-4'>
 
-      <form action='/signup' encType='multipart/form-data' method='POST' className='w-full  h-full bg-gradient-to-b from-gray-900  shadow-2xl to-slate-600 box-border md:w-[40vw] lg:w-[50vw] md:h-[90%] text-white grid place-content-evenly md:grid-rows-5 md:items-center md:px-5 py-5 overflow-hidden  rounded-3xl  ' >
+      <form name='signup' action='/signup' encType='multipart/form-data' method='POST' className='w-full h-auto  bg-gradient-to-b from-gray-900  shadow-2xl to-slate-600 box-border md:w-[60vw] lg:w-[30vw]  text-white   md:px-5 md:py-2 p-5   rounded-3xl  ' >
 
-        <header className='md:text-3xl text-xl text-center md:mb-10'>Register</header>
-
-        <div className='md:row-span-3 grid md:grid grid-flow-row  md:grid-cols-2 md:gap-x-10  justify-center '>
-          <div className='w-full flex flex-col gap-y-1   md:gap-y-2 '>
-
-            <div >
-              <label htmlFor='fullname'>Full Name</label>
-              <Input type="text" name={"fullname"} required={true} value={fullname} fun={handleChange} />
-            </div>
-
-
-            <div>
-              <label htmlFor='email'>Email</label>
-              <Input type="email" name={"email"} required={true} value={email} fun={handleChange} />
-            </div>
-
-
-            <div>
-              <label htmlFor='username'>Username</label>
-              <Input type="text" name={"username"} required={true} value={username} fun={handleChange} />
-            </div>
-
-            <div>
-              <label htmlFor='password'>Password</label>
-              <Input type="password" name={"password"} required={true} value={password} fun={handleChange} />
-            </div>
-
+        <header className=' text-2xl  text-center '>Signup</header>
+          <div >
+            <label htmlFor='fullname'>Full Name</label>
+            <Input type="text"  name={"fullname"} required={true} value={fullname} fun={handleChange} />
           </div>
-          <div className='my-2 flex flex-col gap-y-2 md:gap-y-2'>
+
+          <div>
+            <label htmlFor='email'>Email</label>
+            <Input type="email" id={"email"} name={"email"} required={true} value={email} fun={handleChange} />
+          </div>
+
+          <div>
+            <label htmlFor='username'>Username</label>
+            <Input type="text" name={"username"} required={true} value={username} fun={handleChange} />
+          </div>
+
+          <div>
+            <label htmlFor='password'>Password</label>
+            <Input type="password" name={"password"} required={true} value={password} fun={handleChange} />
+          </div>
+
+          <div>
             <label htmlFor='confirmPassword'>Confirm Password</label>
             <Input type="password" name={"confirmPassword"} required={true} value={confirmPassword} fun={handleChange} />
-
-            <label htmlFor='profile'>Profile Picture</label>
-            <Input name={"profile"} type={"file"} fun={(e) => (setProfile(e.target.files[0]))} css={"file:text-xs file:bg-transparent file:border-white file:text-white pt-2 md:pt-1"} />
-
-            <label htmlFor='coverImage'>Cover Image</label>
-            <Input name={"coverImage"} type={"file"} fun={(e) => (setCoverImage(e.target.files[0]))} css={" file:text-xs file:bg-transparent file:border-white file:text-white pt-2 md:pt-1"} />
           </div>
 
-        </div>
-        <div className=' md:mt-5'>
-          <h1 className='text-center'>Have account ?<Link to={"/login"} className='text-blue-400 mx-1'>Login</Link></h1>
-        </div>
-        <button type='submit' disabled={loading} className='h-12 md:h-14 w-full bg-blue-600 rounded-xl hover:bg-red-600' onClick={handleRegister}>Register</button>
+          <div>
+            <label htmlFor='profile'>Profile Picture</label>
+            <Input name={"profile"} type={"file"} fun={(e) => (setProfile(e.target.files[0]))} css={"file:text-xs file:bg-transparent file:border-white file:text-white pt-2 md:pt-1"} />
+          </div>
+          <div className='my-4'>
+            <h1 className='text-center capitalize'>Have account ?<Link to={"/login"} className='text-blue-300 mx-1'>Login</Link></h1>
+          </div>
 
+          <div>
+            <button type='submit' disabled={loading} className='h-12 md:h-12 w-full bg-blue-600 rounded-xl hover:bg-red-600' onClick={handleRegister}>Sign Up</button>
+          </div>
       </form>
 
       <ToastContainer />

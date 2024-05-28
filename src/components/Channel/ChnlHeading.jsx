@@ -27,7 +27,7 @@ const ChannelHeading = ({ profilePic, channelName, about, createdAt, subscribers
           <div className='self-center justify-self-center'>{videos || 0}</div>
           <div className='self-center justify-self-center'>{views || 0}</div>
         </div>
-        <div className="text-center">{`channel created at ${createdAt}`}</div>
+        <div className="text-center capitalize ">{`Channel Created at ${createdAt}`}</div>
         <button className="self-center justify-self-center rounded-lg bg-blue-700  h-10 hover:bg-green-700 w-[200px]">
           <Link onClick={function(){
            navigate("/uploadvideo")

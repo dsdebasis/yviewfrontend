@@ -34,7 +34,7 @@ const ChannelPage = () => {
         setLoading(false)
       })
     
-  }, [videos?.length])
+  }, [])
 
 
  
