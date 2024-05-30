@@ -24,6 +24,7 @@ function UploadVideo() {
     })
   }, [])
   const [selectVideo, setSelectVideo] = useState("")
+  const [thumbnail,setThumbnail] = useState("")
   const [title, setTitle] = useState("")
   const [description, setDescription] = useState("")
   const [loading, setLoading] = useState(false)
@@ -36,7 +37,7 @@ function UploadVideo() {
     formData.append("video", selectVideo)
     formData.append("videoTitle", title)
     formData.append("videoDes", description)
-
+    formData.append("thumbnail",thumbnail)
     axios.post(`${backendUrl}/uploadvideo`, formData, {
       withCredentials: true,
       headers: {
@@ -54,6 +55,12 @@ function UploadVideo() {
     }).finally(() => {
 
       setLoading(false)
+      
+      setSelectVideo("")
+      setDescription("")
+      setTitle("")
+      setThumbnail("")
+      
     })
   }
 
@@ -71,8 +78,9 @@ function UploadVideo() {
           setSelectVideo(e.target.files[0])
         }} />
 
-        {/* <label id='selectTumbnail'>Select Tumbnail</label>
-        <Input type='file' name='selectVideo' placeholder='upload your video' css='border-2  bg-transparent outline-none px-3 py-2 focus:border-blue-600 rounded-md ' fun={(e)=>{}} /> */}
+        <label id='selectTumbnail'>Select Tumbnail</label>
+        <Input type='file' name='selectVideo' placeholder='upload your video' css='border-2  bg-transparent outline-none px-3 py-2 focus:border-blue-600 rounded-md ' fun={(e)=>{
+          setThumbnail(e.target.files[0])}} />
 
         <label>Video titile</label>
         <Input name='videoTitle' type='text' required={true} placeholder='maximum 70 characters allowed' css='bg-transparent  border-2 p-2 outline-none focus:border-blue-600 rounded-md overflow-scroll' fun={(e) => {

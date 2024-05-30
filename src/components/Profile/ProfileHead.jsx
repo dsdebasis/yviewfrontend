@@ -20,7 +20,7 @@ const ProfileHead = ({ status }) => {
     
     if (click === true) {
     
-      setChildCss("max-h-[50vh]  block absolute z-10  border-2 border-stone-500")
+      setChildCss("max-h-[50vh]  block absolute z-10 ")
       setClick(false)
     } else {
       
@@ -29,12 +29,12 @@ const ProfileHead = ({ status }) => {
     //  setClick(false)
   }
   return (
-    <section className={`h-full  w-full border-amber-400  md:w-[250px]  overflow-hidden box-border  text-white   text-center  `}>
+    <section className={`h-full  w-full  border-amber-400  md:w-[250px]  overflow-hidden box-border  text-white   text-center  `}>
       <div className='my-2 h-10 md:mx-5  border-stone-500 border-2 rounded-xl w-12 flex justify-center items-center  '>
         <button onClick={handleCss} disabled={!status} className=' text-slate-200 text-sm md:text-xl hover:text-yellow-400 '><CgProfile /> </button>
       </div>
       <div className='h-0 '>
-        <section  className={`w-full rounded-lg  ease-in   px-5 py-3 flex flex-col justify-evenly items-start overflow-hidden gap-y-5 ${childCss} `}>
+        <section  className={`w-full rounded-lg  ease-in   px-5 py-3 flex flex-col justify-evenly items-start overflow-hidden gap-y-5 bg-gray-900  ${childCss} `}>
           {
             routes.map((item, index) => {
               return (<Link key={index} to={`/${item}`}>{routesEle[index]}</Link>)

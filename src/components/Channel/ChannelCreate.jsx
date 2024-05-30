@@ -6,22 +6,14 @@ import axios from 'axios';
 import { backendUrl } from '../index.js';
 import { ToastContainer } from 'react-toastify';
 import { toast } from 'react-toastify';
-import { useNavigate } from 'react-router-dom';
-
-import { useEffect } from 'react';
-
+import { useNavigate } from 'react-router-dom'; 
+import { useContext } from 'react';
+import { CompContext } from '../../Context/Context.js';
 const ChannelCreate = () => {
+  const {data} = useContext(CompContext)
+  
   const navigate = useNavigate()
-  useEffect(() => {
-    axios.get(`${backendUrl}/getchannel`, {
-      withCredentials: true
-    }).then(() => {
-       navigate("/channel")
-    }).catch(()=>{
-      
-    })
-  }, [])
-
+ 
 
   let clearTimeOutId;
   const [channel, setChannel] = useState({

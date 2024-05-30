@@ -1,7 +1,7 @@
 import React from 'react'
 import { CompContext } from './Context.js'
 
-const ContextProvider = ({ children }) => {
+const ChannelContextProvider = ({ children }) => {
   const [data,setData] = React.useState({
     about:"", profilePic:"", channelName:"", createdAt:"", videos:[], subscribers:"" 
   })
@@ -13,4 +13,4 @@ const ContextProvider = ({ children }) => {
   )
 }
 
-export default ContextProvider
+export default ChannelContextProvider

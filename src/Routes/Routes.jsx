@@ -46,7 +46,7 @@ const LazyUpdateProfile = React.lazy(
 const Routes = createBrowserRouter([
   {
     path: "/", element: (
-      <Suspense fallback={<Loading/>}>
+      <Suspense fallback={<Loading />}>
 
         <LazyHome />
       </Suspense>
@@ -55,7 +55,7 @@ const Routes = createBrowserRouter([
   },
   {
     path: "/login", element: (
-      <Suspense fallback={<Loading/>}>
+      <Suspense fallback={<Loading />}>
 
         <LazyLogin />
       </Suspense>
@@ -63,7 +63,7 @@ const Routes = createBrowserRouter([
   },
   {
     path: "/signup", element: (
-      <Suspense fallback={<Loading/>}>
+      <Suspense fallback={<Loading />}>
 
         <LazySignUp />
       </Suspense>
@@ -72,7 +72,7 @@ const Routes = createBrowserRouter([
   {
     path: "/profile", element: (
       <AuthLayout >
-        <Suspense fallback={<Loading/>}>
+        <Suspense fallback={<Loading />}>
 
           <LazyProfile />
         </Suspense>
@@ -82,7 +82,7 @@ const Routes = createBrowserRouter([
   {
     path: "/updateprofile", element: (
       <AuthLayout >
-        <Suspense fallback={<Loading/>}>
+        <Suspense fallback={<Loading />}>
 
           <LazyUpdateProfile />
         </Suspense>
@@ -93,7 +93,7 @@ const Routes = createBrowserRouter([
   {
     path: "/updatepassword", element: (
       <AuthLayout >
-        <Suspense fallback={<Loading/>}>
+        <Suspense fallback={<Loading />}>
 
           <LazyUpdatePassword />
         </Suspense>
@@ -102,7 +102,7 @@ const Routes = createBrowserRouter([
   }, {
     path: "/logout", element: (
       <AuthLayout >
-        <Suspense fallback={<Loading/>}>
+        <Suspense fallback={<Loading />}>
           <LazyLogout />
         </Suspense>
       </AuthLayout>
@@ -112,20 +112,22 @@ const Routes = createBrowserRouter([
     path: "/createchannel",
     element: (
       <AuthLayout>
-        <Suspense fallback={<Loading/>}>
-          <LazyCreateChannel />
-        </Suspense>
+        
+          <Suspense fallback={<Loading />}>
+            <LazyCreateChannel />
+          </Suspense>
+      
       </AuthLayout>
     )
   }
   , {
     path: "/videoplayer", element: (
-      <Vplay/>
+      <Vplay />
     )
   }, {
     path: "/uploadvideo", element: (
       <AuthLayout>
-        <Suspense fallback={<Loading/>}>
+        <Suspense fallback={<Loading />}>
           <LazyUploadVideo />
         </Suspense>
       </AuthLayout>
@@ -133,7 +135,7 @@ const Routes = createBrowserRouter([
   }, {
     path: "/channel", element: (
       <AuthLayout>
-        <Suspense fallback={<Loading/>}>
+        <Suspense fallback={<Loading />}>
           <LazyChannelPage />
         </Suspense>
       </AuthLayout>
@@ -141,7 +143,7 @@ const Routes = createBrowserRouter([
   }, {
     path: "/deleteaccount", element: (
       <AuthLayout>
-        <Suspense  fallback={<Loading/>}>
+        <Suspense fallback={<Loading />}>
           <LazyDeleteAccount />
         </Suspense>
       </AuthLayout>

@@ -1,14 +1,14 @@
 import './App.css'
 import { RouterProvider } from 'react-router-dom'
 import { Routes } from './Routes/Routes.jsx'
-import ContextProvider from './Context/ContextProvider.jsx'
+import ChannelContextProvider from './Context/ContextProvider.jsx'
 function App() {
 
   return (
-    <ContextProvider>
+    <ChannelContextProvider>
 
       <RouterProvider router={Routes} />
-    </ContextProvider>
+    </ChannelContextProvider>
 
   )
 }

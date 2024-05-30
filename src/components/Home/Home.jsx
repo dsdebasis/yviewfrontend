@@ -36,7 +36,7 @@ const Home = () => {
       {
           videoRes?.data?.map((item,index)=>{
            
-            return <Video key={item._id} vid={item._id} src={item?.videoFile} title={item.title} uploadTime={item.uploadTime} videoOwner={item.ownerName} channelProfilePic={item.channelProfilePic}/>
+            return <Video key={item._id} thumbnail={item.thumbnail} vid={item._id} src={item?.videoFile} title={item.title} uploadTime={item.uploadTime} videoOwner={item.ownerName} channelProfilePic={item.channelProfilePic}/>
           })
       }
       </section>
