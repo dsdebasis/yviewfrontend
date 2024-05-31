@@ -25,9 +25,11 @@ const ChannelPage = () => {
       withCredentials: true
     }).then((res) => {
       res = res.data.data
+      
       setChannelVideos(res.allVideos)
       res = res.userChannelDetails
       setData(res)
+      console.log(res)
     }).catch((err) => {
       console.log("erorr", err.response.data.message)
       setError(err.response.data)

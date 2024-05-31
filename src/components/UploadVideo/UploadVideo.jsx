@@ -24,11 +24,11 @@ function UploadVideo() {
     })
   }, [])
   const [selectVideo, setSelectVideo] = useState("")
-  const [thumbnail,setThumbnail] = useState("")
+  const [thumbnail, setThumbnail] = useState("")
   const [title, setTitle] = useState("")
   const [description, setDescription] = useState("")
   const [loading, setLoading] = useState(false)
-
+  let inputFiled = window.document.getElementsByTagName("input")
   let clearTimeId;
   function handleUploadVideo(e) {
     e.preventDefault()
@@ -37,7 +37,7 @@ function UploadVideo() {
     formData.append("video", selectVideo)
     formData.append("videoTitle", title)
     formData.append("videoDes", description)
-    formData.append("thumbnail",thumbnail)
+    formData.append("thumbnail", thumbnail)
     axios.post(`${backendUrl}/uploadvideo`, formData, {
       withCredentials: true,
       headers: {
@@ -55,11 +55,14 @@ function UploadVideo() {
     }).finally(() => {
 
       setLoading(false)
-      
-      setSelectVideo("")
-      setDescription("")
-      setTitle("")
-      setThumbnail("")
+
+      // setSelectVideo("")
+      // setDescription("")
+      // setTitle("")
+      // setThumbnail("")
+      // inputFiled[0].value = ""
+      // inputFiled[1].value = ""
+      // inputFiled[2].value = ""
       
     })
   }
@@ -79,8 +82,9 @@ function UploadVideo() {
         }} />
 
         <label id='selectTumbnail'>Select Tumbnail</label>
-        <Input type='file' name='selectVideo' placeholder='upload your video' css='border-2  bg-transparent outline-none px-3 py-2 focus:border-blue-600 rounded-md ' fun={(e)=>{
-          setThumbnail(e.target.files[0])}} />
+        <Input type='file' name='selectVideo' placeholder='upload your video' css=' h-12 border-2  bg-transparent outline-none px-3 p-2 focus:border-blue-600 rounded-md ' fun={(e) => {
+          setThumbnail(e.target.files[0])
+        }} />
 
         <label>Video titile</label>
         <Input name='videoTitle' type='text' required={true} placeholder='maximum 70 characters allowed' css='bg-transparent  border-2 p-2 outline-none focus:border-blue-600 rounded-md overflow-scroll' fun={(e) => {
@@ -89,23 +93,23 @@ function UploadVideo() {
           clearTimeId = setTimeout(() => {
 
             setTitle(e.target.value)
-          
-          },500)
+
+          }, 500)
         }} />
 
         <label>Video  Description</label>
         <textarea name='videoDes' required={true} className='max-h-[300px] min-h-[10vh] outline-none bg-transparent border-2 px-3 py-2 focus:border-blue-600 rounded-md' onChange={(e) => {
           e.preventDefault()
-      
+
           clearTimeout(clearTimeId)
           clearTimeId = setTimeout(() => {
             setDescription(e.target.value)
-          },800)
+          }, 800)
         }} />
 
         <button className=' rounded-md px-3 py-2 bg-blue-700 hover:bg-blue-500' onClick={handleUploadVideo}>Upload</button>
       </form>
-      {loading ? <Loading title={"uploading video"}/> : <></>}
+      {loading ? <Loading title={"uploading video"} /> : <></>}
       <ToastContainer />
     </section>
   )

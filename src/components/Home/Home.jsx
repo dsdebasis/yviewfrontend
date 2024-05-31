@@ -30,9 +30,9 @@ const Home = () => {
       </div>
 
       {/* <VideoPage /> */}
-      <section className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4  place-items-center gap-y-6  lg:gap-y-5 text-white'>
+      <section className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4  place-items-center gap-y-6  lg:gap-y-5 text-white' >
 
- 
+
       {
           videoRes?.data?.map((item,index)=>{
            
