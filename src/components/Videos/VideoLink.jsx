@@ -1,5 +1,6 @@
 import React from 'react'
 import Vplay from "../VideoPlayer/Vplay.jsx"
+import Vplay2 from '../VideoPlayer/Vplay2.jsx'
 function VideoLink({  link ,vid,thumbnail}) {
   return (
 
@@ -8,7 +9,7 @@ function VideoLink({  link ,vid,thumbnail}) {
         
         localStorage.setItem("link",link)
         localStorage.setItem("vId",vid)
-       { <Vplay link={link}/>}
+      //  { <Vplay2/>}
       }}></img>
      
     </div>
