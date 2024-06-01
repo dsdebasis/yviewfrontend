@@ -44,11 +44,13 @@ export const VideoPlayer = (props) => {
   }, [playerRef]);
 
   return (
-    <div
-      data-vjs-player
-      style={{ width: "95vw",margin:"3vw" }}
->
-      <div ref={videoRef} />
+    <div className="h-screen bg-gradient-to-br from-slate-600 to-slate-800  flex md:justify-center items-center ">
+      <div
+        data-vjs-player
+       
+      className="w-full md:w-[40vw]  border-2 ">
+        <div ref={videoRef} />
+      </div>
     </div>
   );
 };

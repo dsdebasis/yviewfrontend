@@ -81,7 +81,7 @@ const Login = () => {
       </form>
 
       <ToastContainer />
-      {loading ? <Loading /> : <></>}
+      {loading ? <Loading title={"logging in"} /> : <></>}
     </div>
   )
 

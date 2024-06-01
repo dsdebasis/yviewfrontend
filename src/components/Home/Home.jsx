@@ -25,7 +25,7 @@ const Home = () => {
     <section className='min-h-screen px-2  box-border bg-gradient-to-r from-slate-900 to-slate-700 font-sans pt-2'>
 
       <Nav />
-      <div className=' sticky top-7'>
+      <div className=' sticky top-0 '>
         <Search />
       </div>
 
