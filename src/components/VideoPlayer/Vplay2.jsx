@@ -4,7 +4,7 @@ import { useRef } from "react";
 
 function Vplay2() {
   let link = localStorage.getItem("link")
-  console.log(link)
+
   const playerRef = useRef(null);
   const videoLink = link;
   const videoPlayerOptions = {

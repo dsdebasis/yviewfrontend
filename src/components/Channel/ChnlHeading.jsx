@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom"
 import { CompContext } from "../../Context/Context"
 import { useContext } from "react"
 const ChannelHeading = () => {
-  const {data} = useContext(CompContext)
+  const {data,channelVideos} = useContext(CompContext)
   const {about,channelName,profilePic,subscribers,videos,views,createdAt,} = data
 
  const navigate = useNavigate()
@@ -27,7 +27,7 @@ const ChannelHeading = () => {
         </div>
         <div className='row-span-1 grid grid-flow-col '>
           <div className='self-center justify-self-center'>{subscribers.length || 0}</div>
-          <div className='self-center justify-self-center'>{videos.length || 0}</div>
+          <div className='self-center justify-self-center'>{channelVideos.length || 0}</div>
           <div className='self-center justify-self-center'>{views || 0}</div>
         </div>
         <div className="text-center capitalize ">{`Channel Created at ${createdAt}`}</div>

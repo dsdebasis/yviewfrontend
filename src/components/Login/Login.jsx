@@ -11,18 +11,21 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Input from "../Input/Input.jsx"
 import { useEffect } from "react"
+
 const Login = () => {
   const navigate = useNavigate()
 
   const authSelecter = useSelector((state) => state.auth.status)
 
-
+  if (authSelecter) {
+    navigate("/")
+  }
   const [username, setUsername] = useState("")
   const [password, setPassword] = useState("")
   const [loading, setLoading] = useState(false)
 
   const dispatch = useDispatch()
- 
+
   const handleLogin = function (e) {
 
     e.preventDefault()
@@ -39,7 +42,7 @@ const Login = () => {
     }, config)
       .then((res) => {
         dispatch(authLogin(res?.data?.data))
-        toast.success(res?.data.message)
+
 
       })
       .catch((error) => {

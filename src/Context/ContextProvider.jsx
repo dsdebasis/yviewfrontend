@@ -5,7 +5,7 @@ const ChannelContextProvider = ({ children }) => {
   const [data,setData] = React.useState({
     about:"", profilePic:"", channelName:"", createdAt:"", videos:[], subscribers:"" 
   })
-  const [channelVideos,setChannelVideos] = React.useState({"ds":"debasis"})
+  const [channelVideos,setChannelVideos] = React.useState([])
   return (
     <CompContext.Provider value={{data,setData,channelVideos,setChannelVideos}}>
         {children}

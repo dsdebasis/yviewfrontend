@@ -12,11 +12,9 @@ import { useContext } from 'react'
 import Loading from '../Loading/Loading.jsx'
 
 const ChannelPage = () => {
-
   const navigate = useNavigate()
   const [error, setError] = useState({})
   const [loading, setLoading] = useState(false)
-
   const { data, setData, channelVideos, setChannelVideos } = useContext(CompContext)
   let { about, profilePic, channelName, createdAt, videos, subscribers } = data
   useEffect(() => {
@@ -29,7 +27,7 @@ const ChannelPage = () => {
       setChannelVideos(res.allVideos)
       res = res.userChannelDetails
       setData(res)
-      console.log(res)
+     
     }).catch((err) => {
       console.log("erorr", err.response.data.message)
       setError(err.response.data)
@@ -40,11 +38,9 @@ const ChannelPage = () => {
 
   }, [error])
 
-
   const { message } = error
   if (message) {
-    navigate("/createchannel")
-
+    
   }
 
   {
@@ -52,14 +48,8 @@ const ChannelPage = () => {
 
     return (
       <section className='min-h-screen w-full bg-gradient-to-br from-slate-700 to-slate-900 grid grid-flow-row  px-5'>
-
-        {/* <ChannelContextProvider> */}
           <ChannelHeading  />
-
           <VideoPage />
-        {/* </ChannelContextProvider> */}
-
-
       </section>
     )
   }
