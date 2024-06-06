@@ -22,12 +22,13 @@ const UpdatePassword = () => {
     clearTimeout(deBounceTimer)
 
     deBounceTimer = setTimeout(() => {
-      // console.log(e.target.value, "val")
+     
       setPassdata({
         ...passdata, [e.target.name]: e.target.value
       })
     }, 500)
   }
+
   function handlePasstype(e) {
     e.preventDefault()
     if (passtype !== "text") {

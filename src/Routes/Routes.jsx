@@ -4,7 +4,7 @@ import AuthLayout from './AuthLayout.jsx'
 import Vplay from '../components/VideoPlayer/Vplay.jsx'
 import React, { Suspense } from 'react'
 import Vplay2 from '../components/VideoPlayer/Vplay2.jsx'
-
+import VerifyOtp from '../components/Otp/Otp.jsx'
 const LazyHome = React.lazy(
   () => import("../../src/components/Home/Home.jsx")
 )
@@ -71,6 +71,14 @@ const Routes = createBrowserRouter([
     )
   },
   {
+    path: "/verifyotp",
+    element: (
+      <VerifyOtp>
+
+      </VerifyOtp>
+    )
+  },
+  {
     path: "/profile", element: (
       <AuthLayout >
         <Suspense fallback={<Loading />}>
@@ -113,11 +121,11 @@ const Routes = createBrowserRouter([
     path: "/createchannel",
     element: (
       <AuthLayout>
-        
-          <Suspense fallback={<Loading />}>
-            <LazyCreateChannel />
-          </Suspense>
-      
+
+        <Suspense fallback={<Loading />}>
+          <LazyCreateChannel />
+        </Suspense>
+
       </AuthLayout>
     )
   }

@@ -6,7 +6,10 @@ import { backendUrl } from '../index.js'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Input from '../Input/Input.jsx'
+import { useNavigate } from 'react-router-dom'
 const Signup = () => {
+
+  let navigate = useNavigate()
 
   const [userInfo, setUserInfo] = React.useState({
     fullname: "",
@@ -52,8 +55,8 @@ const Signup = () => {
       }
     }).then(
       (response) => {
-        console.log(response?.data)
-        toast.success(response?.data?.message)
+        console.log(response)
+        navigate("/verifyotp")
       }
     ).catch(function (error) {
       console.log("error in signup", error)
@@ -97,10 +100,10 @@ const Signup = () => {
             <Input type="password" name={"confirmPassword"} required={true} value={confirmPassword} fun={handleChange} />
           </div>
 
-          <div>
+          {/* <div>
             <label htmlFor='profile'>Profile Picture</label>
             <Input name={"profile"} type={"file"} fun={(e) => (setProfile(e.target.files[0]))} css={"file:text-xs file:bg-transparent file:border-white file:text-white pt-2 md:pt-1"} />
-          </div>
+          </div> */}
           <div className='my-4'>
             <h1 className='text-center capitalize'>Have account ?<Link to={"/login"} className='text-blue-300 mx-1'>Login</Link></h1>
           </div>
