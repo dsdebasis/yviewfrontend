@@ -1,38 +1,43 @@
-import React, { useRef, useEffect } from "react";
-import videojs from "video.js";
-import "video.js/dist/video-js.css";
+import React from 'react';
+import videojs from 'video.js';
+import 'video.js/dist/video-js.css';
 
-export const VideoPlayer = (props) => {
-  const videoRef = useRef(null);
-  const playerRef = useRef(null);
-  const { options, onReady } = props;
+export const VideoJS = (props) => {
+  const videoRef = React.useRef(null);
+  const playerRef = React.useRef(null);
+  const {options, onReady} = props;
 
-  useEffect(() => {
+  React.useEffect(() => {
+
     // Make sure Video.js player is only initialized once
     if (!playerRef.current) {
-      // The Video.js player needs to be _inside_ the component el for React 18 Strict Mode.
+      // The Video.js player needs to be _inside_ the component el for React 18 Strict Mode. 
       const videoElement = document.createElement("video-js");
 
-      videoElement.classList.add("vjs-big-play-centered");
+      videoElement.classList.add('vjs-big-play-centered');
       videoRef.current.appendChild(videoElement);
 
-      const player = (playerRef.current = videojs(videoElement, options, () => {
-        videojs.log("player is ready");
+      const player = playerRef.current = videojs(videoElement, options, () => {
+        // videojs.log('player is ready');
         onReady && onReady(player);
-      }));
+      });
 
-      // You could update an existing player in the `else` block here
-      // on prop change, for example:
+    // You could update an existing player in the `else` block here
+    // on prop change, for example:
     } else {
       const player = playerRef.current;
 
       player.autoplay(options.autoplay);
       player.src(options.sources);
     }
+
+    return ()=>{
+      console.log("video player is unmounted")
+    }
   }, [options, videoRef]);
 
   // Dispose the Video.js player when the functional component unmounts
-  useEffect(() => {
+  React.useEffect(() => {
     const player = playerRef.current;
 
     return () => {
@@ -44,15 +49,12 @@ export const VideoPlayer = (props) => {
   }, [playerRef]);
 
   return (
-    <div className="h-screen bg-gradient-to-br from-slate-600 to-slate-800  flex md:justify-center items-center ">
-      <div
-        data-vjs-player
-       
-      className="w-full md:w-[40vw]  border-2 ">
-        <div ref={videoRef} />
-      </div>
+    <div data-vjs-player  className='w-full md:w-[40vw] '>
+      <div ref={videoRef} />
     </div>
   );
-};
+}
 
-export default VideoPlayer;
+export default VideoJS;
+
+

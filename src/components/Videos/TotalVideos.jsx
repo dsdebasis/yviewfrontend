@@ -10,7 +10,7 @@ const TotalVideos = ({videos}) => {
         {
           channelVideos?.map((i,index) => {
       
-            return <Video key={i} title={channelVideos[index]?.title} src={channelVideos[index]?.videoFile} uploadTime={channelVideos[index]?.uploadTime}  vid={channelVideos[index]?._id} thumbnail={channelVideos[index]?.thumbnail}/>
+            return <Video key={i} title={channelVideos[index]?.title} src={channelVideos[index]?.videoFile} uploadTime={channelVideos[index]?.uploadTime}  vid={channelVideos[index]?._id} thumbnail={channelVideos[index]?.thumbnail} duration={channelVideos[index]?.duration}/>
           })
         }
       </div>
