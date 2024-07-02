@@ -41,9 +41,9 @@ const Login = () => {
       username, password
     }, config)
       .then((res) => {
-        dispatch(authLogin(res?.data?.data))
+        dispatch(authLogin(res?.data?.data.msg))
 
-
+     
       })
       .catch((error) => {
         toast.error(error?.response?.data?.message || "server is not connected")

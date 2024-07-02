@@ -55,7 +55,7 @@ const Signup = () => {
       }
     }).then(
       (response) => {
-        console.log(response)
+        // console.log(response)
         navigate("/verifyotp")
       }
     ).catch(function (error) {

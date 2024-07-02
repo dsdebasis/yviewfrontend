@@ -8,8 +8,8 @@ function AuthLayout({ children }) {
   const authStatus = useSelector((state) => state.auth.status)
   const authData = useSelector((state)=>state.auth.userData)
     useEffect(() => {
-      if (authStatus === false  || authData == null  ) {
-        navigate("/")
+      if (authStatus === false   ) {
+        navigate("/login")
       }
     }, [authStatus,navigate])
 

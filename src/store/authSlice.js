@@ -10,7 +10,7 @@ const cookieData =  Cookie.get("auth_info")
 if(cookieData){
   const data = JSON.parse(cookieData)
   initialState.status = data.status
-  initialState.userData=data.userData.refreshToken
+  // initialState.userData=data.userData.refreshToken
 }
 
 const authSlice = createSlice({

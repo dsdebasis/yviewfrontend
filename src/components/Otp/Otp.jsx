@@ -25,13 +25,7 @@ function VerifyOtp() {
     e.preventDefault()
     console.log(data)
     axios.post(`${backendUrl}/verifyotp`,data, {
-
-      headers: {
-        "content-type": "application/json",
-        accept: "application/json",
-      },
       withCredentials: true,
-
     }).then((res) => {
       console.log("res   ",res)
       // toast.success()

@@ -24,8 +24,8 @@ const Home = () => {
   return (
     <section className='min-h-screen px-2  box-border bg-gradient-to-r from-slate-900 to-slate-700 font-sans pt-2'>
 
-      <Nav />
-      <div className=' sticky top-0 '>
+      <Nav /> 
+      <div className='max-h-[10vh] mt-5  sticky top-2 z-40 '>
         <Search />
       </div>
 
@@ -33,12 +33,12 @@ const Home = () => {
       <section className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4  place-items-center gap-y-6  lg:gap-y-5 text-white py-2' >
 
 
-      {
-          videoRes?.data?.map((item,index)=>{
-           
-            return <Video key={item._id} thumbnail={item.thumbnail} vid={item._id} src={item?.videoFile} title={item.title} uploadTime={item.uploadTime} videoOwner={item.ownerName} duration={item.duration} channelProfilePic={item.channelProfilePic}/>
+        {
+          videoRes?.data?.map((item, index) => {
+
+            return <Video key={item._id} thumbnail={item.thumbnail} vid={item._id} src={item?.videoFile} title={item.title} uploadTime={item.uploadTime} videoOwner={item.ownerName} duration={item.duration} channelProfilePic={item.channelProfilePic} />
           })
-      }
+        }
       </section>
       <ToastContainer />
     </section>
