@@ -52,7 +52,8 @@ const Signup = () => {
     axios.post(`${backendUrl}/register`, form, {
       headers: {
         "Content-Type": "multipart/form-data"
-      }
+      },
+      withCredentials:true
     }).then(
       (response) => {
         // console.log(response)
