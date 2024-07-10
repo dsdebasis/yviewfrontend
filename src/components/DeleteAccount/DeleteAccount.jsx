@@ -10,14 +10,15 @@ import Cookie from "js-cookie"
 const DeleteAccount = () => {
 
   const [details, setDetails] = useState({})
-  const [loading,setLoading] = useState(false)
+  const [loading, setLoading] = useState(false)
   let clearTimeOutId;
 
 
   const handleChange = function (e) {
     clearTimeout(clearTimeOutId)
     clearTimeOutId = setTimeout(() => {
-      setDetails({...details,
+      setDetails({
+        ...details,
         [e.target.name]: e.target.value
       })
     }, 600)
@@ -25,19 +26,27 @@ const DeleteAccount = () => {
 
   const handleDeleteAccount = function (e) {
     e.preventDefault()
-    
+
     setLoading(true)
     console.log(details)
-    axios.post(`${backendUrl}/deleteaccount`,details,{
+    axios.delete(`${backendUrl}/deleteaccount`, {
+      data: {
+        ...details
+      }
+      ,
+      headers: {
+        "Content-Type": "application/json"
+      },
       withCredentials: true
-    }).then((res)=>{
+
+    }).then((res) => {
       Cookie.remove("auth_info")
-       console.log(res)
-       toast.success(res.data.message)
-    }).catch((error)=>{
-    Cookie.remove("auth_info")
-     toast.error(error.response.data.message)
-    }).finally(()=>{
+      console.log(res)
+      toast.success(res.data.message)
+    }).catch((error) => {
+
+      toast.error(error.response.data.message)
+    }).finally(() => {
       setLoading(false)
     })
   }
@@ -63,8 +72,8 @@ const DeleteAccount = () => {
           <button type='submit' className='w-full py-3 rounded-2xl bg-blue-600 hover:bg-slate-950'>Delete Account</button>
         </div>
       </form>
-      {loading ? <Loading/> :"" }
-      <ToastContainer/>
+      {loading ? <Loading /> : ""}
+      <ToastContainer />
     </section>
   )
 }
