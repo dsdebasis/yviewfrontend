@@ -2,32 +2,19 @@ import React from 'react'
 import { useState } from 'react'
 import { useEffect } from 'react'
 import { backendUrl } from '../index.js'
-import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import Loading from '../Loading/Loading.jsx'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Input from '../Input/Input.jsx'
 function UploadVideo() {
-  const navigate = useNavigate()
-
-  useEffect(() => {
-    axios.get(`${backendUrl}/getchannel`, {
-      withCredentials: true
-    }).then((res) => {
-      res = res.data.data
-
-    }).catch((err) => {
-      console.log("erorr", err.response.data.message)
-      navigate("/createchannel",)
-
-    })
-  }, [])
+  
   const [selectVideo, setSelectVideo] = useState("")
   const [thumbnail, setThumbnail] = useState("")
   const [title, setTitle] = useState("")
   const [description, setDescription] = useState("")
   const [loading, setLoading] = useState(false)
+
   let inputFiled = window.document.getElementsByTagName("input")
   let clearTimeId;
   function handleUploadVideo(e) {
@@ -45,7 +32,6 @@ function UploadVideo() {
       },
     }).then((res) => {
       console.log("uplaod response from server", res)
-      navigate("/channel")
       toast.success("file uplaoded successfully")
 
     }).catch((error) => {
@@ -53,17 +39,7 @@ function UploadVideo() {
       console.log(error.response.data.message)
 
     }).finally(() => {
-
       setLoading(false)
-
-      // setSelectVideo("")
-      // setDescription("")
-      // setTitle("")
-      // setThumbnail("")
-      // inputFiled[0].value = ""
-      // inputFiled[1].value = ""
-      // inputFiled[2].value = ""
-      
     })
   }
 

@@ -130,7 +130,7 @@ const Routes = createBrowserRouter([
     )
   }
   , {
-    path: "/videoplayer", element: (
+    path: "/videoplayer/:videoid/", element: (
       <Vplay2 />
     )
   }, {

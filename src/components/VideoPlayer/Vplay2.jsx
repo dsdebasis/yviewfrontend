@@ -1,19 +1,42 @@
-
 import VideoPlayer from "./VideoPlayer.jsx";
 import { useRef } from "react";
+import { useEffect } from "react";
+import axios from "axios";
+import { useParams } from "react-router-dom";
+import { backendUrl } from "../index.js";
+import { useState } from "react";
+import {  toast } from 'react-toastify';
 
 function Vplay2() {
-  let link = localStorage.getItem("link")
+  
 
+  const [videoLink,setVideoLink] = useState("")
+  const { videoid } = useParams();
+ 
+
+  let videolink;
+  useEffect(() => {
+    axios
+      .get(`${backendUrl}/videoid/${videoid}`,)
+      .then((res) => {
+       
+        setVideoLink(res.data.message)
+      })
+      .catch((error) => {
+        
+        toast.error(error.response.data.message)
+      });
+  }, []);
+  
   const playerRef = useRef(null);
-  const videoLink = link;
+   
   const videoPlayerOptions = {
     controls: true,
     responsive: true,
     fluid: true,
     sources: [
       {
-        src: link,
+        src: videoLink.videoFile,
         // type: "mp4",
       },
     ],
@@ -32,12 +55,7 @@ function Vplay2() {
   };
   return (
     <>
-      
-
-      <VideoPlayer
-        options={videoPlayerOptions}
-        onReady={handlePlayerReady}
-      />
+      <VideoPlayer options={videoPlayerOptions} onReady={handlePlayerReady} />
     </>
   );
 }

@@ -1,12 +1,14 @@
 import React from 'react';
 import videojs from 'video.js';
 import 'video.js/dist/video-js.css';
-
+import { useParams } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 export const VideoJS = (props) => {
   const videoRef = React.useRef(null);
   const playerRef = React.useRef(null);
   const {options, onReady} = props;
-
+  
   React.useEffect(() => {
 
     // Make sure Video.js player is only initialized once
@@ -49,8 +51,12 @@ export const VideoJS = (props) => {
   }, [playerRef]);
 
   return (
-    <div data-vjs-player  className='w-full md:w-[40vw] '>
+    <div data-vjs-player  className='w-full h-auto min-h-screen overflow-hidden md:w-[40vw] bg-gradient-to-br from-slate-700 to-slate-900 px-2'>
       <div ref={videoRef} />
+      <section className='text-white mt-4 text-center border-2 border-stone-500 rounded-lg '>
+        <h1 className='py-4'>Comments</h1>
+      </section>
+      <ToastContainer/>
     </div>
   );
 }

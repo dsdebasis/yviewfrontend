@@ -32,9 +32,7 @@ const ChannelHeading = () => {
         </div>
         <div className="text-center capitalize ">{`Channel Created at ${createdAt}`}</div>
         <button className="self-center justify-self-center rounded-lg bg-blue-700  h-10 hover:bg-green-700 w-[200px]">
-          <Link onClick={function(){
-           navigate("/uploadvideo")
-          }}  className='text-white'>Upload Video</Link>
+          <Link to={"/uploadvideo"} >Upload Video</Link>
         </button>
       </section>
 
