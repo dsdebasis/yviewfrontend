@@ -1,4 +1,6 @@
 import React from "react";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import ChannelHeading from "./ChnlHeading.jsx";
 import VideoPage from "../Videos/VideoPage.jsx";
 import { useEffect } from "react";
@@ -33,7 +35,8 @@ const ChannelPage = () => {
       })
       .catch((err) => {
         setError(err.response.data);
-        console.log(err.response.data);
+        console.log(err.response.data.message);
+        toast.error(err.response.data.message)
       })
       .finally(() => {
         setLoading(false);
@@ -41,9 +44,9 @@ const ChannelPage = () => {
   }, []);
 
   const { message } = error;
-
-  if(error.scccess == false){
-   return <Error message= "No Channel Found"/>
+  console.log("error",error)
+  if(error.scccess){
+   return <Error message="No channel found"  />
   }
   
   {
@@ -53,6 +56,7 @@ const ChannelPage = () => {
       <section className="min-h-screen w-full bg-gradient-to-br from-slate-700 to-slate-900 grid grid-flow-row  px-5">
         <ChannelHeading />
         <VideoPage />
+        <ToastContainer/>
       </section>
     );
   }

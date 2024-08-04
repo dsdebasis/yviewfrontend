@@ -31,7 +31,7 @@ const ChannelHeading = () => {
           <div className='self-center justify-self-center'>{views || 0}</div>
         </div>
         <div className="text-center capitalize ">{`Channel Created at ${createdAt}`}</div>
-        <button className="self-center justify-self-center rounded-lg bg-blue-700  h-10 hover:bg-green-700 w-[200px]">
+        <button className="self-center justify-self-center rounded-lg bg-blue-700  h-10 hover:bg-green-700 w-[200px] border-2">
           <Link to={"/uploadvideo"} >Upload Video</Link>
         </button>
       </section>

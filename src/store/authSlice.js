@@ -30,6 +30,9 @@ const authSlice = createSlice({
       state.status = false
       state.userData =null 
      
+    },
+    comments:function(state,action){
+       
     }
   }
 })

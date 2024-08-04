@@ -4,4 +4,6 @@ const CompContext = createContext({})
 
 const VideoContext = createContext({})
 
-export { CompContext,VideoContext }
+const CmntContext = createContext({})
+
+export { CompContext,VideoContext,CmntContext }

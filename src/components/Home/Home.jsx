@@ -16,16 +16,19 @@ import { useCallback } from "react";
 const Home = () => {
   // const [videos, setVideos] = useState([]);
   const [videoRes, setVideoRes] = useState([]);
+
   const [error, setError] = useState(false);
   let [page, setPage] = useState(1);
   let [pageSize, setPageSize] = useState(4);
+
+  const [comments,setComments] = useState([null])
   const [load,setLoading] = useState(false)
   const fetchData = useCallback(() => {
     setLoading(true)
     axios
       .get(`${backendUrl}/getvideos/${page}/${pageSize}`)
       .then((res) => {
-       
+      //  console.log(res)
         if (error == false) {
          setVideoRes((prev)=>[...prev,...res.data.data]) 
          setLoading(false)
@@ -39,10 +42,9 @@ const Home = () => {
   });
 
   const handleScroll = (e) => {
-    console.log("scrolled");
     if (
       window.innerHeight + document.documentElement.scrollTop >=
-        document.documentElement.offsetHeight - 5 &&
+        document.documentElement.scrollTop + 1 &&
       !error
     ) {
       setPage((prev) => prev + 1);

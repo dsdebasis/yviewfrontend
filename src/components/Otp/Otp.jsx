@@ -27,8 +27,8 @@ function VerifyOtp() {
     axios.post(`${backendUrl}/verifyotp`,data, {
       withCredentials: true,
     }).then((res) => {
-      // console.log("res   ",res)
-      toast.success(res.data.data.message)
+      console.log("res   ",res.data.data.message)
+      toast.success(res?.data?.data.message)
     }).catch((error)=>{
       // console.log(error.response.data.message)
       toast.error(error.response.data.message)
