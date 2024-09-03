@@ -1,12 +1,12 @@
-import React from 'react'
+
 import Input from '../Input/Input.jsx'
 import { useState } from 'react'
 import axios from 'axios'
 import { backendUrl } from '../index.js'
 import { ToastContainer } from 'react-toastify'
 import { toast } from 'react-toastify'
-function VerifyOtp() {
-
+function CreateUser() {
+  
   const [ data, setData ] = useState({ email: "", otp: "" })
   let timerID;
   let handleInput = function (e) {
@@ -21,10 +21,11 @@ function VerifyOtp() {
     }, 600)
   }
 
+  
   let Verify = function (e) {
     e.preventDefault()
     console.log(data)
-    axios.post(`${backendUrl}/verifyotp`,data, {
+    axios.post(`${backendUrl}/create-user`,data, {
       withCredentials: true,
     }).then((res) => {
       console.log("res   ",res.data.data.message)
@@ -51,4 +52,4 @@ function VerifyOtp() {
   )
 }
 
-export default VerifyOtp
+export default CreateUser

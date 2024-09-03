@@ -1,10 +1,9 @@
 import { createBrowserRouter } from "react-router-dom";
 import Loading from "../components/Loading/Loading.jsx";
 import AuthLayout from "./AuthLayout.jsx";
-import Vplay from "../components/VideoPlayer/Vplay.jsx";
 import React, { Suspense } from "react";
 import Vplay2 from "../components/VideoPlayer/Vplay2.jsx";
-import VerifyOtp from "../components/Otp/Otp.jsx";
+import CreateUser from "../components/CreateUser/CreateUser.jsx";
 import CommentContext from "../Context/CommentContext.jsx";
 const LazyHome = React.lazy(() => import("../../src/components/Home/Home.jsx"));
 
@@ -70,7 +69,7 @@ const Routes = createBrowserRouter([
   },
   {
     path: "/verifyotp",
-    element: <VerifyOtp></VerifyOtp>,
+    element: <CreateUser></CreateUser>,
   },
   {
     path: "/profile",
