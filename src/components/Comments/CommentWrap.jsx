@@ -24,13 +24,13 @@ function CommentWrap({ videoid }) {
     axios
       .get(`${backendUrl}/comments/${videoid}/${page}/${pageSize}`)
       .then((res) => {
-       
+       console.log(res)
         setComments(res.data.message.comments);
       })
       .catch((error) => {});
   }, []);
   return (
-    <section className="h-screen  w-full px-2 pb-3 mt-10  md:px-2 lg:px-3  border-2 border-stone-600 rounded-lg">
+    <section className="min-h-screen h-atuo  w-full px-2 pb-3 mt-10  md:px-2 lg:px-3 ">
       <AddComment />
       <section className="grid grid-flow-row gap-y-4">
         {comments.map((cmnt) => {
@@ -41,6 +41,8 @@ function CommentWrap({ videoid }) {
               content={cmnt.comment}
               like={""}
               dislike={""}
+              username={cmnt.username}
+              commentTime={cmnt.commentTime}
             />
           );
         })}
