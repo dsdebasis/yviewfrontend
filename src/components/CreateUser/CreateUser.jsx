@@ -28,11 +28,11 @@ function CreateUser() {
     axios.post(`${backendUrl}/create-user`,data, {
       withCredentials: true,
     }).then((res) => {
-      console.log("res   ",res.data.data.message)
-      toast.success(res?.data?.data.message)
+      console.log("success response",res?.data?.message)
+      toast.success(res?.data?.message)
     }).catch((error)=>{
-      // console.log(error.response.data.message)
-      toast.error(error.response.data.message)
+      console.log(error.response?.data?.message)
+      toast.error(error.response?.data?.message)
     })
   }
   return (
@@ -43,7 +43,7 @@ function CreateUser() {
           <label htmlFor='email'>Email</label>
           <Input name="email" type="email" required fun={handleInput} />
           <label htmlFor='otp'>OTP</label>
-          <Input name="otp" type="text" required fun={handleInput} />
+          <Input name="otp" type="number" required fun={handleInput} />
         </div>
         <button className=' h-12 md:h-12 w-full  bg-blue-600 rounded-xl hover:bg-red-600' onClick={Verify}>Verify OTP</button>
       </form>
