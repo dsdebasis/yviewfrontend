@@ -5,42 +5,18 @@ import React, { Suspense } from "react";
 import Vplay2 from "../components/VideoPlayer/Vplay2.jsx";
 import CreateUser from "../components/CreateUser/CreateUser.jsx";
 import CommentContext from "../Context/CommentContext.jsx";
-const LazyHome = React.lazy(() => import("../../src/components/Home/Home.jsx"));
 
-const LazyLogin = React.lazy(() =>
-  import("../../src/components/Login/Login.jsx")
-);
 
-const LazySignUp = React.lazy(() =>
-  import("../../src/components/Signup/Signup.jsx")
-);
+import { 
+  LazyHome, LazyLogin, LazySignUp,
+   LazyProfile,LazyResetPassword, 
+   LazyVerifyResetPasswordLink,
+   LazyUpdatePassword, LazyChannelPage,
+   LazyCreateChannel,LazyDeleteAccount,
+   LazyUpdateProfile,LazyUploadVideo,
+   LazyLogout,
+   } from "./LazyComp.js";
 
-const LazyProfile = React.lazy(() =>
-  import("../../src/components/Profile/Profile.jsx")
-);
-
-const LazyUpdatePassword = React.lazy(() =>
-  import("../../src/components/Profile/UpdatePassword.jsx")
-);
-
-const LazyLogout = React.lazy(() =>
-  import("../../src/components/Login/Logout.jsx")
-);
-const LazyUploadVideo = React.lazy(() =>
-  import("../../src/components/UploadVideo/UploadVideo.jsx")
-);
-const LazyCreateChannel = React.lazy(() =>
-  import("../../src/components/Channel/ChannelCreate.jsx")
-);
-const LazyChannelPage = React.lazy(() =>
-  import("../../src/components/Channel/ChannelPage.jsx")
-);
-const LazyDeleteAccount = React.lazy(() =>
-  import("../../src/components/DeleteAccount/DeleteAccount.jsx")
-);
-const LazyUpdateProfile = React.lazy(() =>
-  import("../../src/components/Profile/UpdateProfile.jsx")
-);
 
 const Routes = createBrowserRouter([
   {
@@ -60,6 +36,19 @@ const Routes = createBrowserRouter([
     ),
   },
   {
+  path:"/reset-password",
+  element:(
+    <Suspense fallback={<Loading/>}>
+
+      <LazyResetPassword/>
+    </Suspense>
+  )
+  },
+  {
+    path:"/password-resetemail-verify/:passwordResetToken",
+    element:(<LazyVerifyResetPasswordLink/>)
+  },
+  {
     path: "/signup",
     element: (
       <Suspense fallback={<Loading />}>
@@ -69,7 +58,9 @@ const Routes = createBrowserRouter([
   },
   {
     path: "/verifyotp",
-    element: <CreateUser></CreateUser>,
+    element:<Suspense fallback={<Loading />}>
+       <CreateUser/>
+    </Suspense>,
   },
   {
     path: "/profile",

@@ -10,6 +10,7 @@ import { backendUrl } from "../index.js";
 
 const PasswordReset = () => {
 
+        const [loading,setLoading] = useState(false) 
         const [passData,setData] = useState({
            email:"",
            username:""
@@ -22,18 +23,25 @@ const PasswordReset = () => {
                 ...passData,
                 [e.target.name]:e.target.value
              })
-          }
         }
+        
    const handlePasswordResetEmail = function(e){
      e.preventDefault()
+     setLoading(true)
      axios.post(`${backendUrl}/password-reset-email`,passData)
            .then((res)=>{
-              console.log(res)
+              console.log(res.data.message)
+              toast.success(res.data.message)
+              setLoading(false)
            }).catch((error)=>{
                 console.log(error.response.data.message)
                 toast.error(error.response.data.message)
+                setLoading(false)
+           }).finally(()=>{
+            setLoading(false)
            })
-       
+    }
+  
   return (
     <div className="h-screen w-screen bg-gradient-to-br from-slate-700 to-zinc-700 flex justify-center items-center p-10 md:p-0">
       <form className="md:w-[30vw] h-[40vh] bg-gradient-to-b from-gray-900  shadow-2xl to-slate-600 p-4 text-white rounded-lg flex flex-col justify-around">
@@ -51,9 +59,10 @@ const PasswordReset = () => {
           Send Email
         </button>
       </form>
-      <ToastContainer theme="dark" style={{width:"90vw",margin:" 1em "}}/>
+        {loading ? <Loading/> : <></>}
+      <ToastContainer theme="dark" />
     </div>
   );
-
 }
+
 export default PasswordReset;

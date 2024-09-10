@@ -1,20 +1,19 @@
 import Nav from "../Navbar/Nav.jsx";
-import VideoPage from "../Videos/VideoPage.jsx";
+
 import Search from "../Videos/Search.jsx";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useEffect } from "react";
 import axios from "axios";
 import { backendUrl } from "../index.js";
-import TotalVideos from "../Videos/TotalVideos.jsx";
+
 import Video from "../Videos/Video.jsx";
 import { useState } from "react";
-import VideoFooter from "../Channel/VideoFooter.jsx";
-import ChannelImg from "../Channel/ChannelImg.jsx";
-import Loading from "../Loading/Loading.jsx";
+
+
 import { useCallback } from "react";
 const Home = () => {
-  // const [videos, setVideos] = useState([]);
+
   const [videoRes, setVideoRes] = useState([]);
 
   const [error, setError] = useState(false);

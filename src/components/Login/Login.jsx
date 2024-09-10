@@ -22,7 +22,7 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const [resetPass, setResetPass] = useState(false);
+ 
 
   const dispatch = useDispatch();
 
@@ -59,9 +59,8 @@ const Login = () => {
       });
   };
 
-  if (resetPass) {
-   return <PasswordReset />;
-  } else {
+ 
+  
     return (
       <div className="h-screen w-screen   bg-gradient-to-br from-slate-500 to-gray-900 flex flex-col  justify-center gap-y-4    px-5 md:items-center">
         <form
@@ -108,11 +107,8 @@ const Login = () => {
 
           <Link
             className="text-center text-yellow-400"
-            onClick={(e) => {
-              e.preventDefault();
-              setResetPass(true);
-            }}
-          >
+          
+           to="/reset-password">
             Forgot Password ?
           </Link>
 
@@ -136,7 +132,7 @@ const Login = () => {
         {loading ? <Loading title={"logging in"} /> : <></>}
       </div>
     );
-  }
+  
 };
 
 export default Login;
