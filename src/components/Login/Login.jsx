@@ -10,6 +10,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Input from "../Input/Input.jsx";
 import PasswordReset from "../PasswordReset/PasswordReset.jsx";
+import Nav from "../Navbar/Nav.jsx";
 const Login = () => {
   const navigate = useNavigate();
 
@@ -21,8 +22,6 @@ const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
-
- 
 
   const dispatch = useDispatch();
 
@@ -59,20 +58,20 @@ const Login = () => {
       });
   };
 
- 
-  
-    return (
-      <div className="h-screen w-screen   bg-gradient-to-br from-slate-500 to-gray-900 flex flex-col  justify-center gap-y-4    px-5 md:items-center">
+  return (
+    <section className=" h-screen w-full flex flex-row justify-center items-center">
+      {/* <Nav/> */}
+      <div className="place-self-end mb-20 h-[70%] xl:h-[70%]    gap-y-4   text-xs overflow-hidden box-border xl:place-self-center  xl:p-4 p-2 text-white xl:text-base">
         <form
           id="login"
           action="/"
           onSubmit={handleLogin}
-          className="text-white w-full  md:w-[30vw] xl:rounded-xl xl:w-[25vw]  h-[50vh] xl:h-[50vh] md:h-[60vh]   rounded-xl flex flex-col justify-evenly  bg-gradient-to-tr from-slate-500 to-slate-900 px-4 md:px-4 "
+          className="w-full h-[70%] xl:h-[80%]   text-white    xl:rounded-xl       rounded-xl   bg-gradient-to-tr from-slate-500 to-slate-900 px-4 overflow-hidden my-4  "
         >
-          <h1 className="text-center xl:text-xl">Login</h1>
+          <h1 className="mt-3 text-center xl:text-xl font-mono">Login</h1>
           <div className="flex flex-col gap-y-4">
             <div>
-              <label htmlFor="username" className="md:text-xl">
+              <label htmlFor="username">
                 Username
               </label>
               <Input
@@ -88,7 +87,7 @@ const Login = () => {
               />
             </div>
             <div>
-              <label htmlFor="password" className="md:text-xl">
+              <label htmlFor="password" >
                 Password
               </label>
               <Input
@@ -105,25 +104,27 @@ const Login = () => {
             </div>
           </div>
 
-          <Link
-            className="text-center text-yellow-400"
-          
-           to="/reset-password">
-            Forgot Password ?
-          </Link>
+          <div className="mt-3 xl:mt-8">
+            <Link
+              className="mt-4 text-center text-yellow-400"
+              to="/reset-password"
+            >
+              Forgot Password ?
+            </Link>
+          </div>
 
           <button
             type="submit"
             disabled={loading}
-            className="w-full py-3 rounded-2xl bg-blue-600 hover:bg-slate-950"
+            className=" w-full h-[10%] mt-4  rounded-md bg-blue-600 hover:bg-slate-950"
           >
             Login
           </button>
         </form>
-        <div className="h-[10vh] xl:w-[25vw] bg-gradient-to-bl  rounded-md text-center xl:rounded-xl">
-          <h1 className="md:text-xl xl:text-lg text-white mt-5">
+        <div className="h-[10%] w-full xl:h-[15%]   flex justify-center  items-center rounded-md text-center xl:rounded-xl bg-gradient-to-t from-slate-500 to-slate-900 overflow-hidden ">
+          <h1 >
             Don't have an account ?
-            <Link to={"/signup"} className="text-blue-400 mx-2">
+            <Link to={"/signup"} className="text-blue-400 ml-3">
               Signup
             </Link>
           </h1>
@@ -131,8 +132,8 @@ const Login = () => {
         <ToastContainer />
         {loading ? <Loading title={"logging in"} /> : <></>}
       </div>
-    );
-  
+    </section>
+  );
 };
 
 export default Login;

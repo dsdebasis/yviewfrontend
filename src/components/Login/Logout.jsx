@@ -33,7 +33,7 @@ const Logout = () => {
 
 
   return (
-    <div className='h-screen bg-gradient-to-bl from-slate-700 to-slate-950 flex justify-center items-center transition-all ease-in-out '>
+    <div className='h-screen  flex justify-center items-center transition-all ease-in-out '>
       <button className='px-2 py-2 border-2 hover:border-red-500 shadow-2xl border-white text-white rounded-lg disabled:border-red-600 disabled:blur-sm disabled:cursor-not-allowed' disabled={loading} onClick={handleLogout} >Logout</button>
       <ToastContainer />
       {loading ? <Loading title={"logging out"}/> :""}

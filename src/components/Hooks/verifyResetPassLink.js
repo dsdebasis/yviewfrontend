@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { backendUrl } from "../index.js";
+
 export const useVerifyResetPassLink = (data) => {
      
         console.error("error")

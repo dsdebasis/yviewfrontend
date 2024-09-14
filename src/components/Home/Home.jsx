@@ -1,5 +1,4 @@
 import Nav from "../Navbar/Nav.jsx";
-
 import Search from "../Videos/Search.jsx";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -9,7 +8,6 @@ import { backendUrl } from "../index.js";
 
 import Video from "../Videos/Video.jsx";
 import { useState } from "react";
-
 
 import { useCallback } from "react";
 const Home = () => {
@@ -59,13 +57,13 @@ const Home = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
   return (
-    <section className="min-h-screen px-2  box-border bg-gradient-to-r from-slate-900 to-slate-700 font-sans pt-2">
-      <Nav />
-      <div className="max-h-[10vh] mt-5  sticky top-2 z-40 ">
+    <section className=" min-h-screen px-2   font-sans pt-2">
+     <Nav/>
+      <div className=" max-h-[10vh] mt-[15vh]  sticky top-2 z-10 xl:mt-20 ">
         <Search />
       </div>
 
-      {/* <VideoPage /> */}
+      
       <section className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4  place-items-center gap-y-6  lg:gap-y-5 text-white py-2">
        
         {videoRes?.map((item) => {
