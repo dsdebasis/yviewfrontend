@@ -60,7 +60,7 @@ const Login = () => {
   };
 
   return (
-    <section className=" h-screen w-full flex flex-col ">
+    <section className=" h-screen  w-full flex flex-col relative">
      <NavButton/>
 
       {loading ? (
@@ -68,7 +68,7 @@ const Login = () => {
         
       ) : (
         <>
-          <div className="mt-20 h-[70%] xl:h-[70%]    gap-y-4   text-xs overflow-hidden box-border   xl:p-4 p-2 text-white xl:text-base xl:self-center ">
+          <div className="mt-[20vh] lg:mt-[10vh] h-[70%] xl:h-[70%]    gap-y-4   text-xs overflow-hidden box-border   xl:p-4 p-2 text-white xl:text-base xl:self-center ">
             <form
               id="login"
               action="/"

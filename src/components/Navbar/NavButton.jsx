@@ -4,22 +4,34 @@ import { BsMenuButtonWideFill } from "react-icons/bs";
 import Nav from "./Nav";
 function NavButton() {
   const [click, setClick] = useState(false);
-  const [height, setHight] = useState("");
+  const [css, setCss] = useState({});
   const handleClick = function (e) {
     e.preventDefault();
     setClick(!click);
-    //    setHight("h-fit")
+    if (click == true) {
+      setCss({
+        nav: " ",
+        navParent: "absolute ",
+      });
+    } else {
+      setCss({
+        nav:"z-50",
+        navParent: " z-0 ",
+      });
+    }
   };
   return (
-    <section className={`h-fit lg:h-[12vh] w-full p-2  ${height} absolute `}>
-      <div className="h-full w-full  box-border text-yellow-500  rounded-md flex flex-col lg:flex-row justify-center items-center gap-x-5 lg:p-2  ">
+    <section
+      className={`mt-2 h-auto  w-[90%] lg:w-[98%] mx-4 lg:h-[10vh]   flex flex-col lg:flex-row  justify-center items-center gap-x-5  lg:p-2  absolute z-50  rounded-md  ${css.nav}`}
+    >
+      <div className="lg:w-5 place-self-start">
+       <BsMenuButtonWideFill onClick={handleClick} className="text-yellow-500" />
+      </div>
 
-        <div className="h-5 my-1 lg:h-full w-[6%]  bg-gradient-to-r rounded-md flex justify-center items-center ">
-          <BsMenuButtonWideFill onClick={handleClick}  />
-        </div>
-        <div className= "h-[90vh] w-[90%] rounded-2xl lg:h-full   lg:p-0 lg:mt-1 overflow-hidden z-50 ">
-          {click ? <Nav /> : <></>}
-        </div>
+      <div
+        className={`w-full   rounded-md lg:h-full   lg:p-0 lg:mt-1   ${css.navParent}lg:relative lg:self-end`}
+      >
+        {click ? <Nav /> : <></>}
       </div>
     </section>
   );

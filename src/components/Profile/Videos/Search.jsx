@@ -9,7 +9,7 @@ const Search = () => {
       <div className='h-[10%] my-2 w-full ml-14 md:flex md:justify-center'>
        
       </div>
-      <div className=' absolute   md:right-14 w-[250px]'>
+      <div className=' absolute z-5 lg:z-10   md:right-14 w-[250px]'>
         <ProfileHeading status={authStatus} />
       </div>
     </section>

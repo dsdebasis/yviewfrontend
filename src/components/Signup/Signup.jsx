@@ -38,45 +38,46 @@ const Signup = () => {
   form.append("username", username);
   form.append("password", password);
   form.append("confirmPassword", confirmPassword);
-
+  
   const handleRegister = async function (e) {
     e.preventDefault();
     setLoading(true);
     form.append("profilePic", profile);
     form.append("coverImage", coverImage);
-
+    
     axios
-      .post(`${backendUrl}/register`, form, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-        withCredentials: true,
-      })
-      .then((response) => {
-        // console.log(response)
-        navigate("/verifyotp");
-      })
-      .catch(function (error) {
-        console.log("error in signup", error);
-        toast.error(error?.response?.data?.message);
-      })
-      .finally(() => {
-        setLoading(false);
-      });
+    .post(`${backendUrl}/register`, form, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+      withCredentials: true,
+    })
+    .then((response) => {
+      // console.log(response)
+      navigate("/verifyotp");
+    })
+    .catch(function (error) {
+      console.log("error in signup", error);
+      toast.error(error?.response?.data?.message);
+    })
+    .finally(() => {
+      setLoading(false);
+    });
   };
-
+  
+  {loading ? <Loading /> : <></>}
   return (
     <section className="min-h-screen w-full grid grid-flow-row ">
     <NavButton/>
-      <div className="mt-10 xl:place-content-end justify-self-center text-xs p-2 md:text-base     md:px-5  px-4 xl:mb-4">
+      <div className="mt-24 lg:place-content-end justify-self-center text-xs p-2 md:text-base     md:px-5  px-4 lg:mb-4">
         <form
           name="signup"
           action="/signup"
           encType="multipart/form-data"
           method="POST"
-          className="w-full h-fit  bg-gradient-to-b from-gray-900  shadow-2xl to-slate-600 box-border md:w-[60vw] lg:w-[30vw]  text-white   md:px-5 md:py-2 p-5   rounded-3xl "
+          className="w-full h-fit  bg-gradient-to-b from-gray-900  shadow-2lg to-slate-600 box-border md:w-[60vw] lg:w-[30vw]  text-white   md:px-5 md:py-2 p-5   rounded-lg "
         >
-          <header className=" xl:text-xl  text-center ">Signup</header>
+          <header className=" lg:text-lg  text-center ">Signup</header>
           <div>
             <label htmlFor="fullname">Full Name</label>
             <Input
@@ -150,7 +151,7 @@ const Signup = () => {
             <button
               type="submit"
               disabled={loading}
-              className="h-10 md:h-12 w-full bg-blue-600 rounded-xl hover:bg-red-600"
+              className="h-10 md:h-12 w-full bg-blue-600 rounded-lg hover:bg-red-600"
               onClick={handleRegister}
             >
               Sign Up
@@ -159,7 +160,6 @@ const Signup = () => {
         </form>
 
         <ToastContainer />
-        {loading ? <Loading /> : <></>}
       </div>
     </section>
   );
