@@ -1,4 +1,3 @@
-import VideoPlayer from "./VideoPlayer.jsx";
 import { useRef } from "react";
 import { useEffect } from "react";
 import axios from "axios";
@@ -9,7 +8,7 @@ import { toast } from "react-toastify";
 import CommentWrap from "../Comments/CommentWrap.jsx";
 import { useContext } from "react";
 import { CmntContext } from "../../Context/Context.js";
-
+import VideoPlayer from "./VideoPlayer.jsx";
 function Vplay2() {
   const [videoLink, setVideoLink] = useState("");
   const { videoid } = useParams();
@@ -45,15 +44,16 @@ function Vplay2() {
     ],
   };
   const handlePlayerReady = (player) => {
+    console.log("player is ready",player);
     playerRef.current = player;
 
     // You can handle player events here, for example:
     player.on("waiting", () => {
-      videojs.log("player is waiting");
+      // videojs.log("player is waiting");
     });
 
     player.on("dispose", () => {
-      videojs.log("player will dispose");
+      // videojs.log("player will dispose");
     });
   };
   return <section className="min-h-screen bg-gradient-to-br from-slate-700 to-slate-900 px-1 lg:px-2">

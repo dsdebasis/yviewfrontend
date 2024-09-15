@@ -3,7 +3,7 @@ import videojs from 'video.js';
 import 'video.js/dist/video-js.css';
 
 
-export const VideoJS = (props) => {
+ const VideoPlayer = (props) => {
   const videoRef = React.useRef(null);
   const playerRef = React.useRef(null);
   const {options, onReady} = props;
@@ -51,12 +51,12 @@ export const VideoJS = (props) => {
 
   return (
     <div data-vjs-player  className='overflow-hidden md:w-[40vw] md:mx-auto '>
-      <div ref={videoRef} className='md:mt-10 '/>
+      <div ref={videoRef} className='p-4 md:mt-10 sticky '/>
     
     </div>
   );
 }
 
-export default VideoJS;
+export default VideoPlayer;
 
 

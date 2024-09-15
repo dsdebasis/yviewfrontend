@@ -48,25 +48,26 @@ const Home = () => {
     }
   };
 
-  // useEffect(() => {
-  //   fetchData();
-  // }, [page]);
-
-  useMemo(() => {
+  useEffect(() => {
     fetchData();
   }, [page]);
+
+  // useMemo(() => {
+  //   fetchData();
+  // }, [page]);
   useEffect(() => {
     window.addEventListener("scrollend", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
   return (
-    <section className=" w-full min-h-screen px-2   font-sans pt-2 relative">
+    <section className=" w-full min-h-screen  flex flex-col   font-sans pt-2 relative px-4 lg:px-4">
       <NavButton />
-      <div className="max-h-[10vh] mt-[15vh]  sticky top-2 z-50  ">
+      
+      <div className="w-full  rounded-lg sticky mt-10 lg:mt-[15vh] top-2 z-10 bg-gradient-to-br from-slate-900 to-slate-600">
         <Search />
       </div>
 
-      <section className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4  place-items-center gap-y-6  lg:gap-y-5 text-white py-2">
+      <section className="w-full h-full  grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4  place-items-center gap-y-6 mt-10 text-white lg:py-5 lg:gap-x-4 lg:gap-y-10 lg:gap-x4">
         {videoRes?.map((item) => {
           return (
             <Video

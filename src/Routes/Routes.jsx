@@ -172,21 +172,3 @@ const Routes = createBrowserRouter([
 
 export { Routes };
 
-// const Routes =  createBrowserRouter(createRoutesFromElements(
-//   <Route path='/' element={<Layout/>}>
-//     <Route path='login' element={<LazyLogin/>}/>
-//     <Route path='signup' element={<LazySignUp/>}/>
-//     <Route path='profile' element={<LazyProfile/>}/>
-//     <Route path='update profile' element={<LazyUpdateProfile/>}/>
-//     <Route path='Update Password' element={<LazyUpdatePassword/>}/>
-//     <Route path='logout' element={<LazyLogout/>}/>
-//     <Route path='createchannel' element={<LazyCreateChannel/>}/>
-//     <Route path='uploadvideo' element={<LazyUploadVideo/>}/>
-//     <Route path='channel' element={<LazyChannelPage/>}/>
-//     <Route path='deleteaccount' element={<LazyDeleteAccount/>}/>
-//     <Route path="reset-password" element={<LazyResetPassword/>}/>
-//     <Route path="password-resetemail-verify/:passwordResetToken" element={<LazyVerifyResetPasswordLink/>}/>
-//   </Route>
-// ))
-
-// export {Routes}

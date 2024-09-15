@@ -22,14 +22,14 @@ function NavButton() {
   };
   return (
     <section
-      className={`mt-2 h-auto  w-[90%] lg:w-[98%] mx-4 lg:h-[10vh]   flex flex-col lg:flex-row  justify-center items-center gap-x-5  lg:p-2  absolute z-50  rounded-md  ${css.nav}`}
+      className={`m-2 h-auto  w-[90%] lg:w-[98%]  lg:h-[10vh]   flex flex-col lg:flex-row  justify-center items-center gap-x-5  lg:pr-2  absolute z-50  rounded-md  ${css.nav}`}
     >
-      <div className="lg:w-5 place-self-start">
-       <BsMenuButtonWideFill onClick={handleClick} className="text-yellow-500" />
+      <div className=" lg:m-0 lg:w-5 place-self-center ">
+       <BsMenuButtonWideFill onClick={handleClick} className="text-yellow-500 lg:text" />
       </div>
 
       <div
-        className={`w-full   rounded-md lg:h-full   lg:p-0 lg:mt-1   ${css.navParent}lg:relative lg:self-end`}
+        className={`w-full  overflow-hidden mt-5 lg:h-full   lg:p-0 lg:mt-1   lg:relative lg:self-end ${css.navParent}`}
       >
         {click ? <Nav /> : <></>}
       </div>
