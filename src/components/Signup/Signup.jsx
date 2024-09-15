@@ -8,6 +8,7 @@ import "react-toastify/dist/ReactToastify.css";
 import Input from "../Input/Input.jsx";
 import { useNavigate } from "react-router-dom";
 import Nav from "../Navbar/Nav.jsx";
+import NavButton from "../Navbar/NavButton.jsx";
 const Signup = () => {
   let navigate = useNavigate();
 
@@ -65,9 +66,9 @@ const Signup = () => {
   };
 
   return (
-    <section className="min-h-screen w-full grid grid-flow-row">
-      <Nav />
-      <div className=" xl:place-content-end justify-self-center text-xs p-2 md:text-base     md:px-5  px-4 xl:mb-4">
+    <section className="min-h-screen w-full grid grid-flow-row ">
+    <NavButton/>
+      <div className="mt-10 xl:place-content-end justify-self-center text-xs p-2 md:text-base     md:px-5  px-4 xl:mb-4">
         <form
           name="signup"
           action="/signup"

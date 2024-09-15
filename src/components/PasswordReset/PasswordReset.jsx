@@ -7,6 +7,7 @@ import Loading from "../Loading/Loading.jsx";
 import { useState } from "react";
 import { backendUrl } from "../index.js";
 import Nav from "../Navbar/Nav.jsx";
+import NavButton from "../Navbar/NavButton.jsx";
 const PasswordReset = () => {
   const [loading, setLoading] = useState(false);
   const [passData, setData] = useState({
@@ -44,7 +45,7 @@ const PasswordReset = () => {
 
   return (
     <section>
-      <Nav/>
+      <NavButton/>
       <div className="h-screen w-screen bg-gradient-to-br from-slate-700 to-zinc-700 flex xl:justify-center items-center p-10 md:p-0">
         <form className="md:w-[30vw] h-[40vh] bg-gradient-to-b from-gray-900  shadow-2xl to-slate-600 p-4 text-white rounded-lg ">
           <header className="text-center">Reset Password</header>

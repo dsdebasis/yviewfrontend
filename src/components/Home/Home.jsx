@@ -2,7 +2,7 @@ import Nav from "../Navbar/Nav.jsx";
 import Search from "../Videos/Search.jsx";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { useEffect } from "react";
+import { useEffect, useMemo } from "react";
 import axios from "axios";
 import { backendUrl } from "../index.js";
 
@@ -48,9 +48,13 @@ const Home = () => {
     }
   };
 
-  useEffect(() => {
+  // useEffect(() => {
+  //   fetchData();
+  // }, [page]);
+
+  useMemo(() => {
     fetchData();
-  }, [page]);
+  },[page])
   useEffect(() => {
     
     window.addEventListener("scrollend", handleScroll);
@@ -58,7 +62,7 @@ const Home = () => {
   }, []);
   return (
     <section className=" min-h-screen px-2   font-sans pt-2">
-     <Nav/>
+     
       <div className=" max-h-[10vh] mt-[15vh]  sticky top-2 z-10 xl:mt-20 ">
         <Search />
       </div>
