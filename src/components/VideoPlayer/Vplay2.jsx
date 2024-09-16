@@ -44,7 +44,7 @@ function Vplay2() {
     ],
   };
   const handlePlayerReady = (player) => {
-    console.log("player is ready",player);
+    console.log("player is ready");
     playerRef.current = player;
 
     // You can handle player events here, for example:

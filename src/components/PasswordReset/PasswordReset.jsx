@@ -43,10 +43,17 @@ const PasswordReset = () => {
       });
   };
 
+if(loading){
+  return <Loading/>
+}
   return (
     <section>
       <NavButton/>
-      <div className="h-screen w-screen bg-gradient-to-br from-slate-700 to-zinc-700 flex xl:justify-center items-center p-10 md:p-0">
+      <div className="h-screen w-screen bg-gradient-to-br from-slate-700 to-zinc-700 flex xl:justify-center items-center p-10 md:p-0 ">
+
+        
+
+
         <form className="md:w-[30vw] h-[40vh] bg-gradient-to-b from-gray-900  shadow-2xl to-slate-600 p-4 text-white rounded-lg ">
           <header className="text-center">Reset Password</header>
           <div>
@@ -68,13 +75,12 @@ const PasswordReset = () => {
             />
           </div>
           <button
-            className=" h-8 md:h-12 w-full  bg-blue-600 rounded-xl hover:bg-red-600"
+            className="mt-5 h-8 md:h-12 w-full  bg-blue-600 rounded-xl hover:bg-red-600"
             onClick={handlePasswordResetEmail}
           >
             Send Email
           </button>
         </form>
-        {loading ? <Loading /> : <></>}
         <ToastContainer theme="dark" />
       </div>
     </section>

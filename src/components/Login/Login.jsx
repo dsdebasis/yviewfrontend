@@ -73,7 +73,7 @@ const Login = () => {
               id="login"
               action="/"
               onSubmit={handleLogin}
-              className=" w-full h-[60%] xl:h-[80%]   text-white    xl:rounded-xl       rounded-xl   bg-gradient-to-tr from-slate-500 to-slate-900 px-4 overflow-hidden my-4  "
+              className=" w-full h-[60%] xl:h-[80%]   text-white  rounded-md   bg-gradient-to-tr from-slate-500 to-slate-900 px-4 overflow-hidden my-4  "
             >
               <h1 className="mt-3 text-center xl:text-xl font-mono">Login</h1>
               <div className="flex flex-col gap-y-4">
@@ -119,12 +119,12 @@ const Login = () => {
               <button
                 type="submit"
                 disabled={loading}
-                className=" w-full h-[10%] mt-4  rounded-md bg-blue-600 hover:bg-slate-950"
+                className=" w-full h-[10%] mt-10  rounded-md bg-blue-600 hover:bg-slate-950"
               >
                 Login
               </button>
             </form>
-            <div className=" h-[12%] w-full lg:h-[15%]   flex justify-center  items-center rounded-md text-center xl:rounded-xl bg-gradient-to-t from-slate-500 to-slate-900 overflow-hidden ">
+            <div className=" h-[12%] w-full lg:h-[15%]   flex justify-center  items-center rounded-md text-center bg-gradient-to-t from-slate-500 to-slate-900 overflow-hidden ">
               <h1>
                 Don't have an account ?
                 <Link to={"/signup"} className="text-blue-400 ml-3">

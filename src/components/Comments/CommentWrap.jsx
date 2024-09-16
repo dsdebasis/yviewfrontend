@@ -24,7 +24,7 @@ function CommentWrap({ videoid }) {
     axios
       .get(`${backendUrl}/comments/${videoid}/${page}/${pageSize}`)
       .then((res) => {
-       console.log(res)
+      
         setComments(res.data.message.comments);
       })
       .catch((error) => {});

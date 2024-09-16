@@ -1,43 +1,26 @@
-import Nav from "../Navbar/Nav.jsx";
+//impoting components
 import Search from "../Videos/Search.jsx";
+import NavButton from "../Navbar/NavButton.jsx";
+import Video from "../Videos/Video.jsx";
+
+//impoting hooks
+// import axios from "axios";
+import { backendUrl } from "../index.js";
+import { useEffect, useMemo } from "react";
+import { useState } from "react";
+import { useCallback } from "react";
+import { useContext } from "react";
+
+//importing getVideos hooks for apiCall to show videos
+import getVideos from "../Hooks/UseGetVideos.js";
+
+//importing toast components
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { useEffect, useMemo } from "react";
-import axios from "axios";
-import { backendUrl } from "../index.js";
-
-import Video from "../Videos/Video.jsx";
-import { useState } from "react";
-
-import { useCallback } from "react";
-import NavButton from "../Navbar/NavButton.jsx";
+import useGetVideos from "../Hooks/UseGetVideos.js";
+import Loading from "../Loading/Loading.jsx";
 const Home = () => {
-  const [videoRes, setVideoRes] = useState([]);
-
-  const [error, setError] = useState(false);
-  let [page, setPage] = useState(1);
-  let [pageSize, setPageSize] = useState(4);
-
-  const [comments, setComments] = useState([null]);
-  const [load, setLoading] = useState(false);
-  const fetchData = useCallback(() => {
-    setLoading(true);
-    axios
-      .get(`${backendUrl}/getvideos/${page}/${pageSize}`)
-      .then((res) => {
-        //  console.log(res)
-        if (error == false) {
-          setVideoRes((prev) => [...prev, ...res.data.data]);
-          setLoading(false);
-        }
-      })
-      .catch((error) => {
-        console.log("error while fetching", error);
-        setError(error);
-        setLoading(false);
-      });
-  });
-
+  const { videoRes, error, setPage,loading } = useGetVideos();
   const handleScroll = (e) => {
     if (
       window.innerHeight + document.documentElement.scrollTop >=
@@ -49,25 +32,23 @@ const Home = () => {
   };
 
   useEffect(() => {
-    fetchData();
-  }, [page]);
-
-  // useMemo(() => {
-  //   fetchData();
-  // }, [page]);
-  useEffect(() => {
     window.addEventListener("scrollend", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-  return (
-    <section className=" w-full min-h-screen  flex flex-col   font-sans pt-2 relative px-4 lg:px-4">
-      <NavButton />
-      
-      <div className="w-full  rounded-lg sticky mt-10 lg:mt-[15vh] top-2 z-10 bg-gradient-to-br from-slate-900 to-slate-600">
-        <Search />
-      </div>
 
-      <section className="w-full h-full  grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4  place-items-center gap-y-6 mt-10 text-white lg:py-5 lg:gap-x-4 lg:gap-y-10 lg:gap-x4">
+  console.log(error)
+
+  if (loading) <Loading/>
+  return (
+    <section className=" w-full min-h-screen  flex flex-col   font-sans pt-2 relative px-4 lg:px-4 overflow-hidden">
+      <NavButton />
+
+      {
+        !error && !loading ? <div className="w-full  rounded-sm sticky mt-10 lg:mt-[15vh] top-2 z-10  bg-gradient-to-bl">
+        <Search />
+      </div> :<></>
+      }
+      <section className="w-full h-full  grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4  place-items-center gap-y-2 mt-10 text-white lg:py-5 lg:gap-x-4 lg:gap-y-10 lg:gap-x4">
         {videoRes?.map((item) => {
           return (
             <Video
@@ -83,6 +64,7 @@ const Home = () => {
             />
           );
         })}
+
         {error ? (
           <h1 className="text-yellow-500 ">No More Video Found</h1>
         ) : (

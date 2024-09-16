@@ -69,13 +69,13 @@ const Signup = () => {
   return (
     <section className="min-h-screen w-full grid grid-flow-row ">
     <NavButton/>
-      <div className="mt-24 lg:place-content-end justify-self-center text-xs p-2 md:text-base     md:px-5  px-4 lg:mb-4">
+      <div className="mt-24  justify-self-center text-xs p-2 md:text-base     md:px-5  px-4 ">
         <form
           name="signup"
           action="/signup"
           encType="multipart/form-data"
           method="POST"
-          className="w-full h-fit  bg-gradient-to-b from-gray-900  shadow-2lg to-slate-600 box-border md:w-[60vw] lg:w-[30vw]  text-white   md:px-5 md:py-2 p-5   rounded-lg "
+          className="w-full h-fit  bg-gradient-to-b from-gray-900  shadow-2lg to-slate-600 box-border md:w-[60vw] lg:w-[27vw]  text-white   md:px-5 md:py-2 p-5   rounded-lg "
         >
           <header className=" lg:text-lg  text-center ">Signup</header>
           <div>
