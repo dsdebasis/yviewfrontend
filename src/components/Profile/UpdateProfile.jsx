@@ -11,7 +11,7 @@ const UpdateProfile = () => {
   const [updateCover, setUpdateCover] = useState("")
   const [updateProfile, setUpdateProfile] = useState("")
   const [loading, setLoading] = useState(false)
-  const [blur,setBlur] = useState("")
+ 
   function getProfileAndCover() {
 
     axios.get(`${backendUrl}/updateprofileandcover`, {
@@ -29,7 +29,7 @@ const UpdateProfile = () => {
   const updateProfileCover = function (e) {
     e.preventDefault()
     setLoading(true)
-    setBlur("blur-lg")
+    
     let updateRes
     const formData = new FormData();
     formData.append('updateProfilePic', updateProfile)
@@ -57,25 +57,26 @@ const UpdateProfile = () => {
       setBlur("")
     })
   }
-
-
+  
+  
   return (
-    <section className="min-h-screen w-full  bg-gradient-to-r from-slate-900 to-slate-700 flex flex-col justify-evenly ">
-      <header className='mt-6 text-center md:text-2xl text-white'>Update Profile And Cover</header>
-      <form encType='multipart/form-data' className={`md:bg-gradient-to-bl md:rounded-lg mx-5 md:mx-[25vw] md:h-[80%]  overflow-hidden  justify-self-center text-white grid  py-3 px-2 ${blur}`}>
-        <div className=' flex  flex-row flex-wrap justify-around  gap-y-5 p-5 md:gap-x-5 '>
+    <section className="min-h-screen w-full   flex flex-col justify-center items-center ">
+      <header className='mb-[25vh] text-center text-4xl  font-sans   max-w-fit bg-gradient-to-r from-slate-300 via-pink-500 to-orange-500 inline-block text-transparent bg-clip-text'>Update Profile And Cover</header>
+      {loading ? <Loading/> :""}
+      <form encType='multipart/form-data' className="bg-gradient-to-t rounded-md mx-5 md:mx-[25vw] md:h-[80%]  overflow-hidden  justify-self-center text-white grid  py-3 px-2 ">
+        <div className=' flex  flex-col lg:flex-row justify-around  gap-y-5 p-5 md:gap-x-5 '>
           <div >
 
-            <img className='h-[350px] w-[300px] overflow-hidden md:w-[100%] md:h-[50vh]  rounded-2xl shadow-2xl' src={profile} alt='profile' />
+            <img className='max-h-[25vh] max-w-[55vw] overflow-hidden  rounded-2xl shadow-2xl' src={profile} alt='profile' />
             <input type='file' disabled={loading} name="updateProfilePic" onChange={(e) => (
-              setUpdateProfile(e.target.files[0]))} className='mt-5 outline-none  border-2 rounded-lg px-1 py-2 border-green-700' />
+              setUpdateProfile(e.target.files[0]))} className='mt-5 outline-none  border-2 rounded-lg px-1 py-2 border-stone-500' />
           </div>
 
           <div >
 
-            <img className='h-[350px] w-[300px] overflow-hidden md:w-[100%] md:h-[50vh]  rounded-2xl shadow-2xl' src={cover} alt='cover'/>
+            <img className='max-h-[25vh] max-w-[55vw] overflow-hidden   rounded-2xl shadow-2xl' src={cover} alt='cover'/>
             <input type='file' disabled={loading} name='updateCoverImage' onChange={(e) => (
-              setUpdateCover(e.target.files[0]))} className='mt-5 outline-none  border-2 border-green-700 rounded-lg px-1 py-2' />
+              setUpdateCover(e.target.files[0]))} className='mt-5 outline-none  border-2 border-stone-500 rounded-lg px-1 py-2' />
           </div>
 
 
@@ -84,7 +85,7 @@ const UpdateProfile = () => {
         <div className='w-full'>
           <button type='submit' disabled={loading} onClick={(e) => {
             updateProfileCover(e)
-          }} className='h-14 w-full  bg-slate-900 rounded-xl hover:bg-blue-600' >Update </button>
+          }} className='h-[6vh] w-full  bg-gray-700 rounded-md hover:bg-blue-600' >Update </button>
 
         </div>
       </form>
@@ -92,7 +93,6 @@ const UpdateProfile = () => {
       <ToastContainer />
       
       
-        {loading ? <Loading/> :""}
     </section>
   )
 }

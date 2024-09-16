@@ -1,12 +1,12 @@
 import Video from './Video.jsx'
 import { useContext } from 'react'
 import { CompContext } from '../../Context/Context.js'
-const TotalVideos = ({videos}) => {
+const ChannelVideo = ({videos}) => {
   const {data,channelVideos} = useContext(CompContext)
  
   return (
     <div className='min-h-fit max-w-full overflow-hidden  my-10 rounded-lg '>  
-      <div className=' grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4  place-items-center gap-y-6  lg:gap-y-5 '>
+      <div className=' grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4  place-items-center gap-y-6    lg:gap-0  lg:py-4 '>
         {
           channelVideos?.map((i,index) => {
       
@@ -18,4 +18,4 @@ const TotalVideos = ({videos}) => {
   )
 }
 
-export default TotalVideos
+export default ChannelVideo

@@ -7,8 +7,8 @@ const ProfileHead = ({ status }) => {
   const [click, setClick] = useState(true)
   const [childCss, setChildCss] = useState("h-0 hidden")
   
-  let routes = ["profile", "updateprofile", "updatepassword", "channel", "deleteaccount", "logout"]
-  let routesEle = ["Profile", "Update Profile", "Update Password", "Channel", "Delete Account", "Logout"]
+  let routes = ["profile", "updateprofile", "reset-password", "updatepassword", "channel", "deleteaccount", "logout"]
+  let routesEle = ["Profile", "Update Profile","Forgot-Password", "Update Password", "Channel", "Delete Account", "Logout"]
 
   //  let pr = React.useRef()
    
@@ -37,10 +37,10 @@ const ProfileHead = ({ status }) => {
         <button onClick={handleCss} className=' text-slate-200 text-sm md:text-xl hover:text-yellow-400 '><CgProfile /> </button>
       </div>
       <div className='h-0 mt-5 overflow-hidden box-border'>
-        <section  className={` text-base w-full h-auto lg:max-h-fit lg:max-w-fit  rounded-md   ease-in p-2    lg:px-4 lg:py-2 flex flex-col justify-evenly items-start overflow-hidden   bg-gray-900   bg-gradient-to-br from-slate-600 to-slate-800 shadow-xl  md:text-base ${childCss} lg:min-h-fit `}>
+        <section  className={` text-base w-full  h-[50vh] gap-y-4 lg:h-[40vh] lg:max-w-fit  rounded-xl   ease-in pl-4    lg:px-4 lg:py-2 flex flex-col justify-around items-start   bg-gradient-to-bl  shadow-xl  md:text-base   ${childCss}`}>
           {
             routes.map((item, index) => {
-              return (<Link key={index} to={`/${item}`} className='hover:text-yellow-400 capitalize '>{routesEle[index]}</Link>)
+              return (<Link key={index} to={`/${item}`} className='hover:text-yellow-400 capitalize bg-gradient-to-b from-white to-amber-500 bg-clip-text text-transparent'>{routesEle[index]}</Link>)
             })
           }
 

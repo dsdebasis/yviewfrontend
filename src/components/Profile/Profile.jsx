@@ -4,7 +4,7 @@ import { backendUrl } from '../index.js'
 import { toast, ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 import { useState } from 'react';
-
+import Input from '../Input/Input.jsx';
 const Profile = () => {
   let url = `${backendUrl}/profile`
 
@@ -80,24 +80,24 @@ const Profile = () => {
 
 
   return (
-    <div className='h-screen bg-gradient-to-r from-slate-900 to-slate-700 flex justify-center items-center'>
+    <div className='h-screen  flex justify-center items-center'>
 
-      <section className='h-[90vh]  w-[90vw]  md:w-[30vw] shadow-2xl  text-white  rounded-3xl py-4 grid grid-flow-row  grid-rows-4   gap-y-5 p-4 bg-gradient-to-br  '>
+      <section className='h-[90vh]  w-[90vw]  md:w-[40vw] lg:w-[30vw] shadow-2xl  text-white  rounded-3xl py-4 grid grid-flow-row  grid-rows-4   gap-y-5 p-4 bg-gradient-to-br  '>
         <div className=' place-self-center mt-10 '>
-          <img alt='profile image' src={profilePicUrl} className='h-[18vh] w-[18vh] border-2 rounded-full shadow-md'></img>
+          <img alt='profile image' src={profilePicUrl} className='h-[18vh] w-[18vh] border-2 border-stone-400 rounded-full shadow-2xl shadow-indigo-400'></img>
 
         </div>
-        <form className='h-[90%]  mt-10 row-span-3 flex flex-col justify-around px-2 bg-gradient-to-bl from-slate-600  shadow-xl rounded-xl py-2 '>
+        <form className='h-[90%]  mt-10 row-span-3 flex flex-col justify-around px-2 bg-gradient-to-bl   shadow-xl rounded-xl py-2 '>
 
           <h1 className='text-center md:text-3xl'>Update Details</h1>
           <label htmlFor='updateFullname'>Full Name</label>
-          <input id='updateFullname' name='updateFullname' type='text' onChange={handleChange} className='outline-0 bg-gradient-to-br from-gray-700 to-slate-500 px-3 py-2 rounded-md placeholder:text-orange-400' placeholder={fullname} />
+          <Input id='updateFullname' name='updateFullname' type='text' onChange={handleChange} css='outline-0 border-0 bg-gradient-to-tl from-stone-700 to-slate-500 px-3 py-2 rounded-md placeholder:text-orange-400 focus:border-b-2 focus:border-amber-300 duration-100' placeholder={fullname} />
 
           <label htmlFor='updateEmail'>Email</label>
-          <input id='updateEmail' name='updateEmail' type='email' onChange={handleChange} className='outline-0 bg-gradient-to-br from-gray-700 to-slate-500 px-3 py-2 rounded-md placeholder:text-orange-400' placeholder={email} />
+          <Input name={"updateEmail"} type={"email"} fun={handleChange} placeholder={email}  css="outline-0 placeholder:text-orange-400 focus:border-b-2 border-0 focus:border-amber-300 bg-gradient-to-tl from-stone-700 to-slate-500 duration-100"/>         
 
           <label htmlFor='updateUsername'>Username</label>
-          <input id='updateUsername' name='updateUsername' type='text' onChange={handleChange} className='outline-0 bg-gradient-to-br from-gray-700 to-slate-500 px-3 py-2 rounded-md placeholder:text-orange-400' placeholder={username} />
+          <Input name={"updateUsername"} type={"text"} fun={handleChange} placeholder={username}  css="outline-0 placeholder:text-orange-400 focus:border-b-2 border-0 focus:border-amber-300 bg-gradient-to-tl from-stone-700 to-slate-500 duration-100"/> 
 
 
           <button type='submit' className='h-14 md:h-[8vh] w-full bg-slate-900 rounded-xl hover:bg-blue-600 ' onClick={updateProfile} >Update</button>

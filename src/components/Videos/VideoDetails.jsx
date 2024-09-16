@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 
 const VideoDetails = ({ src, vid, thumbnail, duration }) => {
   return (
-    <div className=" h-[25vh] md:h-[22vh] lg:h-[200px] row-span-2 bg-clip-padding">
-      <Link to={`/videoplayer/${vid}`}>
+    <div className=" h-[28vh] md:h-[25vh] lg:h-[22vh] xl:h-[25vh] row-span-2 bg-clip-padding">
+      <Link to={`/videoplayer/${vid}`} >
         <VideoLink
           link={src}
           vid={vid}
@@ -12,6 +12,7 @@ const VideoDetails = ({ src, vid, thumbnail, duration }) => {
           duration={duration}
         />
       </Link>
+      
     </div>
   );
 };

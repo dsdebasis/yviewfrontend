@@ -1,8 +1,8 @@
-import TotalVideos from './TotalVideos.jsx'
+import ChannelVideo from "./ChannelVideo"
 const VideoPage = () => {
   return (
     <section className='h-auto w-full overflow-hidden  box-border   text-white '>
-        <TotalVideos />
+        <ChannelVideo />
     </section>
   )
 }

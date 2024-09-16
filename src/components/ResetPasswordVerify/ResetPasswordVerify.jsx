@@ -54,7 +54,7 @@ function ResetPasswordVerify() {
         }
        
 
-  return <section className="h-screen w-screen bg-gradient-to-br from-slate-700 to-zinc-700 flex justify-center items-center p-10 md:p-0">      
+  return <section className="h-screen w-screen  flex justify-center items-center p-10 md:p-0">      
         <form className="md:w-[30vw] h-[40vh] bg-gradient-to-b from-gray-900  shadow-2xl to-slate-600 p-4 text-white rounded-lg flex flex-col justify-around">
                 <label>New Password</label>
                 <Input type="password" name="password" id={"password"}  fun={handlePassword} />

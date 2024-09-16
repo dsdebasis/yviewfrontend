@@ -49,12 +49,12 @@ if(loading){
   return (
     <section>
       <NavButton/>
-      <div className="h-screen w-screen bg-gradient-to-br from-slate-700 to-zinc-700 flex xl:justify-center items-center p-10 md:p-0 ">
+      <div className="h-screen w-screen  flex xl:justify-center items-center p-10 md:p-0 ">
 
         
 
 
-        <form className="md:w-[30vw] h-[40vh] bg-gradient-to-b from-gray-900  shadow-2xl to-slate-600 p-4 text-white rounded-lg ">
+        <form className="md:w-[30vw] h-[40vh] bg-gradient-to-bl  shadow-2xl  p-4 text-white rounded-lg ">
           <header className="text-center">Reset Password</header>
           <div>
             <label htmlFor="email">Email</label>

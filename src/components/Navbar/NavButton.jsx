@@ -15,7 +15,7 @@ function NavButton() {
       });
     } else {
       setCss({
-        navParent:"z-50   py-2   rounded-lg bg-clip-padding backdrop-filter backdrop-blur-3xl bg-opacity-20  border-gray-100     w-[80vw] h-[90vh] lg:w-full lg:bg-black",
+        navParent:"z-50   py-2   rounded-lg bg-clip-padding backdrop-filter backdrop-blur-3xl bg-opacity-20  border-gray-100     w-[60vw] h-[60vh] lg:w-full lg:bg-gradient-to-bl",
         nav: " z-0 ",
       });
     }

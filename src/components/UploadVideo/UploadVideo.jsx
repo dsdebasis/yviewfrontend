@@ -44,12 +44,13 @@ function UploadVideo() {
   }
 
 
+  if(loading) <Loading title={"uploading video"} /> 
   return (
-    <section className='h-screen w-full  overflow-hidden box-border  text-white  bg-gradient-to-r from-slate-900 to-slate-700 flex justify-center items-center '>
+    <section className='h-screen w-full  overflow-hidden box-border  text-white   flex justify-center items-center '>
 
-      <form encType='multipart/form-data' method='POST' className='mx-5 min-h-[60vh] md:w-2/3 rounded-2xl  grid grid-flow-row row-auto gap-5  p-5 shadow-2xl shadow-slate-500'>
+      <form encType='multipart/form-data' method='POST' className=' mx-5 min-h-[60vh] md:w-[30vw] rounded-2xl  grid grid-flow-row row-auto gap-5  p-5 shadow-2xl '>
 
-        <header className='text-center'>Upload Your Video</header>
+        <header className='text-center lg:text-4xl'>Upload Your Video</header>
 
         <label id='selectVideo'>Upload video</label>
         <Input type='file' name='video' required={true} placeholder='upload your video' css='h-12 border-2  bg-transparent outline-none p-2 focus:border-blue-600 rounded-md ' fun={(e) => {
@@ -85,7 +86,6 @@ function UploadVideo() {
 
         <button className=' rounded-md px-3 py-2 bg-blue-700 hover:bg-blue-500' onClick={handleUploadVideo}>Upload</button>
       </form>
-      {loading ? <Loading title={"uploading video"} /> : <></>}
       <ToastContainer />
     </section>
   )
