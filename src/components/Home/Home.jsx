@@ -36,18 +36,17 @@ const Home = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  console.log(error)
+  console.log(videoRes)
 
-  if (loading) <Loading/>
+  // if (loading) <Loading/>
   return (
     <section className=" w-full min-h-screen  flex flex-col   font-sans pt-2 relative px-4 lg:px-4 overflow-hidden">
       <NavButton />
 
-      {
-        !error && !loading ? <div className="w-full  rounded-sm sticky mt-10 lg:mt-[15vh] top-2 z-10  bg-gradient-to-bl">
+  
+      <div className="w-full  rounded-sm sticky mt-10 lg:mt-[15vh] top-2 z-10  bg-gradient-to-bl">
         <Search />
-      </div> :<></>
-      }
+      </div> 
       <section className="w-full h-full  grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4  place-items-center gap-y-2 mt-10 text-white lg:py-5 lg:gap-x-4 lg:gap-y-10 lg:gap-x4">
         {videoRes?.map((item) => {
           return (

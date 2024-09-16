@@ -17,10 +17,10 @@ const useGetVideos = function () {
         .get(`${backendUrl}/getvideos/${page}/${pageSize}`)
         .then((res, error) => {
           //  console.log(res)
-          if (error == false) {
+         
             setVideoRes((prev) => [...prev, ...res?.data?.data]);
             setLoading(false);
-          }
+          
         })
         .catch((error) => {
           console.log("error while fetching", error);

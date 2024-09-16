@@ -60,7 +60,7 @@ const Login = () => {
   };
 
   return (
-    <section className=" h-screen  w-full flex flex-col relative">
+    <section className=" h-screen  w-full flex flex-col relative ">
      <NavButton/>
 
       {loading ? (
@@ -68,12 +68,12 @@ const Login = () => {
         
       ) : (
         <>
-          <div className=" mt-[20vh] lg:mt-[10vh] h-[80%] xl:h-[70%]    gap-y-4   text-xs overflow-hidden box-border   xl:p-4 p-2 text-white xl:text-base xl:self-center ">
+          <div className="md:self-center mt-[20vh] lg:mt-[10vh] h-[80%] md:h-[60%] xl:h-[70%]    gap-y-4   text-xs overflow-hidden box-border   xl:p-4 p-2 text-white xl:text-base xl:self-center ">
             <form
               id="login"
               action="/"
               onSubmit={handleLogin}
-              className=" w-full h-[60%] xl:h-[80%]   text-white  rounded-md   bg-gradient-to-tr from-slate-500 to-slate-900 px-4 overflow-hidden my-4  "
+              className=" w-full h-[60%] lg:h-[80%]   text-white  rounded-md   bg-gradient-to-tl from-slate-500 to-slate-900 px-4 overflow-hidden my-4  "
             >
               <h1 className="mt-3 text-center xl:text-xl font-mono">Login</h1>
               <div className="flex flex-col gap-y-4">
