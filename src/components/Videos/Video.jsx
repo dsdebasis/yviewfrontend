@@ -10,20 +10,23 @@ const Video = ({
   videoOwner,
   thumbnail,
   duration,
+  views
 }) => {
   return (
-    <div className="w-full h-full  overflow-hidden rounded-xl  md:w-[90%] xl:w-[97%]  lg:w-full  grid grid-flow-row gap-y-4  md:px-0  xl:p-2" >
+    <div className="w-full h-full  overflow-hidden rounded-xl      grid grid-flow-row gap-y-4  md:px-0  xl:p-2   " >
       <VideoDetails
         src={src}
         vid={vid}
         thumbnail={thumbnail}
         duration={duration}
+           
       />
       <ChannelDetails
         title={title}
         uploadTime={uploadTime}
         channelProfilePic={channelProfilePic}
         chnlName={videoOwner}
+        views={views}
       />
     </div>
   );

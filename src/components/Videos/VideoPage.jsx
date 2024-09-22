@@ -1,4 +1,4 @@
-import ChannelVideo from "./ChannelVideo"
+import ChannelVideo from "./ChannelVideo.jsx"
 const VideoPage = () => {
   return (
     <section className='h-auto w-full overflow-hidden  box-border   text-white '>

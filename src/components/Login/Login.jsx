@@ -6,12 +6,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { login as authLogin } from "../../store/authSlice.js";
 import { backendUrl } from "../index.js";
 import Loading from "../Loading/Loading.jsx";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+// import { ToastContainer, toast } from "react-toastify";
+// import "react-toastify/dist/ReactToastify.css";
 import Input from "../Input/Input.jsx";
 import PasswordReset from "../PasswordReset/PasswordReset.jsx";
 import Nav from "../Navbar/Nav.jsx";
 import NavButton from "../Navbar/NavButton.jsx";
+import toast, { Toaster } from 'react-hot-toast';
 const Login = () => {
   const navigate = useNavigate();
 
@@ -47,6 +48,7 @@ const Login = () => {
       )
       .then((res) => {
         dispatch(authLogin(res?.data?.data.msg));
+        toast.success(res.data.message);
       })
       .catch((error) => {
         toast.error(
@@ -68,12 +70,12 @@ const Login = () => {
         
       ) : (
         <>
-          <div className="md:self-center mt-[20vh] lg:mt-[10vh] h-[80%] md:h-[60%] xl:h-[70%]    gap-y-4   text-xs overflow-hidden box-border   xl:p-4 p-2 text-white xl:text-base xl:self-center ">
+          <div className=" md:self-center mt-[20vh] lg:mt-[10vh] h-[80%]   gap-y-4   text-xs overflow-hidden box-border   xl:p-4 p-2 text-white xl:text-base xl:self-center ">
             <form
               id="login"
               action="/"
               onSubmit={handleLogin}
-              className=" w-full h-[60%] lg:h-[80%]   text-white  rounded-md   bg-gradient-to-tl  px-4 overflow-hidden my-4  "
+              className=" w-full h-[60%] lg:h-[70%]   sm:h-[60%] md:h-[60%]  text-white  rounded-2xl   bg-gradient-to-tl  px-4 overflow-hidden my-4  "
             >
               <h1 className="mt-3 text-center xl:text-xl font-mono">Login</h1>
               <div className="flex flex-col gap-y-4">
@@ -124,7 +126,7 @@ const Login = () => {
                 Login
               </button>
             </form>
-            <div className=" h-[12%] w-full lg:h-[15%]   flex justify-center  items-center rounded-md text-center bg-gradient-to-t  overflow-hidden ">
+            <div className=" h-[12%] w-full lg:h-[15%]   flex justify-center  items-center rounded-2xl text-center bg-gradient-to-tl  overflow-hidden ">
               <h1>
                 Don't have an account ?
                 <Link to={"/signup"} className="text-blue-400 ml-3">
@@ -135,7 +137,8 @@ const Login = () => {
           </div>
         </>
       )}
-      <ToastContainer />
+      <Toaster  />
+   
     </section>
   );
 };

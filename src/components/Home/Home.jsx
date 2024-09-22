@@ -22,6 +22,7 @@ import Loading from "../Loading/Loading.jsx";
 const Home = () => {
   const { videoRes, error, setPage,loading } = useGetVideos();
   const handleScroll = (e) => {
+    e.preventDefault()
     if (
       window.innerHeight + document.documentElement.scrollTop >=
         document.documentElement.scrollTop + 1 &&
@@ -36,7 +37,7 @@ const Home = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  console.log(videoRes)
+  // console.log(videoRes)
 
   // if (loading) <Loading/>
   return (
@@ -47,7 +48,7 @@ const Home = () => {
       <div className="w-full  rounded-sm sticky mt-10 lg:mt-[15vh] top-2 z-10  bg-gradient-to-bl">
         <Search />
       </div> 
-      <section className="w-full h-full  grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4  place-items-center gap-y-2 mt-10 text-white lg:py-5 lg:gap-x-4 lg:gap-y-10 lg:gap-x4">
+      <section className="w-full h-full  grid grid-cols-1 gap-y-2  md:grid-cols-3 sm:grid-cols-2 sm:gap-x-10 md:gap-x-5 lg:grid-cols-3  place-items-center mt-10 text-white lg:py-5 lg:gap-x-4 lg:gap-y-10 ">
         {videoRes?.map((item) => {
           return (
             <Video
@@ -60,6 +61,7 @@ const Home = () => {
               videoOwner={item.ownerName}
               duration={item.duration}
               channelProfilePic={item.channelProfilePic}
+              views={item.views}
             />
           );
         })}

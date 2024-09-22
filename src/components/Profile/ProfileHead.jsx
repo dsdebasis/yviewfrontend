@@ -22,7 +22,7 @@ const ProfileHead = ({ status }) => {
    
     if (click === true) {
     
-      setChildCss(" h-fit overflow-hidden max-h-fit  block absolute z-10 ")
+      setChildCss(" h-fit overflow-hidden max-h-fit block absolute z-10 ")
       setClick(false)
     } else {
   
@@ -37,10 +37,10 @@ const ProfileHead = ({ status }) => {
         <button onClick={handleCss} className=' text-slate-200 text-sm md:text-xl hover:text-yellow-400 '><CgProfile /> </button>
       </div>
       <div className='h-0 mt-5 overflow-hidden box-border'>
-        <section  className={` text-base w-full  h-[50vh] gap-y-4 lg:h-[40vh] lg:max-w-fit  rounded-xl   ease-in pl-4    lg:px-4 lg:py-2 flex flex-col justify-around items-start   bg-gradient-to-bl  shadow-xl  md:text-base   ${childCss}`}>
+        <section  className={` text-base w-[20vw]    inline-flex    lg:max-w-fit  rounded-xl   ease-in px-4 py-3  lg:px-4 lg:py-2  flex-col  items-start   bg-gradient-to-bl  shadow-xl  md:text-base   ${childCss}`}>
           {
             routes.map((item, index) => {
-              return (<Link key={index} to={`/${item}`} className='hover:text-yellow-400 capitalize bg-gradient-to-b from-white to-amber-500 bg-clip-text text-transparent'>{routesEle[index]}</Link>)
+              return (<Link key={index} to={`/${item}`} className='hover:text-yellow-400  capitalize  text-yellow-300 to-yellow-5 bg-clip-text text-transparent'>{routesEle[index]}</Link>)
             })
           }
 

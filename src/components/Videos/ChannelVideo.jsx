@@ -5,8 +5,8 @@ const ChannelVideo = ({videos}) => {
   const {data,channelVideos} = useContext(CompContext)
  
   return (
-    <div className='min-h-fit max-w-full overflow-hidden  my-10 rounded-lg '>  
-      <div className=' grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4  place-items-center gap-y-6    lg:gap-0  lg:py-4 '>
+    <div className='h-full w-full overflow-hidden  my-10 rounded-lg '>  
+      <div className=' grid grid-cols-1 sm:grid-cols-2 sm:gap-x-5 md:grid-cols-3 lg:grid-cols-4  place-items-center gap-y-6    lg:gap-4  lg:py-4 '>
         {
           channelVideos?.map((i,index) => {
       

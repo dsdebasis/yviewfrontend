@@ -9,6 +9,8 @@ export {
 }
 
 let backendUrl = "https://yviewbackend.onrender.com/api/v1/users"
+let videoApi = "https://yviewbackend.onrender.com/api/v1/videos"
     // backendUrl= "http://localhost:7000/api/v1/users"
+    // videoApi = "http://localhost:7000/api/v1/videos"
     
-export {backendUrl}
+export {backendUrl,videoApi}

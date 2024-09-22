@@ -22,7 +22,7 @@ import 'video.js/dist/video-js.css';
       videoRef.current.appendChild(videoElement);
 
       const player = playerRef.current = videojs(videoElement, options, () => {
-        // videojs.log('player is ready');
+        videojs.log('player is ready');
         onReady && onReady(player);
       });
 
@@ -36,7 +36,7 @@ import 'video.js/dist/video-js.css';
     }
 
     return ()=>{
-      console.log("video player is unmounted")
+      // console.log("video player is unmounted")
     }
   }, [options, videoRef]);
 
@@ -53,7 +53,7 @@ import 'video.js/dist/video-js.css';
   }, [playerRef]);
 
   return (
-    <div data-vjs-player  className='overflow-hidden md:w-[40vw] md:mx-auto '>
+    <div data-vjs-player  className=' md:w-[40vw] md:mx-auto '>
       <div ref={videoRef} className='p-4 md:mt-10 sticky '/>
     
     </div>

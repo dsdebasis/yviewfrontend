@@ -87,20 +87,20 @@ const Profile = () => {
           <img alt='profile image' src={profilePicUrl} className='h-[18vh] w-[18vh] border-2 border-stone-400 rounded-full shadow-2xl shadow-indigo-400'></img>
 
         </div>
-        <form className='h-[90%]  mt-10 row-span-3 flex flex-col justify-around px-2 bg-gradient-to-bl   shadow-xl rounded-xl py-2 '>
+        <form className='h-[90%]  mt-8 row-span-3 flex flex-col justify-around px-2 bg-gradient-to-bl   shadow-xl rounded-xl '>
 
-          <h1 className='text-center md:text-3xl'>Update Details</h1>
+          <h1 className='text-center lg:text-2xl'>Update Details</h1>
           <label htmlFor='updateFullname'>Full Name</label>
-          <Input id='updateFullname' name='updateFullname' type='text' onChange={handleChange} css='outline-0 border-0 bg-gradient-to-tl from-stone-700 to-slate-500 px-3 py-2 rounded-md placeholder:text-orange-400 focus:border-b-2 focus:border-amber-300 duration-100' placeholder={fullname} />
+          <Input id='updateFullname' name='updateFullname' type='text' onChange={handleChange} css='outline-0 border-0 bg-gradient-to-t  px-3 py-2 rounded-md placeholder:text-orange-400 focus:border-b-2 focus:border-amber-300 duration-100' placeholder={fullname} />
 
           <label htmlFor='updateEmail'>Email</label>
-          <Input name={"updateEmail"} type={"email"} fun={handleChange} placeholder={email}  css="outline-0 placeholder:text-orange-400 focus:border-b-2 border-0 focus:border-amber-300 bg-gradient-to-tl from-stone-700 to-slate-500 duration-100"/>         
+          <Input name={"updateEmail"} type={"email"} fun={handleChange} placeholder={email}  css="outline-0 placeholder:text-orange-400 focus:border-b-2 border-0 focus:border-amber-300 bg-gradient-to-t duration-100"/>         
 
           <label htmlFor='updateUsername'>Username</label>
-          <Input name={"updateUsername"} type={"text"} fun={handleChange} placeholder={username}  css="outline-0 placeholder:text-orange-400 focus:border-b-2 border-0 focus:border-amber-300 bg-gradient-to-tl from-stone-700 to-slate-500 duration-100"/> 
+          <Input name={"updateUsername"} type={"text"} fun={handleChange} placeholder={username}  css="outline-0 placeholder:text-orange-400 focus:border-b-2 border-0 focus:border-amber-300 bg-gradient-to-t duration-100"/> 
 
 
-          <button type='submit' className='h-14 md:h-[8vh] w-full bg-slate-900 rounded-xl hover:bg-blue-600 ' onClick={updateProfile} >Update</button>
+          <button type='submit' className='h-12 md:h-[8vh] w-full bg-slate-900 rounded-xl hover:bg-blue-600 ' onClick={updateProfile} >Update</button>
 
         </form>
       </section>
