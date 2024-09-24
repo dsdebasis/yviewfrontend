@@ -7,7 +7,8 @@ import Loading from "../Loading/Loading.jsx";
 import { ToastContainer } from "react-toastify";
 import { toast } from "react-toastify";
 import Cookie from "js-cookie";
-import NavButton from "../Navbar/NavButton.jsx";
+
+import NavBar from "../Navbar/NavBar.jsx";
 const DeleteAccount = () => {
   const [details, setDetails] = useState({});
   const [loading, setLoading] = useState(false);
@@ -53,7 +54,7 @@ const DeleteAccount = () => {
 
   return (
     <section>
-      <NavButton />
+      <NavBar />
       <section className="h-screen w-screen  flex flex-col  justify-around items-center px-5 text-white">
         <h1 className="mt-10 text-yellow-500 border-2 px-4 py-2 text-balance  rounded-xl bg-slate-700 shadow-inner lg:text-2xl tracking-wider text">
           Warning ! all acoount details,videos,watch history will be deleted
