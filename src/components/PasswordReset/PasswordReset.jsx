@@ -6,8 +6,8 @@ import axios from "axios";
 import Loading from "../Loading/Loading.jsx";
 import { useState } from "react";
 import { backendUrl } from "../index.js";
-import Nav from "../Navbar/Nav.jsx";
-import NavButton from "../Navbar/NavButton.jsx";
+
+import NavBar from "../Navbar/NavBar.jsx";
 const PasswordReset = () => {
   const [loading, setLoading] = useState(false);
   const [passData, setData] = useState({
@@ -47,9 +47,9 @@ if(loading){
   return <Loading/>
 }
   return (
-    <section>
-      <NavButton/>
-      <div className="h-screen w-screen  flex xl:justify-center items-center p-10 md:p-0 ">
+    <section className="h-screen w-screen box-border">
+      <NavBar />
+      <div className="h-screen w-full  flex justify-center items-center ">
 
         
 

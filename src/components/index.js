@@ -8,9 +8,8 @@ export {
   Login,Signup,Profile,Home,UpdateProfile,UpdatePassword
 }
 
-let backendUrl = "https://yviewbackend.onrender.com/api/v1/users"
-let videoApi = "https://yviewbackend.onrender.com/api/v1/videos"
-    // backendUrl= "http://localhost:7000/api/v1/users"
-    // videoApi = "http://localhost:7000/api/v1/videos"
+
+const  backendUrl= import.meta.env.VITE_APP_SERVER_URL
+const    videoApi = import.meta.env.VITE_APP_SERVER_VIDEO_API
     
 export {backendUrl,videoApi}

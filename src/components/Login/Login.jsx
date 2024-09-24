@@ -1,18 +1,17 @@
 import { useState } from "react";
 import axios from "axios";
-import { Link, redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { login as authLogin } from "../../store/authSlice.js";
 import { backendUrl } from "../index.js";
 import Loading from "../Loading/Loading.jsx";
-// import { ToastContainer, toast } from "react-toastify";
-// import "react-toastify/dist/ReactToastify.css";
+
 import Input from "../Input/Input.jsx";
-import PasswordReset from "../PasswordReset/PasswordReset.jsx";
-import Nav from "../Navbar/Nav.jsx";
-import NavButton from "../Navbar/NavButton.jsx";
+
+
 import toast, { Toaster } from 'react-hot-toast';
+import NavBar from "../Navbar/NavBar.jsx";
 const Login = () => {
   const navigate = useNavigate();
 
@@ -62,23 +61,23 @@ const Login = () => {
   };
 
   return (
-    <section className=" h-screen  w-full flex flex-col relative ">
-     <NavButton/>
+    <section className=" h-screen  w-screen flex flex-col  ">
+     <NavBar style={"w-full"}/>
 
       {loading ? (
         <Loading title={"logging in"} />
         
       ) : (
         <>
-          <div className=" md:self-center mt-[20vh] lg:mt-[10vh] h-[80%]   gap-y-4   text-xs overflow-hidden box-border   xl:p-4 p-2 text-white xl:text-base xl:self-center ">
+          <div className=" md:self-center mt-[20vh] lg:mt-[10vh]  h-[80%]  gap-y-4   text-xs overflow-hidden box-border    xl:p-4 p-2 text-white xl:text-base xl:self-center ">
             <form
               id="login"
               action="/"
               onSubmit={handleLogin}
-              className=" w-full h-[60%] lg:h-[70%]   sm:h-[60%] md:h-[60%]  text-white  rounded-2xl   bg-gradient-to-tl  px-4 overflow-hidden my-4  "
+              className=" w-full h-[60%] lg:h-[70%]   md:h-[65%]  text-white  rounded-2xl   bg-gradient-to-tl  px-4 overflow-hidden my-4   "
             >
               <h1 className="mt-3 text-center xl:text-xl font-mono">Login</h1>
-              <div className="flex flex-col gap-y-4">
+              <div className="flex flex-col gap-y-4  md:gap-y-10 lg:gap-y-5 justify-evenly">
                 <div>
                   <label htmlFor="username">Username</label>
                   <Input
