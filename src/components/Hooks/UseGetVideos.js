@@ -9,6 +9,7 @@ const useGetVideos = function () {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
 
+  console.log(backendUrl)
   useEffect(() => {
     const abortController = new AbortController();
     const getVideos = async function () {
