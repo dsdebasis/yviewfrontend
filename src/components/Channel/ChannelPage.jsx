@@ -1,6 +1,5 @@
 import React from "react";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import toast, { Toaster } from "react-hot-toast";
 import ChannelHeading from "./ChnlHeading.jsx";
 import VideoPage from "../Videos/VideoPage.jsx";
 import { useEffect } from "react";
@@ -14,12 +13,12 @@ import { useContext } from "react";
 import Loading from "../Loading/Loading.jsx";
 import { Error } from "../Error.jsx";
 const ChannelPage = () => {
-  const navigate = useNavigate();
+  
   const [error, setError] = useState({});
   const [loading, setLoading] = useState(false);
-  const { data, setData, channelVideos, setChannelVideos } =
+  const { data, setData, channelVideos, setChannelVideos ,setTotalViews,totalViews} =
     useContext(CompContext);
-  let { about, profilePic, channelName, createdAt, videos, subscribers } = data;
+  
   useEffect(() => {
     setLoading(true);
     axios
@@ -27,11 +26,12 @@ const ChannelPage = () => {
         withCredentials: true,
       })
       .then((res) => {
+        toast.success("channel data fetched successfully");
         res = res.data.data;
 
         setChannelVideos(res.allVideos);
-        res = res.userChannelDetails;
-        setData(res);
+        setData(res.userChannelDetails);
+        setTotalViews(res.totalViews)
       })
       .catch((err) => {
         setError(err.response.data);
@@ -41,10 +41,14 @@ const ChannelPage = () => {
       .finally(() => {
         setLoading(false);
       });
+
+      return ()=>{
+        
+      }
   }, []);
 
-  const { message } = error;
-  console.log("error",error)
+  // const { message } = error;
+  // console.log("error",error)
   if(error.scccess){
    return <Error message="No channel found"  />
   }
@@ -56,7 +60,7 @@ const ChannelPage = () => {
       <section className="min-h-screen w-full bg-gradient-to-br from-slate-700 to-slate-900 grid grid-flow-row  px-5">
         <ChannelHeading />
         <VideoPage />
-        <ToastContainer/>
+        <Toaster/>
       </section>
     );
   }

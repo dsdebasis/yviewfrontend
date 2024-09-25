@@ -13,8 +13,8 @@ const Home = () => {
   const handleScroll = (e) => {
     e.preventDefault();
     if (
-      window.innerHeight + document.documentElement.scrollTop >=
-        document.documentElement.scrollTop + 1 &&
+      window.innerHeight + window.scrollY >=
+        document.body.offsetHeight-5  &&
       !error
     ) {
       setPage((prev) => prev + 1);

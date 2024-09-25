@@ -11,7 +11,7 @@ function NavBar({style}) {
     setClick((prev)=>!prev);
 
     if (click === true) {
-      setCss(" h-[60vh] w-[40vw]  transition-all  duration-200 ease-out ");
+      setCss(" h-[60vh] w-[70vw]     duration-200 ease-out ");
     } else {
       setCss("h-0 w-0");
     }

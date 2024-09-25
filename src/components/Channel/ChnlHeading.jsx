@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom"
 import { useNavigate } from "react-router-dom"
-import { CompContext } from "../../Context/Context"
+import { CompContext } from "../../Context/Context.js"
 import { useContext } from "react"
 const ChannelHeading = () => {
-  const {data,channelVideos} = useContext(CompContext)
-  const {about,channelName,profilePic,subscribers,videos,views,createdAt,} = data
+  const {data,channelVideos,totalViews} = useContext(CompContext)
+  // console.log()
+  const {about,channelName,profilePic,subscribers,videos,createdAt} = data
 
  const navigate = useNavigate()
   return (
@@ -15,7 +16,7 @@ const ChannelHeading = () => {
         <img src={profilePic} alt='channel image' className='h-[15vh] w-[15vh] md:h-[20vh] md:w-[20vh] rounded-full  shadow-2xl shadow-stone-800'></img>
         <h1 className='md:text-2xl bg-gradient-to-br from-amber-700 via-amber-300 to-gray-800 bg-clip-text text-transparent lg:text-4xl capitalize'>{channelName}</h1>
       </div>
-      <div className='md:self-center capitalize p-2  max-w-full overflow-auto bg-gradient-to-r from-white via-pink-600 text-orange-400 bg-clip-text text-transparent' >{ "Watch High-Quality Videos — Meet Your Favorite New Youtuber Today. Come and Drop by Our Channel. Enjoy Great Videos."} 
+      <div className='md:self-center capitalize p-2  max-w-full overflow-auto bg-gradient-to-r from-white via-pink-600 text-orange-400 bg-clip-text text-transparent' >{ about} 
 
       </div>
 
@@ -28,7 +29,7 @@ const ChannelHeading = () => {
         <div className='row-span-1 grid grid-flow-col '>
           <div className='self-center justify-self-center'>{subscribers.length || 0}</div>
           <div className='self-center justify-self-center'>{channelVideos.length || 0}</div>
-          <div className='self-center justify-self-center'>{views || 0}</div>
+          <div className='self-center justify-self-center'>{ totalViews[0]?.totalViews }</div>
         </div>
         <div className="text-center capitalize ">{`Channel Created at ${createdAt}`}</div>
         <button className="self-center justify-self-center rounded-lg border-2 p-2 border-stone-500">
