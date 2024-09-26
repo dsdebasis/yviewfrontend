@@ -61,31 +61,31 @@ const UpdateProfile = () => {
   
   return (
     <section className="min-h-screen w-full   flex flex-col justify-center items-center ">
-      <header className='mb-[25vh] text-center text-4xl  font-sans   max-w-fit bg-gradient-to-r from-slate-300 via-pink-500 to-orange-500 inline-block text-transparent bg-clip-text'>Update Profile And Cover</header>
+      <header className='mb-[10vh] text-center text-4xl  font-sans   max-w-fit bg-gradient-to-r from-slate-300 via-pink-500 to-orange-500 inline-block text-transparent bg-clip-text'>Update Profile And Cover</header>
       {loading ? <Loading/> :""}
-      <form encType='multipart/form-data' className="bg-gradient-to-t rounded-md mx-5 md:mx-[25vw] md:h-[80%]  overflow-hidden  justify-self-center text-white grid  py-3 px-2 ">
+      <form encType='multipart/form-data' className=" bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-70 rounded-md mx-5 md:mx-[25vw] md:h-[80%]  overflow-hidden  justify-self-center text-white grid  py-3 px-2 border-2 border-stone-700 ">
         <div className=' flex  flex-col lg:flex-row justify-around  gap-y-5 p-5 md:gap-x-5 '>
           <div >
 
             <img className='max-h-[25vh] max-w-[55vw] overflow-hidden  rounded-2xl shadow-2xl' src={profile} alt='profile' />
             <input type='file' disabled={loading} name="updateProfilePic" onChange={(e) => (
-              setUpdateProfile(e.target.files[0]))} className='mt-5 outline-none  border-2 rounded-lg px-1 py-2 border-stone-500' />
+              setUpdateProfile(e.target.files[0]))} className='mt-5 outline-none  border-2 rounded-lg px-1 py-2 border-stone-700' />
           </div>
 
           <div >
 
             <img className='max-h-[25vh] max-w-[55vw] overflow-hidden   rounded-2xl shadow-2xl' src={cover} alt='cover'/>
             <input type='file' disabled={loading} name='updateCoverImage' onChange={(e) => (
-              setUpdateCover(e.target.files[0]))} className='mt-5 outline-none  border-2 border-stone-500 rounded-lg px-1 py-2' />
+              setUpdateCover(e.target.files[0]))} className='mt-5 outline-none  border-2 border-stone-700 rounded-lg px-1 py-2' />
           </div>
 
 
         </div>
 
-        <div className='w-full'>
+        <div className='w-full '>
           <button type='submit' disabled={loading} onClick={(e) => {
             updateProfileCover(e)
-          }} className='h-[6vh] w-full  bg-gray-700 rounded-md hover:bg-blue-600' >Update </button>
+          }} className='h-[6vh] w-full  rounded-md bg-blue-600' >Update </button>
 
         </div>
       </form>

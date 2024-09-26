@@ -80,27 +80,30 @@ const Profile = () => {
 
 
   return (
-    <div className='h-screen  flex justify-center items-center'>
+    <div className='h-screen  flex justify-center items-center '>
 
-      <section className='h-[90vh]  w-[90vw]  md:w-[40vw] lg:w-[30vw] shadow-2xl  text-white  rounded-3xl py-4 grid grid-flow-row  grid-rows-4 items-center   gap-y-10 p-4   '>
+      <section className=' h-[90vh]  w-[90vw]  md:w-[40vw] lg:w-[30vw] lg:shadow-2xl  text-white  rounded-3xl py-4 grid grid-flow-row  grid-rows-6 items-center    p-4    gap-y-3 border-2 border-stone-700 bg-clip-padding backdrop-filter backdrop-blur-3xl bg-opacity-0 '>
+
         <div className=' place-self-center mt-10 '>
           <img alt='profile image' src={profilePicUrl} className='h-[18vh] w-[18vh] border-2 border-stone-400 rounded-full shadow-2xl shadow-indigo-400'></img>
 
         </div>
-        <form className='h-[80%]  mt-8 row-span-3 flex flex-col justify-around px-2 bg-gradient-to-bl   rounded-xl '>
+        <h1 className='mt-[20vh] text-center text-3xl bg-clip-text text-transparent bg-gradient-to-t from-indigo-200  to-blue-600'>Update Details</h1>
 
-          <h1 className='text-center lg:text-2xl'>Update Details</h1>
-          <label htmlFor='updateFullname'>Full Name</label>
-          <Input id='updateFullname' name='updateFullname' type='text' onChange={handleChange} css='outline-0 border-0 bg-gradient-to-t  px-3 py-2 rounded-md placeholder:text-orange-400 focus:border-b-2 focus:border-amber-300 duration-100' placeholder={fullname} />
+        <form className='row-span-4 h-[80%]  mt-[10vh] flex flex-col justify-around px-2    rounded-md py-4'>
+
+     
+          <label htmlFor='updateFullname '>Full Name</label>
+          <Input id='updateFullname' name='updateFullname' type='text' onChange={handleChange} css='outline-0   px-3 py-2 rounded-md placeholder:text-orange-400  focus:border-amber-300 duration-100' placeholder={fullname} />
 
           <label htmlFor='updateEmail'>Email</label>
-          <Input name={"updateEmail"} type={"email"} fun={handleChange} placeholder={email}  css="outline-0 placeholder:text-orange-400 focus:border-b-2 border-0 focus:border-amber-300 bg-gradient-to-t duration-100"/>         
+          <Input name={"updateEmail"} type={"email"} fun={handleChange} placeholder={email}  css="outline-0 placeholder:text-orange-400 focus:border-amber-300 duration-100"/>         
 
           <label htmlFor='updateUsername'>Username</label>
-          <Input name={"updateUsername"} type={"text"} fun={handleChange} placeholder={username}  css="outline-0 placeholder:text-orange-400 focus:border-b-2 border-0 focus:border-amber-300 bg-gradient-to-t duration-100"/> 
+          <Input name={"updateUsername"} type={"text"} fun={handleChange} placeholder={username}  css="outline-0 placeholder:text-orange-400  focus:border-amber-300  duration-100"/> 
 
 
-          <button type='submit' className='h-12 md:h-[8vh] w-full bg-slate-900 rounded-xl hover:bg-blue-600 ' onClick={updateProfile} >Update</button>
+          <button type='submit' className='h-10 lg:h-12  w-full hover:bg-indigo-600 rounded-xl bg-blue-600 ' onClick={updateProfile} >Update</button>
 
         </form>
       </section>

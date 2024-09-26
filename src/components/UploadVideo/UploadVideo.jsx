@@ -46,11 +46,11 @@ function UploadVideo() {
 
   if(loading) <Loading title={"uploading video"} /> 
   return (
-    <section className='h-screen w-full  overflow-hidden box-border  text-white   flex justify-center items-center '>
+    <section className='h-screen w-full  overflow-hidden box-border  text-white   flex justify-center items-center bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-70 '>
 
-      <form encType='multipart/form-data' method='POST' className=' mx-5 min-h-[60vh] md:w-[30vw] rounded-2xl  grid grid-flow-row row-auto gap-5  p-5 shadow-2xl '>
+      <form encType='multipart/form-data' method='POST' className=' mx-5 min-h-[60vh] md:w-[60vw] rounded-2xl  grid grid-flow-row row-auto gap-5  p-5 shadow-2xl border-2 border-stone-600'>
 
-        <header className='text-center lg:text-4xl'>Upload Your Video</header>
+        <header className='text-center text-2xl lg:text-4xl bg-clip-text text-transparent bg-gradient-to-br from-violet-200 to-yellow-300 animate-ping'>Upload Your Video</header>
 
         <label id='selectVideo'>Upload video</label>
         <Input type='file' name='video' required={true} placeholder='upload your video' css='h-12 border-2  bg-transparent outline-none p-2 focus:border-blue-600 rounded-md ' fun={(e) => {
@@ -75,7 +75,7 @@ function UploadVideo() {
         }} />
 
         <label>Video  Description</label>
-        <textarea name='videoDes' required={true} className='max-h-[300px] min-h-[10vh] outline-none bg-transparent border-2 px-3 py-2 focus:border-blue-600 rounded-md' onChange={(e) => {
+        <textarea name='videoDes' required={true} className='max-h-[300px] min-h-[10vh] outline-none bg-transparent border-2 border-stone-700 px-3 py-2 focus:border-blue-600 rounded-md' onChange={(e) => {
           e.preventDefault()
 
           clearTimeout(clearTimeId)

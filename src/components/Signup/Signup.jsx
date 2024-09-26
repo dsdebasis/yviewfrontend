@@ -67,15 +67,15 @@ const Signup = () => {
   
   {loading ? <Loading /> : <></>}
   return (
-    <section className="h-screen  w-full grid grid-flow-row ">
+    <section className="min-h-screen  w-full grid grid-flow-row ">
     <NavBar style={"top-0"}/>
-      <div className="mt-20  justify-self-center text-xs p-6 md:text-base  md:px-5  px-4 ">
+      <div className="h-[80vh]  mt-[15vh] border-2 border-stone-700 justify-self-center text-xs p-6 md:text-base  md:px-5  px-4 bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-70 rounded-3xl">
         <form
           name="signup"
           action="/signup"
           encType="multipart/form-data"
           method="POST"
-          className="w-full lg:h-[80vh]  bg-gradient-to-br  box-border md:w-[60vw] lg:w-[27vw]  text-white   md:px-5 md:py-2 p-5   rounded-2xl "
+          className="w-full lg:h-[80vh]   box-border md:w-[60vw] lg:w-[27vw]  text-white   md:px-5 md:py-2 p-5   rounded-2xl "
         >
           <header className=" lg:text-lg  text-center ">Signup</header>
           <div>

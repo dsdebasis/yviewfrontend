@@ -9,8 +9,7 @@ import Loading from "../Loading/Loading.jsx";
 
 import Input from "../Input/Input.jsx";
 
-
-import toast, { Toaster } from 'react-hot-toast';
+import toast, { Toaster } from "react-hot-toast";
 import NavBar from "../Navbar/NavBar.jsx";
 const Login = () => {
   const navigate = useNavigate();
@@ -62,22 +61,21 @@ const Login = () => {
 
   return (
     <section className=" h-screen  w-screen flex flex-col  ">
-     <NavBar style={"w-full"}/>
+      <NavBar style={"w-full"} />
 
       {loading ? (
         <Loading title={"logging in"} />
-        
       ) : (
-        <>
-          <div className=" md:self-center mt-[20vh] lg:mt-[10vh]  h-[80%]  gap-y-4   text-xs overflow-hidden box-border    xl:p-4 p-2 text-white xl:text-base xl:self-center ">
+        <section className="min-h-screen  w-screen flex  justify-center items-center">
+          <div className=" md:self-center mt-[20vh]  h-[65vh] lg:h-[70vh]  text-xs overflow-hidden box-border    xl:p-4 p-2 text-white xl:text-base xl:self-center bg-clip-padding backdrop-filter backdrop-blur-xl bg-opacity-0 border-2 border-stone-700 rounded-xl flex flex-col justify-evenly">
             <form
               id="login"
               action="/"
               onSubmit={handleLogin}
-              className=" w-full h-[60%] lg:h-[70%]   md:h-[65%]  text-white  rounded-2xl   bg-gradient-to-tl  px-4 overflow-hidden my-4   "
+              className=" w-full  text-white  rounded-2xl    px-4 overflow-hidden    h-[80%]  lg:h-[80%] flex flex-col  justify-evenly"
             >
               <h1 className="mt-3 text-center xl:text-xl font-mono">Login</h1>
-              <div className="flex flex-col gap-y-4  md:gap-y-10 lg:gap-y-5 justify-evenly">
+              <div className=" ">
                 <div>
                   <label htmlFor="username">Username</label>
                   <Input
@@ -125,7 +123,7 @@ const Login = () => {
                 Login
               </button>
             </form>
-            <div className=" h-[12%] w-full lg:h-[15%]   flex justify-center  items-center rounded-2xl text-center bg-gradient-to-tl  overflow-hidden ">
+            <div className=" h-[12%] w-full    flex justify-center  items-center rounded-2xl text-center   overflow-hidden border-2 border-stone-700">
               <h1>
                 Don't have an account ?
                 <Link to={"/signup"} className="text-blue-400 ml-3">
@@ -134,10 +132,9 @@ const Login = () => {
               </h1>
             </div>
           </div>
-        </>
+        </section>
       )}
-      <Toaster  />
-   
+      <Toaster />
     </section>
   );
 };

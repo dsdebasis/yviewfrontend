@@ -54,7 +54,7 @@ if(loading){
         
 
 
-        <form className="md:w-[30vw] h-[40vh] bg-gradient-to-bl  shadow-2xl  p-4 text-white rounded-lg ">
+        <form className="md:w-[30vw] h-[40vh] border-2 border-stone-700  shadow-2xl  p-4 text-white rounded-lg bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-70 ">
           <header className="text-center">Reset Password</header>
           <div>
             <label htmlFor="email">Email</label>

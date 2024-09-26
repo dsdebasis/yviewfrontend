@@ -10,7 +10,7 @@ const ChannelHeading = () => {
  const navigate = useNavigate()
   return (
 
-    <section className=' w-full min-h-fit md:min-h-[350px] bg-gradient-to-br mt-10   shadow-xl   rounded-xl text-white p-2  grid  gap-y-2 md:gap-x-10 md:h-[35vh] md:grid-cols-4  '>
+    <section className=' w-full min-h-fit md:min-h-[350px]  mt-10   shadow-xl   rounded-xl text-white p-2  grid  gap-y-2 md:gap-x-10 md:h-[35vh] md:grid-cols-4 bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-70 border-2 border-stone-600 '>
 
       <div className='  justify-around flex md:flex-col md:justify-evenly  items-center '>
         <img src={profilePic} alt='channel image' className='h-[15vh] w-[15vh] md:h-[20vh] md:w-[20vh] rounded-full  shadow-2xl shadow-stone-800'></img>

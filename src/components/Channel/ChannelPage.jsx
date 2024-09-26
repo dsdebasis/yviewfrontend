@@ -57,7 +57,7 @@ const ChannelPage = () => {
     loading ? <Loading /> : <></>;
 
     return (
-      <section className="min-h-screen w-full bg-gradient-to-br from-slate-700 to-slate-900 grid grid-flow-row  px-5">
+      <section className="min-h-screen w-full  from-slate-700 to-slate-900 grid grid-flow-row  px-5">
         <ChannelHeading />
         <VideoPage />
         <Toaster/>
