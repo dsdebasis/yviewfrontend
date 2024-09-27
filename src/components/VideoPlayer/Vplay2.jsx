@@ -9,7 +9,7 @@ import CommentWrap from "../Comments/CommentWrap.jsx";
 import { useContext } from "react";
 import { CmntContext } from "../../Context/Context.js";
 import VideoPlayer from "./VideoPlayer.jsx";
-
+import VideoDetails from "./VideoDetails.jsx";
 
 
 function Vplay2() {
@@ -75,8 +75,9 @@ function Vplay2() {
     });
   };
   return (
-    <section className="min-h-screen bg-gradient-to-br from-slate-700 to-slate-900 px-1 lg:px-2">
+    <section className="min-h-screen max-w-screen lg:max-w-full  px-2 lg:px-2 bg-gradient-to-b">
       <VideoPlayer options={videoPlayerOptions} onReady={handlePlayerReady} />
+       <VideoDetails/>
       <CommentWrap videoid={videoid} />
     </section>
   );

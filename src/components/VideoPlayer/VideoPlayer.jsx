@@ -53,8 +53,8 @@ import 'video.js/dist/video-js.css';
   }, [playerRef]);
 
   return (
-    <div data-vjs-player  className=' md:w-[40vw] md:mx-auto '>
-      <div ref={videoRef} className='p-4 md:mt-10 sticky '/>
+    <div data-vjs-player  className=' md:w-full lg:w-[70vw] md:mx-auto '>
+      <div ref={videoRef} className='p-4  md:mt-0 sticky '/>
     
     </div>
   );
