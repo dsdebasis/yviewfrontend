@@ -22,7 +22,7 @@ const ProfileHead = ({ status }) => {
    
     if (click === true) {
     
-      setChildCss(" max-h-[40vh] w-[30vw] sm:w-[20vw] overflow-hidden  block absolute z-10  right-1 ")
+      setChildCss(" max-h-[40vh] w-fit sm:w-fit overflow-hidden  block absolute z-10  right-1 ")
       setClick(false)
     } else {
   
@@ -37,7 +37,7 @@ const ProfileHead = ({ status }) => {
         <button onClick={handleCss} className=' text-slate-200 text-sm md:text-xl hover:text-yellow-400 '><CgProfile /> </button>
       </div>
       <div className='h-0 mt-5 overflow-hidden box-border'>
-        <section  className={`lg:h-fit text-base w-[30vw]    inline-flex justify-evenly   lg:max-w-fit  rounded-xl   ease-in px-4 py-3  lg:px-4 lg:py-2  flex-col  items-start    shadow-xl  md:text-base bg-clip-padding backdrop-filter backdrop-blur-3xl bg-opacity-90 bg-gray-800 ${childCss}`}>
+        <section  className={` text-base w-[30vw]    inline-flex justify-evenly   lg:max-w-fit  rounded-xl   ease-in px-4 py-3  lg:px-4 lg:py-2  flex-col  items-start    shadow-xl  md:text-base  bg-gray-800 ${childCss}`}>
           {
             routes.map((item, index) => {
               return (<Link key={index} to={`/${item}`} className='hover:text-yellow-400  capitalize  text-yellow-300 to-yellow-5 bg-clip-text text-transparent'>{routesEle[index]}</Link>)

@@ -28,6 +28,10 @@ function Vplay2() {
         setVideoLink(res.data.message);
         setCmnt(videoid);
         localStorage.setItem("videoId", videoid);
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
       })
       .catch((error) => {
         toast.error(error.response.data.message);

@@ -2,7 +2,7 @@ import React from "react";
 
 const VideoFooter = ({ title, chnlName, videoTime,views  }) => {
   return (
-    <div className="w-[75%] h-full box-border overflow-hidden flex flex-col hover:text-xs">
+    <div className="w-[75%] h-full box-border overflow-hidden flex flex-col ">
       <p className=" overflow-hidden text-sm md:text-sm text-wrap  font-mono font-semibold ">
         {title}
       </p>

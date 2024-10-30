@@ -1,13 +1,22 @@
-import React from 'react'
-
-const Loading = ({title}) => {
+import React from "react";
+import { CirclesWithBar } from "react-loader-spinner";
+const Loading = ({ title }) => {
   return (
+    <section className="h-[97vh] max-w-full flex justify-center items-center">
+      <CirclesWithBar
+        height="100"
+        width="100"
+        color="#4fa94d"
+        outerCircleColor="#4fa94d"
+        innerCircleColor="#4fa94d"
+        barColor="#4fa94d"
+        ariaLabel="circles-with-bar-loading"
+        wrapperStyle={{}}
+        wrapperClass=""
+        visible={true}
+      />
+    </section>
+  );
+};
 
-    <div className=' h-screen w-screen z-50 bg-gradient-to-br from-slate-700 to-stone-700   flex justify-center items-center'>
-      <h1 className='text-4xl   text-orange-400 capitalize'>{title ? title :"Loading"}<span className='animate-ping text-white'>...</span></h1>
-    </div>
-
-  )
-}
-
-export default Loading
+export default Loading;

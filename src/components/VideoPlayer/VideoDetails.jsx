@@ -4,7 +4,7 @@ import { SlDislike } from "react-icons/sl";
 import { HiOutlineShare } from "react-icons/hi";
 function VideoDetails() {
   return (
-    <section className="w-[94vw]  max-w-[90vw] md:max-w-[97vw] md:w-full md:mt-20 h-[20vh] md:h-[10vh] px-2  md:px-[2vw] text-xs md:text-md   rounded-sm shadow-md text-white flex flex-col justify-around md:flex-row md:justify-between  md:items-center bg-gradient-to-br from-slate-600 to-slate-900 ">
+    <section className="w-[94vw]  max-w-[90vw] md:max-w-[97vw] md:w-full md:mt-20 h-[20vh] md:h-[10vh] px-2  md:px-[2vw] text-xs md:text-md   shadow-md text-white flex flex-col justify-around md:flex-row md:justify-between  md:items-center border-2 border-stone-500 rounded-lg">
 
       <div className="max-w-screen  md:w-[70%] flex justify-between md:justify-around  px-1">
         <div className="h-[6vh] w-[40%] md:w-[20%] inline-flex   justify-between items-center">

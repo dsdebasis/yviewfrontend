@@ -30,7 +30,7 @@ function CommentWrap({ videoid }) {
       .catch((error) => {});
   }, []);
   return (
-    <section className="min-h-screen h-atuo  w-full px-2 pb-3 mt-10  md:px-2 lg:px-3 ">
+    <section className=" min-h-screen h-atuo  w-full px-2 pb-3 mt-10  md:px-2 lg:px-3 ">
       <AddComment />
       <section className="grid grid-flow-row gap-y-4">
         {comments.map((cmnt) => {

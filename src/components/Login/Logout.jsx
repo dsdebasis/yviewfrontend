@@ -33,10 +33,11 @@ const Logout = () => {
     })
   }
   
-  {loading ? <Loading title={"logging out"}/> :""}
+ 
 
   return (
     <div className='h-screen  flex justify-center items-center transition-all ease-in-out '>
+       {loading ? <Loading /> :""}
       <button className='px-2 py-2 border-2 hover:border-red-500 shadow-2xl border-white text-white rounded-lg disabled:border-red-600 disabled:blur-sm disabled:cursor-not-allowed' disabled={loading} onClick={handleLogout} >Logout</button>
       <Toaster />
     </div>
