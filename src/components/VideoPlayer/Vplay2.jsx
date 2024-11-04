@@ -18,8 +18,6 @@ function Vplay2() {
 
   const { cmnt, setCmnt } = useContext(CmntContext);
 
-
-
   let videolink;
   useEffect(() => {
     axios
@@ -36,14 +34,21 @@ function Vplay2() {
       .catch((error) => {
         toast.error(error.response.data.message);
       });
-    axios.post(`${videoApi}/update-views/${videoid}`,{},{
-      withCredentials: true,
-    }).then((res)=>{
-     console.log(res)
-    }).catch((error)=>{
-      console.log(error)
-    })
-   
+    axios
+      .post(
+        `${videoApi}/update-views/${videoid}`,
+        {},
+        {
+          withCredentials: true,
+        }
+      )
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+
     return () => {};
   }, []);
 
@@ -81,7 +86,8 @@ function Vplay2() {
   return (
     <section className="min-h-screen max-w-screen lg:max-w-full  px-2 lg:px-2 bg-gradient-to-b">
       <VideoPlayer options={videoPlayerOptions} onReady={handlePlayerReady} />
-       <VideoDetails/>
+      <VideoDetails />
+
       <CommentWrap videoid={videoid} />
     </section>
   );

@@ -1,13 +1,12 @@
 import React from "react";
 import { SlLike } from "react-icons/sl";
 import { SlDislike } from "react-icons/sl";
-import { useContext } from "react";
-import { CmntContext } from "../../Context/Context";
-import { CgProfile } from "react-icons/cg";
 
+import { CgProfile } from "react-icons/cg";
 import CommentEditOption from "./CommentEditOption.jsx";
-const CommentProfile = ({ username, content, like, dislike, commentTime }) => {
-  const { cmnt } = useContext(CmntContext);
+
+const CommentProfile = ({id, username, content, like, dislike, commentTime }) => {
+  
   // console.log(cmnt)
   return (
     <div className=" lg:min-w-[20vw]     ">
@@ -31,7 +30,7 @@ const CommentProfile = ({ username, content, like, dislike, commentTime }) => {
             <span>{dislike}</span>
           </button>
         </div>
-       <CommentEditOption />
+       <CommentEditOption id={id}/>
       </div>
     </div>
   );

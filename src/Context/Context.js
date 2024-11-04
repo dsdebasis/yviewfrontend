@@ -6,4 +6,5 @@ const VideoContext = createContext({data:"sample"})
 
 const CmntContext = createContext({})
 
-export { CompContext,VideoContext,CmntContext }
+const CommentEditOpnClicked= createContext(false)
+export { CompContext,VideoContext,CmntContext ,CommentEditOpnClicked}
