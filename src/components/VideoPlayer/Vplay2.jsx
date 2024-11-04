@@ -13,17 +13,17 @@ import VideoDetails from "./VideoDetails.jsx";
 
 
 function Vplay2() {
-  const [videoLink, setVideoLink] = useState("");
+  const [videoData, setvideoData] = useState("");
   const { videoid } = useParams();
 
   const { cmnt, setCmnt } = useContext(CmntContext);
 
-  let videolink;
+  // let videoData;
   useEffect(() => {
     axios
       .get(`${backendUrl}/videoid/${videoid}`)
       .then((res) => {
-        setVideoLink(res.data.message);
+        setvideoData(res.data.message);
         setCmnt(videoid);
         localStorage.setItem("videoId", videoid);
         window.scrollTo({
@@ -43,7 +43,7 @@ function Vplay2() {
         }
       )
       .then((res) => {
-        console.log(res);
+        // console.log(res.data.data);
       })
       .catch((error) => {
         console.log(error);
@@ -62,23 +62,23 @@ function Vplay2() {
     preload: "auto",
     sources: [
       {
-        src: videoLink.videoFile,
+        src: videoData?.videoFile,
         type: "video/mp4",
       },
     ],
   };
   const handlePlayerReady = (player) => {
-    console.log("player is ready");
+  
     playerRef.current = player;
 
     // You can handle player events here, for example:
     player.on("play", () => {
-      console.log("clicked");
+      // console.log("clicked");
     });
     player.on("waiting", () => {
       // videojs.log("player is waiting");
     });
-    console.log(player);
+    // console.log(player);
     player.on("dispose", () => {
       // videojs.log("player will dispose");
     });
@@ -86,7 +86,7 @@ function Vplay2() {
   return (
     <section className="min-h-screen max-w-screen lg:max-w-full  px-2 lg:px-2 bg-gradient-to-b">
       <VideoPlayer options={videoPlayerOptions} onReady={handlePlayerReady} />
-      <VideoDetails />
+      <VideoDetails data={videoData} />
 
       <CommentWrap videoid={videoid} />
     </section>
