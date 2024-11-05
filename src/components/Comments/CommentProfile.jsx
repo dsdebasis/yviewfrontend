@@ -17,7 +17,7 @@ const CommentProfile = ({id, username, content, like, dislike, commentTime }) =>
           {username || "User"}
           <span className="text-slate-300 ml-4">{commentTime}</span>
         </h1>
-        <p className="row-span-2 w-full text-slate-200  tracking-wider text-justify p-1 text-sm lg:text-base ">
+        <p className="row-span-2 w-full text-slate-200  tracking-wider text-justify p-1 text-sm lg:text-base content" >
           {content || ""}
         </p>
         <div className="flex  gap-x-5 mt-2 lg:gap-x-9  max-h-fit">

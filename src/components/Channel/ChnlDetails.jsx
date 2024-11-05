@@ -1,19 +1,19 @@
 import React from 'react'
 import ChannelImg from './ChannelImg.jsx'
 import VideoFooter from './VideoFooter.jsx'
-import { CompContext } from '../../Context/Context.js'
+import { VideoContext } from '../../Context/useVideoContext.js'
 import { useContext } from 'react'
 
-const ChannelDetails = ({ channelProfilePic,title,uploadTime,chnlName,views }) => {
-  const { data } = useContext(CompContext)
+const ChannelDetails = () => {
+  const  data  = useContext(VideoContext)
 
- 
+    
   return (
     <div className=' w-full h-full  box-border  flex flex-row justify-between items-center '>
 
-      <ChannelImg url={channelProfilePic || data?.profilePic} />
+      <ChannelImg url={data.channelProfilePic || data?.profilePic} />
 
-      <VideoFooter title={title} chnlName={chnlName || data?.channelName} videoTime={uploadTime} views={views} />
+      <VideoFooter title={data.title} chnlName={data.chnlName || data?.channelName} videoTime={data.uploadTime} views={data.views} />
 
     </div>
   )

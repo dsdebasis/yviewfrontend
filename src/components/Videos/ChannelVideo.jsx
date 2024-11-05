@@ -1,22 +1,38 @@
-import Video from './Video.jsx'
-import { useContext } from 'react'
-import { CompContext } from '../../Context/Context.js'
-const ChannelVideo = ({videos}) => {
-  const {data,channelVideos} = useContext(CompContext)
- 
-  // console.log(channelVideos)
-  return (
-    <div className='h-full w-full overflow-hidden  my-10 rounded-lg '>  
-      <div className=' grid grid-cols-1 sm:grid-cols-2 sm:gap-x-5 md:grid-cols-3 lg:grid-cols-4  place-items-center gap-y-6    lg:gap-4  lg:py-4 '>
-        {
-          channelVideos?.map((i,index) => {
-      
-            return <Video key={i} title={channelVideos[index]?.title} src={channelVideos[index]?.videoFile} uploadTime={channelVideos[index]?.uploadTime}  vid={channelVideos[index]?._id} thumbnail={channelVideos[index]?.thumbnail} duration={channelVideos[index]?.duration} views={channelVideos[index]?.views}/>
-          })
-        }
-      </div>
-    </div>
-  )
-}
+import Video from "../Videos/Video.jsx";
+import VideoContextProvider from "../../Context/VideoContextProvider.jsx";
+import { useEffect ,useState} from "react";
+import axios from "axios";
+import { backendUrl } from "../index.js";
+import { useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
+const ChannelVideo = () => {
+  let data 
+  const [channelData,setChannelData] = useState({})
+  useEffect(() => {
+    axios.get(`${backendUrl}/getchannel`, {
+      withCredentials: true
+    }).then((res) => {
+       setChannelData(res.data.data)
+    }).catch((err) => {
+      toast.error(err.response.data.message)
+    })
+  }, []);
 
-export default ChannelVideo
+  data = channelData
+  console.info(data.allVideos)
+  return (
+    <section className="w-full h-full  grid grid-cols-1 gap-y-2  md:grid-cols-3 sm:grid-cols-2 sm:gap-x-10 md:gap-x-5 lg:grid-cols-3  place-items-center mt-4 text-white lg:py-5 lg:gap-x-4 lg:gap-y-10 bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-0 scroll-smooth">
+      {
+       data.allVideos?.map((i, d) => {
+         return (
+           <VideoContextProvider key={i._id} data={i}>
+             <Video id={i._id} />
+           </VideoContextProvider>
+         )
+       })
+          }
+    </section>
+  );
+};
+
+export default ChannelVideo;

@@ -24,7 +24,7 @@ function Vplay2() {
       .get(`${backendUrl}/videoid/${videoid}`)
       .then((res) => {
         setvideoData(res.data.message);
-        setCmnt(videoid);
+        // setCmnt(videoid);
         localStorage.setItem("videoId", videoid);
         window.scrollTo({
           top: 0,

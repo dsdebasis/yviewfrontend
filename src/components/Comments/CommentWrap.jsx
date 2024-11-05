@@ -8,8 +8,7 @@ import { backendUrl } from "../index.js";
 import AddComment from "./AddComment.jsx";
 // import { useContext } from "react";
 // import { CmntContext } from "../../Context/Context.js";
-import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import {  Toaster } from "react-hot-toast";
 import { CommentEditOpnProvider } from "../../Context/CommentEditOpnProvider.jsx";
 
 function CommentWrap({ videoid }) {
@@ -23,12 +22,13 @@ function CommentWrap({ videoid }) {
     axios
       .get(`${backendUrl}/comments/${videoid}/${page}/${pageSize}`)
       .then((res) => {
-        setComments(res.data.message.comments);
+        console.log("comments", res.data.message.comments.length);
+        // setComments(res.data.message.comments);
       })
       .catch((error) => {});
   }, []);
   return (
-    <section className=" min-h-screen h-atuo  w-full px-2 pb-3 mt-10  md:px-2 lg:px-3 ">
+    <section className="min-h-screen h-auto  w-full px-2 pb-3 mt-10  md:px-2 lg:px-3 ">
       <AddComment />
       <CommentEditOpnProvider>
         <section className="grid grid-flow-row gap-y-4">
@@ -42,12 +42,14 @@ function CommentWrap({ videoid }) {
                 dislike={""}
                 username={cmnt.username}
                 commentTime={cmnt.commentTime}
+                comments={comments}
+                setComments={setComments}
               />
             );
           })}
         </section>
       </CommentEditOpnProvider>
-      <ToastContainer />
+      <Toaster />
     </section>
   );
 }

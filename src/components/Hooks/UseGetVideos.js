@@ -9,7 +9,8 @@ const useGetVideos = function () {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
 
-  console.log(backendUrl)
+  // const sample = useContext(VideoContextProvider);
+  
   useEffect(() => {
     const abortController = new AbortController();
     const getVideos = async function () {
@@ -35,7 +36,7 @@ const useGetVideos = function () {
 
     }
   }, [page]);
-
+// setVideoData(videoRes)
   return { page, setPage,pageSize, setPageSize,   setVideoRes,  setLoading, setError, videoRes, loading, error };
 };
 

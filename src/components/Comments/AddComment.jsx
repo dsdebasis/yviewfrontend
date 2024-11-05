@@ -4,7 +4,9 @@ import axios from "axios";
 import { backendUrl } from "../index.js";
 
 import Button from "../Button/Button.jsx";
-import { toast, Zoom } from "react-toastify";
+import toast from "react-hot-toast";
+
+
 
 function AddComment() {
   
@@ -43,11 +45,8 @@ function AddComment() {
       })
       .catch((error) => {
         console.log(error.response.data.message);
-        toast.error(error.response.data.message,{
-          theme:"colored",
-          transition:Zoom,
-          autoClose:3000,
-          
+        toast.error(error.response.data.message, {
+       duration: 1000,
         });
       })
       .finally(() => {

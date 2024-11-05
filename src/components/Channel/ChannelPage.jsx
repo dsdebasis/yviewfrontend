@@ -13,12 +13,17 @@ import { useContext } from "react";
 import Loading from "../Loading/Loading.jsx";
 import { Error } from "../Error.jsx";
 const ChannelPage = () => {
-  
   const [error, setError] = useState({});
   const [loading, setLoading] = useState(false);
-  const { data, setData, channelVideos, setChannelVideos ,setTotalViews,totalViews} =
-    useContext(CompContext);
-  
+  const {
+    data,
+    setData,
+    channelVideos,
+    setChannelVideos,
+    setTotalViews,
+    totalViews,
+  } = useContext(CompContext);
+
   useEffect(() => {
     setLoading(true);
     axios
@@ -31,38 +36,41 @@ const ChannelPage = () => {
 
         setChannelVideos(res.allVideos);
         setData(res.userChannelDetails);
-        setTotalViews(res.totalViews)
+        setTotalViews(res.totalViews);
       })
       .catch((err) => {
         setError(err.response.data);
         console.log(err.response.data.message);
-        toast.error(err.response.data.message)
+        toast.error(err.response.data.message);
       })
       .finally(() => {
         setLoading(false);
       });
 
-      return ()=>{
-        
-      }
+    return () => {};
   }, []);
 
   // const { message } = error;
   // console.log("error",error)
-  if(error.scccess){
-   return <Error message="No channel found"  />
-  }
-  
+  // if(error.scccess){
+  //  return <Error message="No channel found"  />
+  // }
+
+  return (
+    <section>
+      {error ? (
+        <Error message={error.message} link="createchannel" linkText="create channel"/>
+      ) : (
+        <section className="min-h-screen w-full  from-slate-700 to-slate-900 grid grid-flow-row  px-5">
+          <ChannelHeading />
+          <VideoPage />
+          <Toaster />
+        </section>
+      )}
+    </section>
+  );
   {
     loading ? <Loading /> : <></>;
-
-    return (
-      <section className="min-h-screen w-full  from-slate-700 to-slate-900 grid grid-flow-row  px-5">
-        <ChannelHeading />
-        <VideoPage />
-        <Toaster/>
-      </section>
-    );
   }
 };
 
