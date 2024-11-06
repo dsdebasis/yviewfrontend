@@ -30,12 +30,12 @@ import {
 const Routes = createBrowserRouter([
   
     {
-      path: "/",
-    element: (
+      path: "/about",
+     element: (
       <Content/>  
     )},
     {
-      path: "/home",
+      path: "/",
       element: (
         <Suspense fallback={<Loading />}>
           <LazyHome />

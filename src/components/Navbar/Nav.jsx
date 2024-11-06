@@ -8,7 +8,7 @@ const Nav = () => {
   
   let navItems = [""]
   if(!loginStaus){
-    navItems=["home","login","signup","reset-password",]
+    navItems=["about","login","signup","reset-password",]
   }else{
     navItems=[ "home","profile","logout",]
   }
