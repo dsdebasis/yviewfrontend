@@ -8,16 +8,18 @@ const Nav = () => {
   
   let navItems = [""]
   if(!loginStaus){
-    navItems=["about","login","signup","reset-password",]
+    navItems=[ "about","login","signup","reset-password"]
   }else{
     navItems=[ "home","profile","logout",]
   }
-  
+
    
     return (
-      <section className={`h-full w-full sm:flex-row sm:justify-evenly sm:items-center   overflow-hidden  box-border rounded-xl lg:rounded-sm   flex flex-col justify-around gap-y-5  lg:flex-row lg:justify-evenly lg:items-center text-yellow-400 ` }>
-            {navItems.map((item) =>
-            <Link to={"/" + item} key={useId()} className='overflow-hidden mx-3  capitalize  rounded-sm lg:border-none '>{item}</Link>
+      <section className={`h-full w-full sm:flex-row sm:justify-evenly sm:items-center   overflow-hidden  box-border rounded-xl lg:rounded-sm   flex flex-col justify-around gap-y-5  lg:flex-row lg:justify-evenly lg:items-center text-yellow-400 `}>
+        <Link to="/" className='overflow-hidden mx-3  capitalize  rounded-sm lg:border-none '>Home</Link>
+
+            {navItems.map((item,index) =>
+            <Link to={`/${item}`} key={useId()} className='overflow-hidden mx-3  capitalize  rounded-sm lg:border-none '>{item}</Link>
             )}
         
       </section>

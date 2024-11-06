@@ -4,17 +4,10 @@ import { BsMenuButtonWideFill } from "react-icons/bs";
 import Nav from "./Nav.jsx";
 function NavBar({style}) {
   const [click, setClick] = useState(false);
-  const [css, setCss] = useState({});
-
   const handleClick = function (e) {
     e.preventDefault();
     setClick((prev)=>!prev);
-
-    if (click === true) {
-      setCss(" h-[40vh] w-[70vw]     duration-200 ease-out bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-0");
-    } else {
-      setCss("h-0 w-0");
-    }
+   
   };
   return (
     <nav
@@ -27,7 +20,7 @@ function NavBar({style}) {
         />
       </div>
 
-      <div className={`h-0 w-0 mt-2 border-2 border-stone-700  rounded-md sm:h-[8vh]  sm:w-[97vw] lg:h-[8vh]   ${css}`}>
+      <div className={`h-0 w-0 mt-2 border-2 border-stone-700  rounded-md sm:h-[8vh]  sm:w-[97vw] lg:h-[8vh]   ${click ? " h-fit w-[30vw]  py-4   duration-200 ease-out bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-0 " :"none"} `}>
         <Nav />
       </div>
     </nav>
