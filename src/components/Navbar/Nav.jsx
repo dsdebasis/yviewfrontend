@@ -10,7 +10,7 @@ const Nav = () => {
   if(!loginStaus){
     navItems=[ "about","login","signup","reset-password"]
   }else{
-    navItems=[ "home","profile","logout",]
+    navItems=[ "channel","profile","logout",]
   }
 
    

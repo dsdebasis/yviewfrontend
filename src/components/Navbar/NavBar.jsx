@@ -11,7 +11,7 @@ function NavBar({style}) {
   };
   return (
     <nav
-      className={`flex  flex-col items-center lg:self-end  overflow-hidden lg:flex-row lg:rounded-lg absolute z-50 box-border ${style}`}
+      className={`flex  flex-col items-center lg:self-end  overflow-hidden lg:flex-row lg:rounded-lg absolute z-50 box-border  ${style}`}
     >
       <div className="w-fit border-2 border-stone-700 rounded-lg p-4 sm:hidden  lg:w-0  h-fit   place-self-start place-content-center ">
         <BsMenuButtonWideFill

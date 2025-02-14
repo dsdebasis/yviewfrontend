@@ -5,8 +5,8 @@ import { backendUrl } from "../index.js";
 
 import Button from "../Button/Button.jsx";
 import toast from "react-hot-toast";
-
-
+import { useContext } from "react";
+import { CmntContext } from "../../Context/Context.js";
 
 function AddComment() {
   
@@ -14,6 +14,8 @@ function AddComment() {
   const [comment, setComment] = useState("");
   const videoId = localStorage.getItem("videoId");
   
+  const { cmnt, setCmnt } = useContext(CmntContext);
+
   let timerId;
   const addComment = function (e) {
     setClick(true);
@@ -40,7 +42,9 @@ function AddComment() {
         }
       )
       .then((res) => {
-        console.log(res);
+        // console.log(res.data)
+        setCmnt(() => [...cmnt, res.data.data]);
+        // console.log(res);
         toast.success("Comment Added")
       })
       .catch((error) => {

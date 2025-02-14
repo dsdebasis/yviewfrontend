@@ -12,7 +12,7 @@ import VideoContextProvider from "../../Context/VideoContextProvider.jsx";
 
 const Home = () => {
   const { videoRes, error, setPage, loading } = useGetVideos();
-
+  
   
 
   const handleScroll = (e) => {
@@ -37,15 +37,15 @@ const Home = () => {
   if (loading) <Loading />;
   return (
     <section className=" w-full min-h-screen  flex flex-col   font-sans pt-2 relative px-4  overflow-hidden">
-      <NavBar />
+      <NavBar  />
       <div className="w-full s sticky mt-[12vh] lg:mt-[15vh] top-2 z-10  border-2 border-stone-500 rounded-2xl bg-clip-padding backdrop-filter backdrop-blur-xl bg-opacity-0">
         <Search />
       </div>
       { (
-        <section className="w-full h-full  grid grid-cols-1 gap-y-2  md:grid-cols-3 sm:grid-cols-2 sm:gap-x-10 md:gap-x-5 lg:grid-cols-3  place-items-center mt-4 text-white lg:py-5 lg:gap-x-4 lg:gap-y-10 bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-0 scroll-smooth">
+        <section className="w-full h-full  grid grid-cols-1 gap-y-6  md:grid-cols-3 sm:grid-cols-2 sm:gap-x-10 md:gap-x-5 lg:grid-cols-3  place-items-center mt-4 text-slate-100 lg:py-5 lg:gap-x-4 lg:gap-y-10 bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-0 scroll-smooth">
           {videoRes?.map((item) => {
             return (
-              <VideoContextProvider key={item?._id} data={item}>
+              <VideoContextProvider key={item?._id + 1} data={item}>
                  <Video id={item?._id}/>
              </VideoContextProvider>
             );

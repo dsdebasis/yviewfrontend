@@ -18,7 +18,7 @@ const useGetVideos = function () {
       axios
         .get(`${backendUrl}/getvideos/${page}/${pageSize}`)
         .then((res, error) => {
-          //  console.log(res)
+           console.log(res)
          
             setVideoRes((prev) => [...prev, ...res?.data?.data]);
             setLoading(false);

@@ -4,9 +4,11 @@ import { SlDislike } from "react-icons/sl";
 import { CgProfile } from "react-icons/cg";
 import CommentEditOption from "./CommentEditOption.jsx";
 import CommentContext from "../../Context/CommentContext.jsx";
-
+import { useContext } from "react";
+import { CommentEditOpnClicked } from "../../Context/Context.js";
 function Comments(props) {
 
+  const { buttonClicked, setButtonClicked } = useContext(CommentEditOpnClicked);
   
   return (
     <CommentContext>
@@ -30,7 +32,7 @@ function Comments(props) {
               <span>{props.dislike}</span>
             </button>
           </div>
-          <CommentEditOption id={props.id} />
+          <CommentEditOption id={props.id} context={{ buttonClicked, setButtonClicked }} />
         </div>
       </section>
     </CommentContext>

@@ -28,147 +28,146 @@ import {
 } from "./LazyComp.js";
 
 const Routes = createBrowserRouter([
-  
-    {
-      path: "/about",
-     element: (
-      <Content/>  
-    )},
-    {
-      path: "/",
-      element: (
+  {
+    path: "/about",
+    element: <Content />,
+    children: [
+      { path: "dress", element: <LazyLogin/> }
+
+    ],
+  },
+  {
+    path: "/",
+    element: (
+      <Suspense fallback={<Loading />}>
+        <LazyHome />
+      </Suspense>
+    ),
+  },
+  {
+    path: "/login",
+    element: (
+      <Suspense fallback={<Loading />}>
+        <LazyLogin />
+      </Suspense>
+    ),
+  },
+  {
+    path: "/reset-password",
+    element: (
+      <Suspense fallback={<Loading />}>
+        <LazyResetPassword />
+      </Suspense>
+    ),
+  },
+  {
+    path: "/password-resetemail-verify/:passwordResetToken",
+    element: <LazyVerifyResetPasswordLink />,
+  },
+  {
+    path: "/signup",
+    element: (
+      <Suspense fallback={<Loading />}>
+        <LazySignUp />
+      </Suspense>
+    ),
+  },
+  {
+    path: "/verifyotp",
+    element: (
+      <Suspense fallback={<Loading />}>
+        <CreateUser />
+      </Suspense>
+    ),
+  },
+  {
+    path: "/profile",
+    element: (
+      <AuthLayout>
         <Suspense fallback={<Loading />}>
-          <LazyHome />
+          <LazyProfile />
         </Suspense>
-       
-      ),
-    },
-    {
-      path: "/login",
-      element: (
+      </AuthLayout>
+    ),
+  },
+  {
+    path: "/updateprofile",
+    element: (
+      <AuthLayout>
         <Suspense fallback={<Loading />}>
-          <LazyLogin />
+          <LazyUpdateProfile />
         </Suspense>
-      ),
-    },
-    {
-      path: "/reset-password",
-      element: (
+      </AuthLayout>
+    ),
+  },
+  {
+    path: "/updatepassword",
+    element: (
+      <AuthLayout>
         <Suspense fallback={<Loading />}>
-          <LazyResetPassword />
+          <LazyUpdatePassword />
         </Suspense>
-      ),
-    },
-    {
-      path: "/password-resetemail-verify/:passwordResetToken",
-      element: <LazyVerifyResetPasswordLink />,
-    },
-    {
-      path: "/signup",
-      element: (
+      </AuthLayout>
+    ),
+  },
+  {
+    path: "/logout",
+    element: (
+      <AuthLayout>
         <Suspense fallback={<Loading />}>
-          <LazySignUp />
+          <LazyLogout />
         </Suspense>
-      ),
-    },
-    {
-      path: "/verifyotp",
-      element: (
+      </AuthLayout>
+    ),
+  },
+  {
+    path: "/createchannel",
+    element: (
+      <AuthLayout>
         <Suspense fallback={<Loading />}>
-          <CreateUser />
+          <LazyCreateChannel />
         </Suspense>
-      ),
-    },
-    {
-      path: "/profile",
-      element: (
-        <AuthLayout>
-          <Suspense fallback={<Loading />}>
-            <LazyProfile />
-          </Suspense>
-        </AuthLayout>
-      ),
-    },
-    {
-      path: "/updateprofile",
-      element: (
-        <AuthLayout>
-          <Suspense fallback={<Loading />}>
-            <LazyUpdateProfile />
-          </Suspense>
-        </AuthLayout>
-      ),
-    },
-    {
-      path: "/updatepassword",
-      element: (
-        <AuthLayout>
-          <Suspense fallback={<Loading />}>
-            <LazyUpdatePassword />
-          </Suspense>
-        </AuthLayout>
-      ),
-    },
-    {
-      path: "/logout",
-      element: (
-        <AuthLayout>
-          <Suspense fallback={<Loading />}>
-            <LazyLogout />
-          </Suspense>
-        </AuthLayout>
-      ),
-    },
-    {
-      path: "/createchannel",
-      element: (
-        <AuthLayout>
-          <Suspense fallback={<Loading />}>
-            <LazyCreateChannel />
-          </Suspense>
-        </AuthLayout>
-      ),
-    },
-    {
-      path: "/videoplayer/:videoid/",
-      element: (
-        <CommentContext>
-          <Vplay2 />
-        </CommentContext>
-      ),
-    },
-    {
-      path: "/uploadvideo",
-      element: (
-        <AuthLayout>
-          <Suspense fallback={<Loading />}>
-            <LazyUploadVideo />
-          </Suspense>
-        </AuthLayout>
-      ),
-    },
-    {
-      path: "/channel",
-      element: (
-        <AuthLayout>
-          <Suspense fallback={<Loading />}>
-            <LazyChannelPage />
-          </Suspense>
-        </AuthLayout>
-      ),
-    },
-    {
-      path: "/deleteaccount",
-      element: (
-        <AuthLayout>
-          <Suspense fallback={<Loading />}>
-            <LazyDeleteAccount />
-          </Suspense>
-        </AuthLayout>
-      ),
-    },
-  
+      </AuthLayout>
+    ),
+  },
+  {
+    path: "/videoplayer/:videoid/",
+    element: (
+      <CommentContext>
+        <Vplay2 />
+      </CommentContext>
+    ),
+  },
+  {
+    path: "/uploadvideo",
+    element: (
+      <AuthLayout>
+        <Suspense fallback={<Loading />}>
+          <LazyUploadVideo />
+        </Suspense>
+      </AuthLayout>
+    ),
+  },
+  {
+    path: "/channel",
+    element: (
+      <AuthLayout>
+        <Suspense fallback={<Loading />}>
+          <LazyChannelPage />
+        </Suspense>
+      </AuthLayout>
+    ),
+  },
+  {
+    path: "/deleteaccount",
+    element: (
+      <AuthLayout>
+        <Suspense fallback={<Loading />}>
+          <LazyDeleteAccount />
+        </Suspense>
+      </AuthLayout>
+    ),
+  },
 ]);
 
 export { Routes };
-

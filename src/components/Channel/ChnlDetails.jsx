@@ -6,14 +6,14 @@ import { useContext } from 'react'
 
 const ChannelDetails = () => {
   const  data  = useContext(VideoContext)
-
+  
     
   return (
-    <div className=' w-full h-full  box-border  flex flex-row justify-between items-center '>
+    <div className='mt-2 w-full h-full  box-border  flex flex-row justify-between items-center '>
 
       <ChannelImg url={data.channelProfilePic || data?.profilePic} />
 
-      <VideoFooter title={data.title} chnlName={data.chnlName || data?.channelName} videoTime={data.uploadTime} views={data.views} />
+      <VideoFooter title={data.title} chnlName={data.ownerName || data?.channelName} videoTime={data.uploadTime} views={data.views} />
 
     </div>
   )

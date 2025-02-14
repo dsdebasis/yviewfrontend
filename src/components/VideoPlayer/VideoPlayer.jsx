@@ -9,8 +9,6 @@ import 'video.js/dist/video-js.css';
   const {options, onReady} = props;
   
 
-
-
   React.useEffect(() => {
 
     // Make sure Video.js player is only initialized once
@@ -22,7 +20,7 @@ import 'video.js/dist/video-js.css';
       videoRef.current.appendChild(videoElement);
 
       const player = playerRef.current = videojs(videoElement, options, () => {
-        // videojs.log('player is ready');
+        videojs.log('player is ready');
         onReady && onReady(player);
       });
 
@@ -35,9 +33,7 @@ import 'video.js/dist/video-js.css';
       player.src(options.sources);
     }
 
-    return ()=>{
-      // console.log("video player is unmounted")
-    }
+   
   }, [options, videoRef]);
 
   // Dispose the Video.js player when the functional component unmounts
@@ -51,10 +47,10 @@ import 'video.js/dist/video-js.css';
       }
     };
   }, [playerRef]);
-
+// className='max-h-[20%] md:w-full lg:w-[50vw] md:mx-auto '
   return (
-    <div data-vjs-player  className='max-h-[20%] md:w-full lg:w-[50vw] md:mx-auto '>
-      <div ref={videoRef} className='p-4  md:mt-0 sticky '/>
+    <div data-vjs-player  >
+      <div ref={videoRef} />
     
     </div>
   );

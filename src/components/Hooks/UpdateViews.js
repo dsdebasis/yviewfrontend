@@ -8,7 +8,7 @@ const UpdateViews = () => {
         axios.post(`${videoApi}/update-views/${videoid}`,{},{
                 withCredentials: true,
               }).then((res)=>{
-               console.log(res)
+              //  console.log(res)
               }).catch((error)=>{
                 console.log(error)
               })

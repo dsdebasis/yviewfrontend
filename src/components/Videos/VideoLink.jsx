@@ -1,9 +1,8 @@
 import React from "react";
 
 function VideoLink({ link, vid, thumbnail, duration }) {
-  // console.log(duration)
   return (
-    <div className="w-full h-full box-border relative hover:scale-90 delay-75  hover:duration-300 transition-all">
+    <div className="w-full h-full box-border relative hover:scale-90 delay-150  hover:duration-300 transition-all">
       <img
         src={
           thumbnail ||
