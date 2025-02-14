@@ -3,7 +3,7 @@ import Loading from "../Loading/Loading.jsx";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { backendUrl } from "../index.js";
-import { ToastContainer, toast } from "react-toastify";
+import toast, { Toaster } from "react-hot-toast";
 import "react-toastify/dist/ReactToastify.css";
 import Input from "../Input/Input.jsx";
 import { useNavigate } from "react-router-dom";
@@ -159,7 +159,7 @@ const Signup = () => {
           </div>
         </form>
 
-        <ToastContainer />
+        <Toaster />
       </div>
     </section>
   );

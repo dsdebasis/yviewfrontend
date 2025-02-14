@@ -27,6 +27,11 @@ const LazyLogout = React.lazy(() =>
 const LazyUploadVideo = React.lazy(() =>
   import("../../src/components/UploadVideo/UploadVideo.jsx")
 );
+
+const LazyEditVideo = React.lazy(() =>
+  import("../../src/components/UploadVideo/EditVideo.jsx")
+);
+
 const LazyCreateChannel = React.lazy(() =>
   import("../../src/components/Channel/ChannelCreate.jsx")
 );
@@ -55,4 +60,5 @@ export {
         LazyDeleteAccount,
         LazyUpdateProfile,
         LazyUploadVideo,
+        LazyEditVideo
 }

@@ -25,6 +25,7 @@ import {
   LazyUpdateProfile,
   LazyUploadVideo,
   LazyLogout,
+  LazyEditVideo
 } from "./LazyComp.js";
 
 const Routes = createBrowserRouter([
@@ -147,6 +148,16 @@ const Routes = createBrowserRouter([
         </Suspense>
       </AuthLayout>
     ),
+  },
+  {
+    path:"/editvideo/:videoid",
+    element:(
+      <AuthLayout>
+        <Suspense fallback={<Loading />}>
+          <LazyEditVideo />
+        </Suspense>
+      </AuthLayout>
+    )
   },
   {
     path: "/channel",

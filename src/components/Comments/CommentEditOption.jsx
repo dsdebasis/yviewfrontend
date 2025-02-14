@@ -2,8 +2,6 @@ import React from "react";
 import CommentEdit from "./CommentEdit.jsx";
 import { SlOptionsVertical } from "react-icons/sl";
 
-
-
 const CommentEditOption = (props) => {
   let commentId = props.id;
 

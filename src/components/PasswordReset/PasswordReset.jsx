@@ -1,6 +1,6 @@
 import React from "react";
 import Input from "../Input/Input.jsx";
-import { ToastContainer, toast } from "react-toastify";
+import toast, { Toaster } from "react-hot-toast";
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 import Loading from "../Loading/Loading.jsx";
@@ -81,7 +81,7 @@ if(loading){
             Send Email
           </button>
         </form>
-        <ToastContainer theme="dark" />
+        <Toaster  />
       </div>
     </section>
   );
