@@ -30,6 +30,41 @@ function Content() {
           Oviouseley share the link to others .
         </p>
       </main>
+
+      <div>
+        <h1>Most Asked Freaquentley Asked questions ?.(FAQs)</h1>
+
+        <div>
+          <h2>What is yview ?</h2>
+          <p>Ans : y view is a video sharing platform. Means you can upload your videos and share it with others. logged in users can like the video, comment the video, and oviouseley share the link to others.</p>
+
+          <h2>How can someone upload a videos?</h2>
+          <p>Ans : First you need an account to login if not create one. Then you can crate a channel named it and add channel details, profile pictire. Then upload the video.</p>
+
+          <h2>Is there any size limit while uplaoding a video?</h2>
+          <p>Yes : Their is a  limit of 100MB per video. </p>
+
+          <h2>Can i edit a uploaded video? if something goes wrong.</p>
+          <p>Yes : You can edit the video title, description, thumbnail.</p>
+
+          <h2>Can i delete a uploaded video? if something goes wrong.</h2>
+          <p>Yes : You can delete the video.</p>
+
+          <h2>how can i track my uploaded video?</h2>
+          <p>Ans : You can track your uploaded video by going to your channel page.Where you can see nice dashboard, showcasing all of your uploaded videos. The number of subscribers , total views , comments , likes and much more.</p>
+
+          <h2>How can i comment on a video?</h2>
+          <p>Ans : You can comment on a video by going to the video page. Then you can comment on the video.</p>
+
+          <h2> Can i delete my entire Channel if something goes wrong?</h2>
+          <p>Yes : You can delete your entire channel. By visiting to delete channel page.
+            Deleting your accout will delete all of your uploaded vides and activity.
+          </p>
+
+
+
+        </div>
+      </div>
     </section>
   );
 }
