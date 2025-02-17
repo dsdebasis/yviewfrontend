@@ -1,26 +1,19 @@
-import React from "react";
 import { MdEdit } from "react-icons/md";
-import { MdDelete } from "react-icons/md";
 
-function CommentEdit({id,style,setClick,handleEdit,handleDelete}) {
+import AlertDialog from "../Modal/Modal";
+function CommentEdit({id,setClick,handleEdit,handleDelete,handleReject}) {
 
-  const [edit, setEdit] = React.useState(false);
-
-  
   return (
-    <div className= {`w-[100px] h-[10vh] flex flex-col justify-between p-2 rounded-lg shadow-2xl bg-gradient-to-tr  from-slate-500 to-slate-700 absolute top-8 right-0 ${style}`} onClick={setClick}>
-      {/* {edit && <h1>edit</h1>} */}
-      <div className="flex justify-between hover:text-yellow-400">
-        <button onClick={handleEdit}>
+    <div className= {`w-fit h-fit flex flex-col justify-between p-2  absolute top-8 right-0 bg-gradient-to-b lg:top-[70%] lg:right-11`} onClick={setClick} >
+     
+      <div className="flex justify-between bg-blue-600">
+        <button onClick={handleEdit} className="  w-full p-2 ">
           <MdEdit className="inline-block mr-3 " />
           Edit 
         </button>
       </div>
-      <div className="hover:text-red-600">
-        <button onClick={handleDelete}>
-          <MdDelete className="inline-block mr-3" />
-          Delete
-        </button>
+      <div className=" mt-2" >
+        <AlertDialog  alertName={"Delete"} alertDetails={"Are you sure you want to delete this video ?"} eventId = {id} handleAccept={handleDelete} handleReject={handleReject}/>
       </div>
     </div>
   );

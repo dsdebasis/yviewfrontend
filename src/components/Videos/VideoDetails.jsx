@@ -7,7 +7,7 @@ const VideoDetails = () => {
   const data = useContext(VideoContext);
  
   return (
-    <div className=" h-[19vh] sm:h-[20vh] md:h-[20vh] lg:h-[28vh] xl:h-[30vh] row-span-2 bg-clip-padding ">
+    <div className=" h-[18vh] sm:h-[20vh] md:h-[20vh] lg:h-[28vh] xl:h-[30vh] row-span-2 bg-clip-padding ">
       <Link to={`/videoplayer/${data._id}`} >
         <VideoLink
           link={data.src}

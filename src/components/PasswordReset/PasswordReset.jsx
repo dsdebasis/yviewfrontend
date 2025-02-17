@@ -61,7 +61,7 @@ if(loading){
             <Input
               name="email"
               type="email"
-              required
+              required={"true"}
               fun={handleData}
               value={passData.email}
             />
@@ -69,7 +69,7 @@ if(loading){
             <Input
               name="username"
               type="text"
-              required
+              required="true"
               fun={handleData}
               value={passData.username}
             />

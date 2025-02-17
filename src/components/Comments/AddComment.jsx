@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import Input from "../Input/Input.jsx";
+import  { useState } from "react";
 import axios from "axios";
 import { backendUrl } from "../index.js";
 

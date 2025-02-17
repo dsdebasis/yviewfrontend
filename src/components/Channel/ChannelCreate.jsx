@@ -1,4 +1,3 @@
-import React from 'react'
 import Input from '../Input/Input.jsx'
 import { useState } from 'react';
 import Loading from '../Loading/Loading.jsx';
@@ -7,14 +6,10 @@ import { backendUrl } from '../index.js';
 import { ToastContainer } from 'react-toastify';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom'; 
-import { useContext } from 'react';
-import { CompContext } from '../../Context/Context.js';
 const ChannelCreate = () => {
-  const {data} = useContext(CompContext)
   
   const navigate = useNavigate()
  
-
   let clearTimeOutId;
   const [channel, setChannel] = useState({
     channelName: "", about: ""

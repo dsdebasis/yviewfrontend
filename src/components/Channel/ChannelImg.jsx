@@ -1,4 +1,3 @@
-import React from 'react'
 import channel from '../../assets/channel.png'
 import { Link } from "react-router-dom"
 const ChannelImg = ({ url }) => {

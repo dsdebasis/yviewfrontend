@@ -1,11 +1,9 @@
-import React from "react";
 import Input from "../Input/Input.jsx";
 import { useState } from "react";
 import { backendUrl } from "../index.js";
 import axios from "axios";
 import Loading from "../Loading/Loading.jsx";
-import { ToastContainer } from "react-toastify";
-import { toast } from "react-toastify";
+import { Toaster,toast } from "react-hot-toast";
 import Cookie from "js-cookie";
 
 import NavBar from "../Navbar/NavBar.jsx";
@@ -55,7 +53,7 @@ const DeleteAccount = () => {
   return (
     <section>
       <NavBar />
-      <section className="h-screen w-screen  flex flex-col  justify-around items-center px-5 text-white">
+      {loading ? <Loading /> : (<section className="h-screen w-screen  flex flex-col  justify-around items-center px-5 text-white">
         <h1 className="mt-10 text-yellow-500 border-2 px-4 py-2 text-balance  rounded-xl bg-slate-700 shadow-inner lg:text-2xl tracking-wider text">
           Warning ! all acoount details,videos,watch history will be deleted
           permananeteley. Including channel details
@@ -97,9 +95,10 @@ const DeleteAccount = () => {
             </button>
           </div>
         </form>
-        {loading ? <Loading /> : ""}
-        <ToastContainer />
-      </section>
+        
+        <Toaster />
+      </section>) }
+      
     </section>
   );
 };

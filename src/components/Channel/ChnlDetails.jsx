@@ -1,4 +1,4 @@
-import React from 'react'
+
 import ChannelImg from './ChannelImg.jsx'
 import VideoFooter from './VideoFooter.jsx'
 import { VideoContext } from '../../Context/useVideoContext.js'

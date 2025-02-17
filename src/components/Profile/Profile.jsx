@@ -1,7 +1,7 @@
 import React from 'react'
 import axios from "axios"
 import { backendUrl } from '../index.js'
-import { toast, ToastContainer } from 'react-toastify'
+import toast, { Toaster } from 'react-hot-toast';
 import 'react-toastify/dist/ReactToastify.css';
 import { useState } from 'react';
 import Input from '../Input/Input.jsx';
@@ -94,7 +94,7 @@ const Profile = () => {
 
      
           <label htmlFor='updateFullname '>Full Name</label>
-          <Input id='updateFullname' name='updateFullname' type='text' onChange={handleChange} css='outline-0   px-3 py-2 rounded-md placeholder:text-orange-400  focus:border-amber-300 duration-100' placeholder={fullname} />
+          <Input id='updateFullname' name='updateFullname' type='text' onChange={handleChange} css='outline-0   px-3 py-2 rounded-md placeholder:text-orange-400  focus:border-amber-300 duration-100' placeholder={fullname} required={true}/>
 
           <label htmlFor='updateEmail'>Email</label>
           <Input name={"updateEmail"} type={"email"} fun={handleChange} placeholder={email}  css="outline-0 placeholder:text-orange-400 focus:border-amber-300 duration-100"/>         
@@ -107,7 +107,7 @@ const Profile = () => {
 
         </form>
       </section>
-      <ToastContainer />
+      <Toaster />
     </div>
 
   )

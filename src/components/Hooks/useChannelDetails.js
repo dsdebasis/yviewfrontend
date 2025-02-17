@@ -7,6 +7,7 @@ function useChannelDetails() {
   const [chanlVideo, setChannelVideo] = useState({});
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
+
   useEffect(() => {
     setLoading(true);
     axios
@@ -29,7 +30,7 @@ function useChannelDetails() {
     };
   }, []);
         
-        return { channelDetails, chanlVideo, loading, error };
+        return { channelDetails, chanlVideo, loading, error,setChannelVideo };
 }
 
 export default useChannelDetails;

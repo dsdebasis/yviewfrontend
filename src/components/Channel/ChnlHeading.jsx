@@ -1,10 +1,6 @@
 import { Link } from "react-router-dom"
-import { useNavigate } from "react-router-dom"
-
 const ChannelHeading = ({channelDetails}) => {
-  console.log(channelDetails)
-
- const navigate = useNavigate()
+  
   return (
 
     <section className=' w-full min-h-fit md:min-h-[350px]  mt-10   shadow-xl   rounded-xl text-white p-2  grid  gap-y-2 md:gap-x-10 md:h-[35vh] md:grid-cols-4 bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-70 border-2 border-stone-600 '>

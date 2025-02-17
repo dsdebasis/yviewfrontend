@@ -1,4 +1,3 @@
-import React from "react";
 import CommentEdit from "./CommentEdit.jsx";
 import { SlOptionsVertical } from "react-icons/sl";
 
@@ -8,7 +7,7 @@ const CommentEditOption = (props) => {
  //using context api for which component is currentley using it
   const { buttonClicked, setButtonClicked } = props?.context;
  
-//  console.log(props)
+
   return (
     <section className="h-full w-full  relative">
       <div className=" w-full h-full flex justify-end">

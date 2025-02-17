@@ -1,4 +1,4 @@
-import React from 'react'
+
 import { VideoContext } from './useVideoContext'
 
 const VideoContextProvider = function ({ children,data }) {

@@ -1,7 +1,6 @@
-import React from "react";
 import { Link } from "react-router-dom";
 
-const Error = ({ message, link, linkText }) => {
+const Error = ({  link }) => {
   return (
     <div className="h-screen w-full bg-gradient-to-br from-slate-800 to-slate-950 ">
       <h1 className="text-orange-200 capitalize">{"message"}</h1>

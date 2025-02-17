@@ -1,4 +1,4 @@
-import React from "react";
+
 import { SlLike } from "react-icons/sl";
 import { SlDislike } from "react-icons/sl";
 

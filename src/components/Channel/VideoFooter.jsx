@@ -1,5 +1,3 @@
-import React from "react";
-
 const VideoFooter = ({ title, chnlName, videoTime, views }) => {
   return (
     <div className=" w-[83%] h-full box-border overflow-hidden flex flex-col ">

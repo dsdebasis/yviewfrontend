@@ -1,4 +1,4 @@
-import React from "react";
+
 import Comments from "./Comments.jsx";
 import { useState } from "react";
 import { backendUrl } from "../index.js";

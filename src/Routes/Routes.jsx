@@ -1,16 +1,13 @@
 import {
   createBrowserRouter,
-  createRoutesFromElements,
-  Route,
 } from "react-router-dom";
 import Loading from "../components/Loading/Loading.jsx";
 import AuthLayout from "./AuthLayout.jsx";
-import React, { Suspense } from "react";
+import  { Suspense } from "react";
 import Vplay2 from "../components/VideoPlayer/Vplay2.jsx";
 import CreateUser from "../components/CreateUser/CreateUser.jsx";
 import CommentContext from "../Context/CommentContext.jsx";
 import Content from "../components/Content/Content.jsx";
-import Layout from "../components/Layout/Layout.jsx";
 import {
   LazyHome,
   LazyLogin,
