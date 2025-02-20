@@ -1,68 +1,20 @@
-import { useState } from "react";
-import axios from "axios";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { login as authLogin } from "../../store/authSlice.js";
-import { backendUrl } from "../index.js";
+import {  useSelector } from "react-redux";
 import Loading from "../Loading/Loading.jsx";
-
 import Input from "../Input/Input.jsx";
-
-import toast, { Toaster } from "react-hot-toast";
+import  { Toaster } from "react-hot-toast";
 import NavBar from "../Navbar/NavBar.jsx";
+
+import uselogin from "../Hooks/useLogin.js";
 const Login = () => {
-  const navigate = useNavigate();
-
-  const authSelecter = useSelector((state) => state.auth.status);
-
-  if (authSelecter) {
-    navigate("/");
-  }
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [loading, setLoading] = useState(false);
-
-  const dispatch = useDispatch();
-
-  const handleLogin = function (e) {
-    e.preventDefault();
-    setLoading(true);
-    const config = {
-      headers: {
-        "content-type": "application/json",
-        accept: "application/json",
-      },
-      withCredentials: true,
-    };
-    axios
-      .post(
-        `${backendUrl}/login`,
-        {
-          username,
-          password,
-        },
-        config
-      )
-      .then((res) => {
-        dispatch(authLogin(res?.data?.data.msg));
-        toast.success(res.data.message);
-      })
-      .catch((error) => {
-        toast.error(
-          error?.response?.data?.message || "server is not connected"
-        );
-      })
-      .finally(() => {
-        setLoading(false);
-        setPassword("");
-      });
-  };
-
+ 
+  
+  let { handleLogin, loading, setLoading, setUserInfo, userInfo } = uselogin();
   return (
     <section className=" h-screen  w-screen flex flex-col  ">
       <NavBar style={"w-full"} />
-
+      
       {loading ? (
         <Loading title={"logging in"} />
       ) : (
@@ -83,9 +35,10 @@ const Login = () => {
                     type={"text"}
                     disabled={loading}
                     required={true}
-                    value={username}
+                    value={userInfo.username}
                     fun={(e) => {
-                      setUsername(e.target.value);
+          
+                      setUserInfo({ ...userInfo, username: e.target.value });
                     }}
                     css={"mt-2 "}
                   />
@@ -97,9 +50,10 @@ const Login = () => {
                     type={"password"}
                     required={true}
                     disabled={loading}
-                    value={password}
+                    value={userInfo.password}
                     fun={(e) => {
-                      setPassword(e.target.value);
+                    
+                      setUserInfo({ ...userInfo, password: e.target.value });
                     }}
                     css={"mt-2 "}
                   />

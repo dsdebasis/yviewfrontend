@@ -7,7 +7,7 @@ const Home = () => {
     <section className=" w-full min-h-screen  flex flex-col   font-sans pt-2 relative px-4  overflow-hidden">
       <NavBar />
       <SearchBar/>
-      <VideoPage/>
+      <VideoPage/>  
     </section>
   );
 };

@@ -5,9 +5,7 @@ import { Routes } from "./Routes/Routes.jsx";
 
 function App() {
   return (
-
       <RouterProvider router={Routes} />
-
   );
 }
 

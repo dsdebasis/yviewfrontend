@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { useId } from 'react'
 import { useSelector } from 'react-redux'
-import { BsMenuButtonWideFill } from "react-icons/bs";
+
 const Nav = () => {
   const loginStaus = useSelector((state)=>state.auth.status)
   
