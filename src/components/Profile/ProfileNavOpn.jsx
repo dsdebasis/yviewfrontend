@@ -1,6 +1,5 @@
-import React from "react";
-import { Link } from 'react-router-dom'
-const ProfileNavOpn = ({status,click}) => {
+import { Link } from "react-router-dom";
+const ProfileNavOpn = ({ status, click }) => {
   let routes = [
     "profile",
     "updateprofile",
@@ -24,20 +23,16 @@ const ProfileNavOpn = ({status,click}) => {
     routesEle = ["login", "signup"];
   }
   return (
-    <div className="h-0 mt-5 overflow-hidden box-border">
+    <div className="h-auto max-w-fit bg-black mt-5  block absolute z-90 top-10 right-1 md:left-[5vw]  rounded-lg">
       <section
-        className={` text-base w-[30vw]    inline-flex justify-evenly   lg:max-w-fit  rounded-xl   ease-in px-4 py-3  lg:px-4 lg:py-2  flex-col  items-start    shadow-xl  md:text-base  bg-gray-800 ${
-          click
-            ? "max-h-[40vh] w-fit sm:w-fit overflow-hidden  block absolute z-10  right-1 "
-            : ""
-        }`}
+        className={`h-full text-yellow-300  inline-flex justify-evenly     rounded-xl   ease-in px-4   flex-col  items-start gap-y-4 py-2  md:py-3`}
       >
         {routes.map((item, index) => {
           return (
             <Link
               key={index}
               to={`/${item}`}
-              className="hover:text-yellow-400  capitalize  text-yellow-300 to-yellow-5 bg-clip-text text-transparent py-2"
+              className="hover:text-stone-500 capitalize  to-yellow-5 "
             >
               {routesEle[index]}
             </Link>

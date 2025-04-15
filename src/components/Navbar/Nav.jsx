@@ -1,4 +1,4 @@
-import React from 'react'
+
 import { Link } from 'react-router-dom'
 import { useId } from 'react'
 import { useSelector } from 'react-redux'
@@ -19,7 +19,7 @@ const Nav = () => {
         <Link to="/" className='overflow-hidden mx-3  capitalize  rounded-sm lg:border-none '>Home</Link>
 
             {navItems.map((item,index) =>
-            <Link to={`/${item}`} key={useId()} className='overflow-hidden mx-3  capitalize  rounded-sm lg:border-none '>{item}</Link>
+            <Link to={`/${item}`} key={useId()} className='overflow-hidden mx-3  capitalize  rounded-sm lg:border-none hover:text-stone-500'>{item}</Link>
             )}
         
       </section>

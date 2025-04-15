@@ -1,6 +1,6 @@
-import React from "react";
 
-import { useDispatch, useSelector } from "react-redux";
+
+import {  useSelector } from "react-redux";
 import { CgProfile } from "react-icons/cg";
 import toggleProfileMenu from "../Hooks/ToggleProfileMenu.js";
 import ProfileNavOpn from "../Profile/ProfileNavOpn.jsx";
@@ -21,8 +21,8 @@ const Search = () => {
         ><CgProfile />{" "}</button>
       </div>
       <SearchInput/>
-      <div>
-       {click && <ProfileNavOpn status={authStatus} click={click}/>}
+      <div >
+       {click &&  <ProfileNavOpn status={authStatus} click={click}/>}
       </div>
     </section>
   );
