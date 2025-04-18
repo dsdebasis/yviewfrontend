@@ -5,10 +5,12 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
+import { MdDelete } from 'react-icons/md';
 
 export default function AlertDialog({eventId,alertName,alertDetails,handleAccept,handleReject}) {
   const [open, setOpen] = React.useState(false);
-
+ 
+  console.log("eventId",eventId)
   const handleClickOpen = () => {
     setOpen(true);
   };
@@ -19,8 +21,8 @@ export default function AlertDialog({eventId,alertName,alertDetails,handleAccept
 
   return (
     <React.Fragment >
-      <Button variant="outlined" onClick={handleClickOpen} style={{width:"100%",color:"white",background:"red","textTransform":"capitalize"} }>
-       {alertName || "alert name"}
+      <Button variant="outlined" size='large' onClick={handleClickOpen} >
+       <MdDelete className='inline-block mr-3'/> 
       </Button>
       <Dialog
         open={open}
@@ -33,13 +35,9 @@ export default function AlertDialog({eventId,alertName,alertDetails,handleAccept
         <DialogTitle id="alert-dialog-title">
           {"Delete your Video?"}
         </DialogTitle>
-        <DialogContent>
-          <DialogContentText id="alert-dialog-description">
-            {alertDetails ||"Alert Details"}
-          </DialogContentText>
-        </DialogContent>
+       
         <DialogActions>
-          <Button onClick={handleReject}>Cancel Delete</Button>
+          <Button id={eventId} onClick={handleReject}>Cancel Delete</Button>
           <Button onClick={handleAccept} autoFocus id={eventId}>
            Delete 
           </Button>

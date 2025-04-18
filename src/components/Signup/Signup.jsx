@@ -67,15 +67,15 @@ const Signup = () => {
   
   {loading ? <Loading /> : <></>}
   return (
-    <section className="min-h-screen  w-full grid grid-flow-row ">
+    <section className="h-screen  md:w-full grid grid-flow-row ">
     <NavBar style={"top-0"}/>
-      <div className="h-[80vh]  mt-[15vh] border-2 border-stone-700 justify-self-center text-xs p-6 md:text-base  md:px-5  px-4 bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-70 rounded-3xl">
+      <div className="h-[70vh] lg:h-[80vh] md:w-[40vw] lg:w-[25vw] mt-[15vh] border-2 border-stone-700 justify-self-center text-xs pt-4 md:text-base px-4 bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-70 rounded-3xl">
         <form
           name="signup"
           action="/signup"
           encType="multipart/form-data"
           method="POST"
-          className="w-full lg:h-[80vh]   box-border md:w-[60vw] lg:w-[27vw]  text-white   md:px-5 md:py-2 p-5   rounded-2xl "
+          className="w-full h-[60vh]  box-border md:w-[40vw] text-white   md:px-5 md:py-2 lg:px-2   rounded-2xl lg:h-[80vh]  lg:w-full  "
         >
           <header className=" lg:text-lg  text-center ">Signup</header>
           <div>
@@ -134,10 +134,7 @@ const Signup = () => {
             />
           </div>
 
-          {/* <div>
-            <label htmlFor='profile'>Profile Picture</label>
-            <Input name={"profile"} type={"file"} fun={(e) => (setProfile(e.target.files[0]))} css={"file:text-xs file:bg-transparent file:border-white file:text-white pt-2 md:pt-1"} />
-          </div> */}
+         
           <div className="my-4">
             <h1 className="text-center capitalize">
               Have account ?
@@ -151,7 +148,7 @@ const Signup = () => {
             <button
               type="submit"
               disabled={loading}
-              className="h-10 md:h-12 w-full bg-blue-600 rounded-lg hover:bg-red-600"
+              className="h-10 md:h-10 w-full bg-blue-600 rounded-lg hover:bg-red-600"
               onClick={handleRegister}
             >
               Sign Up

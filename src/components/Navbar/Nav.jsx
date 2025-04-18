@@ -15,7 +15,7 @@ const Nav = () => {
 
    
     return (
-      <section className={`h-full w-full sm:flex-row sm:justify-evenly sm:items-center   overflow-hidden  box-border rounded-xl lg:rounded-sm   flex flex-col justify-around gap-y-5  lg:flex-row lg:justify-evenly lg:items-center text-yellow-400 `}>
+      <section className={`h-full max-w-full sm:flex-row sm:justify-evenly sm:items-center   overflow-hidden  box-border rounded-xl lg:rounded-sm   flex flex-col justify-around gap-y-5  lg:flex-row lg:justify-evenly lg:items-center text-yellow-400 `}>
         <Link to="/" className='overflow-hidden mx-3  capitalize  rounded-sm lg:border-none '>Home</Link>
 
             {navItems.map((item,index) =>

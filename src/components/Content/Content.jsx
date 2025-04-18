@@ -23,8 +23,10 @@ function Content() {
 
   };
   return (
-    <section className="min-h-screen  max-w-screen box-border  font-sans px-4 text-yellow-400">
+    <section className="min-h-screen  max-w-screen box-border  font-sans text-yellow-400">
+      <div className="w-[97vw]">
       <NavBar />
+      </div>
 
       <main className="h-full w-[95%] pt-[10vh] text-white p-2 lg:px-[10vw]  ">
         <h1 className="lg:text-5xl mt-4 text-cyan-400">Wellcome to yview.</h1>

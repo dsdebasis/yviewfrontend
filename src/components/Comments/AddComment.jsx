@@ -1,10 +1,10 @@
-import  { useState } from "react";
+import  { useState,useContext } from "react";
 import axios from "axios";
+import toast from "react-hot-toast";
 import { backendUrl } from "../index.js";
 
 import Button from "../Button/Button.jsx";
-import toast from "react-hot-toast";
-import { useContext } from "react";
+
 import { CmntContext } from "../../Context/Context.js";
 
 function AddComment() {

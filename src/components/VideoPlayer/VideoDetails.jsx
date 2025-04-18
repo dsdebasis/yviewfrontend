@@ -1,11 +1,11 @@
-import React from "react";
+
 import { SlLike } from "react-icons/sl";
 import { SlDislike } from "react-icons/sl";
 import { HiOutlineShare } from "react-icons/hi";
 function VideoDetails(data) {
   // console.log(data);
   return (
-    <section className="mt-2 text-white  h-auto p-3 w-full">
+    <section className="mt-2 text-white  h-auto p-3 w-full ">
       <div className="">
         <p className="text-justify font-bold font-sans  text-orange-300 ">
           {data.data?.title}
