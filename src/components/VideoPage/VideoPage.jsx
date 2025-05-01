@@ -10,7 +10,9 @@ const VideoPage = () => {
   const handleScroll = (e) => {
     e.preventDefault();
     if (
-      window.innerHeight + window.scrollY >= document.body.offsetHeight - 5 &&
+      window.innerHeight + window.scrollY >= document.body.offsetHeight - 100
+    
+       &&
       !error
     ) {
       setPage((prev) => prev + 1);
@@ -35,7 +37,7 @@ const VideoPage = () => {
               radius="9"
               color="#4fa94d"
               ariaLabel="three-dots-loading"
-              wrapperStyle={{}}
+             
               wrapperClassName=""
               visible={true}
             />

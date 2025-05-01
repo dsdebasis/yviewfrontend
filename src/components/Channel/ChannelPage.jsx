@@ -7,7 +7,7 @@ import { Error } from "../Error.jsx";
 import ChannelVideo from "../Videos/ChannelVideo.jsx";
 const ChannelPage = () => {
   const { channelDetails, error } = useChannelDetails();
-  console.info(error);
+  console.log(error);
   return (
     <section>
       {error ? (

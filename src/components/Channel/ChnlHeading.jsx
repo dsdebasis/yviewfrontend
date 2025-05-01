@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 const ChannelHeading = ({channelDetails}) => {
-  
+  console.log(channelDetails);
   return (
 
     <section className=' w-full min-h-fit md:min-h-[350px]  mt-10   shadow-xl   rounded-xl text-white p-2  grid  gap-y-2 md:gap-x-10 md:h-[35vh] md:grid-cols-4 bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-70 border-2 border-stone-600 '>
@@ -22,7 +22,7 @@ const ChannelHeading = ({channelDetails}) => {
         <div className='row-span-1 grid grid-flow-col '>
           <div className='self-center justify-self-center'>{ channelDetails?.subscribers?.length || 0}</div>
           <div className='self-center justify-self-center'>{channelDetails?.videos?.length || 0}</div>
-          <div className='self-center justify-self-center'>{ channelDetails?.totalViews }</div>
+          <div className='self-center justify-self-center'>{ channelDetails?.totalView }</div>
         </div>
         <div className="text-center capitalize ">{`Channel Created at ${"createdAt"}`}</div>
         <button className="self-center justify-self-center rounded-lg border-2 p-2 border-stone-500">

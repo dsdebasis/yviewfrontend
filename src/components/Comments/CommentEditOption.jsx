@@ -3,7 +3,7 @@ import { SlOptionsVertical } from "react-icons/sl";
 const  CommentEdit  = lazy(() => import("./CommentEdit.jsx"));
 import RemoveComment from "../Hooks/RemoveComment.js";
 const CommentEditOption = (props) => {
-  let commentId = props.id;
+  let commentId = props?.id;
 
  //using context api for which component is currentley using it
   const { buttonClicked, setButtonClicked } = props?.context;

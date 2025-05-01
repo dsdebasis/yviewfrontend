@@ -20,7 +20,7 @@ function NavBar({style}) {
         />
       </div>
 
-      <div className={`h-0 w-0 mt-2 border-2 border-stone-700  rounded-md sm:h-[8vh]  sm:w-full lg:h-[8vh]   ${click ? " h-[60vh] w-[95vw] md:w-screen   py-4   duration-500 ease-in-out bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-0  " :"none"} `}>
+      <div className={`h-0 w-0 mt-2 border-2 border-stone-700  rounded-md sm:h-[8vh]  sm:w-full lg:h-[8vh]   ${click ? " h-[60vh] w-[90vw] md:w-screen   py-4   duration-200 ease-in-out bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-0  " :"none"} `}>
         <Nav />
       </div>
     </nav>

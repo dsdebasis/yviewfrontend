@@ -6,12 +6,13 @@ import { backendUrl } from "../index.js";
 import Button from "../Button/Button.jsx";
 
 import { CmntContext } from "../../Context/Context.js";
+import { useParams } from "react-router-dom";
 
 function AddComment() {
   
   const [click, setClick] = useState(false);
   const [comment, setComment] = useState("");
-  const videoId = localStorage.getItem("videoId");
+  const videoId = useParams().videoid
   
   const { cmnt, setCmnt } = useContext(CmntContext);
 

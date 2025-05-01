@@ -7,17 +7,12 @@ import { Toaster } from "react-hot-toast";
 import NavBar from "../Navbar/NavBar.jsx";
 
 import uselogin from "../Hooks/useLogin.js";
-import { useEffect } from "react";
+
 const Login = () => {
   let { handleLogin, loading, setLoading, setUserInfo, userInfo } = uselogin();
-  const navigate = useNavigate();
-  const authData = useSelector((state) => state.auth);
-  console.log(authData);
- useEffect(() => {
-   if (authData.status) {
-     navigate("/");
-   }
- })
+
+ 
+ 
   return (
     <section className="h-screen  max-w-full overflow-hidden  ">
       <div className=" mb-[20vh]">

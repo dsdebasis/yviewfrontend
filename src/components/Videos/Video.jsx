@@ -41,7 +41,7 @@ const Video = ({ id }) => {
       });
   }
   return (
-    <div className=" relative w-full h-full  overflow-hidden rounded-xl grid grid-flow-row gap-y-6 py-2 md:px-0  xl:p-2  hover:drop-shadow-xl hover:bg-gradient-to-tr hover:from-gray-500  ">
+    <div className=" relative w-full h-full  overflow-hidden rounded-xl grid grid-flow-row gap-y-6 py-2 md:px-0  xl:p-2  hover:drop-shadow-xl hover:bg-gradient-to-tr hover:from-neutral-900  ">
       <VideoDetails />
       <ChannelDetails />
 

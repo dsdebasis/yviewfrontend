@@ -1,6 +1,6 @@
 import React from "react";
 
-const ImageWraper = ({ inputName, handleChange, profile, loading }) => {
+const ImageWraper = ({ inputName, handleChange, profile, loading,required }) => {
   return (
     <div>
       <img
@@ -9,7 +9,7 @@ const ImageWraper = ({ inputName, handleChange, profile, loading }) => {
         alt="profile"
       />
       <input
-        required
+        required={required}
         type="file"
         disabled={loading}
         name={inputName}

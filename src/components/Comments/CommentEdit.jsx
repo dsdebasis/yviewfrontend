@@ -3,7 +3,7 @@ import Button from "@mui/material/Button";
 import AlertDialog from "../Modal/Modal";
 function CommentEdit({ commentId, setClick, handleEdit, handleDelete, handleReject }) {
 
-  console.log("tst",commentId)
+
   return (
     <div
       className={`w-fit h-fit flex flex-col justify-between p-2  absolute top-8 right-0 left-[90%] lg:top-[70%] lg:left-[110%]`}

@@ -1,31 +1,33 @@
 import { toast } from "react-toastify";
 import axios from "axios";
 import { useParams } from "react-router-dom";
-import { useRef, useEffect, lazy, useState, useContext, Suspense } from "react";
-
-import { backendUrl, videoApi } from "../index.js";
-
+import {  useEffect, lazy, useState, Suspense } from "react";
+import { backendUrl,  } from "../index.js";
+import  updateViews  from "../Hooks/UpdateViews.js";
 import CommentWrap from "../Comments/CommentWrap.jsx";
-
-import { CmntContext } from "../../Context/Context.js";
 import VideoPlayer from "./VideoPlayer.jsx";
 
 const VideoDetails = lazy(() => import("./VideoDetails.jsx"));
-
+import useGetComments from "../Hooks/UseGetComments.js";
+import { useContext } from "react";
+import { CmntContext } from "../../Context/Context.js";
 function Vplay2() {
   const [videoData, setvideoData] = useState("");
   const { videoid } = useParams();
-
-  const { cmnt, setCmnt } = useContext(CmntContext);
+  const updateData = updateViews();
+  const { cmnt,setCmnt } = useContext(CmntContext);
+  const data = useGetComments(`${backendUrl}/comments/${videoid}`);
+  
+   
 
   // let videoData;
   useEffect(() => {
+   setCmnt(data)
     axios
       .get(`${backendUrl}/videoid/${videoid}`)
       .then((res) => {
         setvideoData(res.data.message);
-        // setCmnt(videoid);
-        localStorage.setItem("videoId", videoid);
+   
         window.scrollTo({
           top: 0,
           behavior: "smooth",
@@ -34,39 +36,10 @@ function Vplay2() {
       .catch((error) => {
         toast.error(error.response.data.message);
       });
-    axios
-      .post(
-        `${videoApi}/update-views/${videoid}`,
-        {},
-        {
-          withCredentials: true,
-        }
-      )
-      .then((res) => {
-        console.log(res);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-
+   updateData(videoid);
     return () => {};
   }, []);
 
-  const playerRef = useRef(null);
-
-  const videoPlayerOptions = {
-    autoplay: true,
-    controls: true,
-    responsive: true,
-    fluid: true,
-    preload: "auto",
-    sources: [
-      {
-        src: videoData?.videoFile,
-        type: "video/mp4",
-      },
-    ],
-  };
 
   return (
     <section className="min-h-screen max-w-screen lg:max-w-full  px-2 lg:px-2 bg-gradient-to-b">

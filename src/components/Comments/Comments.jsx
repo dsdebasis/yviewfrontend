@@ -6,7 +6,7 @@ import { useContext, lazy, Suspense } from "react";
 import CommentContext from "../../Context/CommentContext.jsx";
 import { CommentEditOpnClicked } from "../../Context/Context.js";
 
-const CommentEditOption = lazy(() => import("./CommentEditOption.jsx"));
+import CommentEditOption from "./CommentEditOption.jsx"
 function Comments({ id, username, content, commentTime, like, dislike }) {
   const { buttonClicked, setButtonClicked } = useContext(CommentEditOpnClicked);
 

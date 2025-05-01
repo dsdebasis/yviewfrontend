@@ -2,7 +2,7 @@ import React from 'react'
 import axios from "axios"
 import { backendUrl } from '../index.js'
 import toast, { Toaster } from 'react-hot-toast';
-import 'react-toastify/dist/ReactToastify.css';
+
 import { useState } from 'react';
 import Input from '../Input/Input.jsx';
 const Profile = () => {
@@ -20,10 +20,10 @@ const Profile = () => {
     }
   )
 
-  let { updateEmail, updateFullname, updateUsername } = userInfo
 
   let deBounceTimer;
-  const handleChange = function (e) {
+  let handleChange = function (e) {
+    console.log("updated data", e.target.value)
     clearTimeout(deBounceTimer)
 
     deBounceTimer = setTimeout(() => {
@@ -94,13 +94,13 @@ const Profile = () => {
 
      
           <label htmlFor='updateFullname '>Full Name</label>
-          <Input id='updateFullname' name='updateFullname' type='text' onChange={handleChange} css='outline-0   px-3 py-2 rounded-md placeholder:text-orange-400  focus:border-amber-300 duration-100' placeholder={fullname} required={true}/>
+          <Input id='updateFullname' name='updateFullname' type='text' fun={handleChange} css='outline-0   px-3 py-2 rounded-md placeholder:text-orange-400  focus:border-amber-300 duration-100' placeholder={fullname} required={true} />
 
           <label htmlFor='updateEmail'>Email</label>
-          <Input name={"updateEmail"} type={"email"} fun={handleChange} placeholder={email}  css="outline-0 placeholder:text-orange-400 focus:border-amber-300 duration-100"/>         
+          <Input name="updateEmail" type={"email"} fun={handleChange} placeholder={email}  css="outline-0 placeholder:text-orange-400 focus:border-amber-300 duration-100"/>         
 
           <label htmlFor='updateUsername'>Username</label>
-          <Input name={"updateUsername"} type={"text"} fun={handleChange} placeholder={username}  css="outline-0 placeholder:text-orange-400  focus:border-amber-300  duration-100"/> 
+          <Input name="updateUsername" type={"text"} fun={handleChange} placeholder={username}  css="outline-0 placeholder:text-orange-400  focus:border-amber-300  duration-100"/> 
 
 
           <button type='submit' className='h-10 lg:h-12  w-full hover:bg-indigo-600 rounded-xl bg-blue-600 ' onClick={updateProfile} >Update</button>

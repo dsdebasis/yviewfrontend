@@ -1,9 +1,7 @@
-import {
-  createBrowserRouter,
-} from "react-router-dom";
+import { createBrowserRouter } from "react-router-dom";
 import Loading from "../components/Loading/Loading.jsx";
 import AuthLayout from "./AuthLayout.jsx";
-import  { Suspense } from "react";
+import { Suspense } from "react";
 import Vplay2 from "../components/VideoPlayer/Vplay2.jsx";
 import CreateUser from "../components/CreateUser/CreateUser.jsx";
 import CommentContext from "../Context/CommentContext.jsx";
@@ -22,17 +20,18 @@ import {
   LazyUpdateProfile,
   LazyUploadVideo,
   LazyLogout,
-  LazyEditVideo
+  LazyEditVideo,
 } from "./LazyComp.js";
 
 const Routes = createBrowserRouter([
+  { path: "*", element: <section className="text-yellow-400 text-center">
+    <h1 className="mt-[20vh]">404</h1>
+    <p>This page does not exist</p>
+  </section> },
   {
     path: "/about",
     element: <Content />,
-    children: [
-      { path: "dress", element: <LazyLogin/> }
-
-    ],
+    children: [{ path: "dress", element: <LazyLogin /> }],
   },
   {
     path: "/",
@@ -147,14 +146,14 @@ const Routes = createBrowserRouter([
     ),
   },
   {
-    path:"/editvideo/:videoid",
-    element:(
+    path: "/editvideo/:videoid",
+    element: (
       <AuthLayout>
         <Suspense fallback={<Loading />}>
           <LazyEditVideo />
         </Suspense>
       </AuthLayout>
-    )
+    ),
   },
   {
     path: "/channel",
